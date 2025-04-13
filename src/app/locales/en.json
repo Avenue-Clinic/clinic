@@ -1,0 +1,29 @@
+{
+    "header": {
+      "home": "HOME",
+      "treatments": "TREATMENTS",
+      "gallery": "GALLERY",
+      "aboutUs": "ABOUT US",
+      "blog": "BLOG",
+      "contactUs": "CONTACT US",
+      "getConsultation": "Get a FREE Consultation"
+    },
+    "hero": {
+      "title": "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows",
+      "subtitle": "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."
+    },
+    "form": {
+      "name": "Name Surname",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "submit": "Submit"
+    },
+    "treatments": {
+      "dentalImplants": "Dental Implants",
+      "hollywoodSmile": "Hollywood Smile",
+      "allOnImplants": "All-on-4/6 Implants",
+      "dentalCrowns": "Dental Crowns",
+      "dentalVeneers": "Dental Veneers",
+      "surgicalDentistry": "Surgical Dentistry"
+    }
+  }

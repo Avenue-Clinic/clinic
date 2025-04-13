@@ -1,0 +1,30 @@
+{
+    "header": {
+      "home": "ANA SAYFA",
+      "treatments": "TEDAVİLER",
+      "gallery": "GALERİ",
+      "aboutUs": "HAKKIMIZDA",
+      "blog": "BLOG",
+      "contactUs": "İLETİŞİM",
+      "getConsultation": "Ücretsiz Danışmanlık Al"
+    },
+    "hero": {
+      "title": "Güzel Gülüşler Yaratmak, Sağlıklı Yarınlar Temin Etmek",
+      "subtitle": "Dünya standartlarına göre %70 daha uygun maliyetlerle, gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavilere öncelik veren uzman diş bakımını keşfedin."
+    },
+    "form": {
+      "name": "Ad Soyad",
+      "phone": "Telefon Numarası",
+      "email": "E-posta Adresi",
+      "submit": "Gönder"
+    },
+    "treatments": {
+      "dentalImplants": "Diş İmplantları",
+      "hollywoodSmile": "Hollywood Gülüşü",
+      "allOnImplants": "All-on-4/6 İmplantlar",
+      "dentalCrowns": "Diş Kronları",
+      "dentalVeneers": "Diş Veneer'ları",
+      "surgicalDentistry": "Cerrahi Diş Hekimliği"
+    }
+  }
+  
