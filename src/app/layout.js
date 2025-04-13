@@ -9,8 +9,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Redirect to default locale
-  redirect(`/${defaultLocale}`);
-  
-  return <>{children}</>;
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  );
 }
