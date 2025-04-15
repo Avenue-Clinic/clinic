@@ -1,6 +1,6 @@
 // src/app/[locale]/layout.js
 import { getDirection, locales, getDictionary } from '../utils/i18n';
-import { inter } from '../fonts';
+import { rubik, poppins } from '../fonts';
 import { notFound } from 'next/navigation';
 import Header from '../components/Header';
 
@@ -18,8 +18,8 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   const dictionary = await getDictionary(locale);
 
   return (
-    <html lang={locale} dir={dir} className={inter.variable}>
-      <body className={`${dir} font-sans antialiased`}>
+    <html lang={locale} dir={dir} className={`${rubik.variable} ${poppins.variable}`}>
+      <body className={`${dir} font-rubik text-lg antialiased`} style={{ fontFamily: 'var(--font-rubik), var(--font-poppins)' }}>
         <Header dictionary={dictionary} locale={locale} />
         {children}
       </body>

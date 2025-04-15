@@ -1,6 +1,13 @@
-import { Inter } from 'next/font/google';
+import { Rubik, Poppins } from 'next/font/google';
 
-export const inter = Inter({
+export const rubik = Rubik({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-rubik',
+  weight: ['400', '500', '700'], // Adding common weights
+});
+
+export const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['400', '500', '700'], // Adding required weights
 });

@@ -3,13 +3,13 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { locales } from '../utils/i18n';
+import ReactCountryFlag from 'react-country-flag';
 
 const LanguageSwitcher = ({ currentLocale }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   
-  // Get the path without the locale
   const pathWithoutLocale = pathname.split('/').slice(2).join('/');
   
   const handleLocaleChange = (locale) => {
@@ -18,11 +18,10 @@ const LanguageSwitcher = ({ currentLocale }) => {
     setIsOpen(false);
   };
   
-  // Language names and flags
   const languageMap = {
-    en: { name: 'English', flag: '🇺🇸' },
-    ar: { name: 'العربية', flag: '🇦🇪' },
-    tr: { name: 'Türkçe', flag: '🇹🇷' },
+    en: { name: 'English', countryCode: 'GB' },
+    ar: { name: 'العربية', countryCode: 'AE' },
+    tr: { name: 'Türkçe', countryCode: 'TR' },
   };
   
   return (
@@ -31,7 +30,14 @@ const LanguageSwitcher = ({ currentLocale }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center px-4 py-2 space-x-2 bg-white rounded-md border border-gray-300 hover:bg-gray-50"
       >
-        <span>{languageMap[currentLocale].flag}</span>
+        <ReactCountryFlag
+          countryCode={languageMap[currentLocale].countryCode}
+          svg
+          style={{
+            width: '16px',
+            height: '16px',
+          }}
+        />
         <span>{currentLocale.toUpperCase()}</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -45,9 +51,19 @@ const LanguageSwitcher = ({ currentLocale }) => {
               <button
                 key={locale}
                 onClick={() => handleLocaleChange(locale)}
-                className={`flex items-center w-full px-4 py-2 text-left ${currentLocale === locale ? 'bg-gray-100 text-[#00a9a7]' : 'hover:bg-gray-50'}`}
+                className={`flex items-center w-full px-4 py-2 text-left ${
+                  currentLocale === locale ? 'bg-gray-100 text-[#00a9a7]' : 'hover:bg-gray-50'
+                }`}
               >
-                <span className="mr-2">{languageMap[locale].flag}</span>
+                <ReactCountryFlag
+                  countryCode={languageMap[locale].countryCode}
+                  svg
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    marginRight: '8px'
+                  }}
+                />
                 <span>{languageMap[locale].name}</span>
               </button>
             ))}
