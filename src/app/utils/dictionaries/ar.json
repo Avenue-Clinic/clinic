@@ -8,11 +8,12 @@
   "header": {
     "home": "الرئيسية",
     "treatments": "العلاجات",
-    "gallery": "معرض الأعمال",
+    "gallery": "معرض الصور",
     "aboutUs": "من نحن",
     "blog": "المدونة",
     "contactUs": "اتصل بنا",
-    "getConsultation": "احصل على استشارة مجانية"
+    "getConsultation": "احصل على استشارة مجانية",
+    "smileCounter": "28,000 ابتسامة وأكثر — انضم إلينا في اسطنبول!"
   },
   "treatments": {
     "dentalImplants": "زراعة الأسنان",

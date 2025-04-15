@@ -6,7 +6,6 @@ import { locales } from '../utils/i18n';
 import ReactCountryFlag from 'react-country-flag';
 
 const LanguageSwitcher = ({ currentLocale }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   
@@ -15,7 +14,6 @@ const LanguageSwitcher = ({ currentLocale }) => {
   const handleLocaleChange = (locale) => {
     const newPath = `/${locale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
     router.push(newPath);
-    setIsOpen(false);
   };
   
   const languageMap = {
@@ -25,10 +23,9 @@ const LanguageSwitcher = ({ currentLocale }) => {
   };
   
   return (
-    <div className="relative">
+    <div className="relative group">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center px-4 py-2 space-x-2 bg-white rounded-md border border-gray-300 hover:bg-gray-50"
+        className="flex items-center space-x-2 text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300"
       >
         <ReactCountryFlag
           countryCode={languageMap[currentLocale].countryCode}
@@ -44,32 +41,30 @@ const LanguageSwitcher = ({ currentLocale }) => {
         </svg>
       </button>
       
-      {isOpen && (
-        <div className="absolute right-0 z-50 mt-2 w-48 bg-white rounded-md border border-gray-200 shadow-lg">
-          <div className="py-1">
-            {locales.map((locale) => (
-              <button
-                key={locale}
-                onClick={() => handleLocaleChange(locale)}
-                className={`flex items-center w-full px-4 py-2 text-left ${
-                  currentLocale === locale ? 'bg-gray-100 text-[#00a9a7]' : 'hover:bg-gray-50'
-                }`}
-              >
-                <ReactCountryFlag
-                  countryCode={languageMap[locale].countryCode}
-                  svg
-                  style={{
-                    width: '16px',
-                    height: '16px',
-                    marginRight: '8px'
-                  }}
-                />
-                <span>{languageMap[locale].name}</span>
-              </button>
-            ))}
-          </div>
+      <div className="absolute right-0 z-50 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+        <div className="py-1">
+          {locales.map((locale) => (
+            <button
+              key={locale}
+              onClick={() => handleLocaleChange(locale)}
+              className={`flex items-center w-full px-4 py-2 text-left hover:bg-gray-50 ${
+                currentLocale === locale ? 'text-[#05BBB5]' : 'text-[#0B132A]'
+              }`}
+            >
+              <ReactCountryFlag
+                countryCode={languageMap[locale].countryCode}
+                svg
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  marginRight: '8px'
+                }}
+              />
+              <span>{languageMap[locale].name}</span>
+            </button>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
