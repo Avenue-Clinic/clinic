@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Crafting Beautiful Smiles, Ensuring Healthier Tomorrow",
+    "subtitle": "Experience world-class dental care in Istanbul at 70% more affordable costs. Your perfect smile journey begins here.",
+    "primaryCTA": "Get Free Consultation",
+    "secondaryCTA": "View Treatments"
+  },
+  "header": {
+    "home": "Home",
+    "treatments": "Treatments",
+    "gallery": "Gallery",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "getConsultation": "Get Free Consultation"
+  },
+  "treatments": {
+    "dentalImplants": "Dental Implants",
+    "hollywoodSmile": "Hollywood Smile",
+    "allOnImplants": "All-on-Implants"
+  }
+}

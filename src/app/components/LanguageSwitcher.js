@@ -1,11 +1,10 @@
-// src/components/LanguageSwitcher.js
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { locales } from '../utils/i18n';
 
-export default function LanguageSwitcher({ currentLocale }) {
+const LanguageSwitcher = ({ currentLocale }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -30,7 +29,7 @@ export default function LanguageSwitcher({ currentLocale }) {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md bg-white hover:bg-gray-50"
+        className="flex items-center px-4 py-2 space-x-2 bg-white rounded-md border border-gray-300 hover:bg-gray-50"
       >
         <span>{languageMap[currentLocale].flag}</span>
         <span>{currentLocale.toUpperCase()}</span>
@@ -40,7 +39,7 @@ export default function LanguageSwitcher({ currentLocale }) {
       </button>
       
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+        <div className="absolute right-0 z-50 mt-2 w-48 bg-white rounded-md border border-gray-200 shadow-lg">
           <div className="py-1">
             {locales.map((locale) => (
               <button
@@ -57,4 +56,6 @@ export default function LanguageSwitcher({ currentLocale }) {
       )}
     </div>
   );
-}
+};
+
+export default LanguageSwitcher;

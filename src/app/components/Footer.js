@@ -5,8 +5,8 @@ import Image from 'next/image';
 export default function Footer({ dictionary, locale }) {
   return (
     <footer className="bg-[#003b4a] text-white">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container px-6 py-16 mx-auto">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1 - Logo and Social */}
           <div>
             <Link href={`/${locale}`} className="inline-block mb-6">
@@ -15,10 +15,10 @@ export default function Footer({ dictionary, locale }) {
                 alt="Medico" 
                 width={150} 
                 height={40} 
-                className="h-10 w-auto brightness-0 invert" 
+                className="w-auto h-10 brightness-0 invert" 
               />
             </Link>
-            <p className="text-gray-300 mb-8">
+            <p className="mb-8 text-gray-300">
               Experience world-class dental care in Istanbul at 70% more affordable costs. Your perfect smile journey begins here.
             </p>
             <div className="flex gap-4">
@@ -42,7 +42,7 @@ export default function Footer({ dictionary, locale }) {
 
           {/* Column 2 - Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
+            <h3 className="mb-6 text-xl font-semibold">Quick Links</h3>
             <ul className="space-y-4">
               <li>
                 <Link href={`/${locale}`} className="text-gray-300 hover:text-white hover:underline">
@@ -79,7 +79,7 @@ export default function Footer({ dictionary, locale }) {
 
           {/* Column 3 - Treatments */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Treatments</h3>
+            <h3 className="mb-6 text-xl font-semibold">Treatments</h3>
             <ul className="space-y-4">
               <li>
                 <Link href={`/${locale}/treatments/dental-implants`} className="text-gray-300 hover:text-white hover:underline">
@@ -111,7 +111,7 @@ export default function Footer({ dictionary, locale }) {
 
           {/* Column 4 - Contact */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Contact</h3>
+            <h3 className="mb-6 text-xl font-semibold">Contact</h3>
             <div className="space-y-4">
               <div className="flex items-start">
                 <svg className="w-5 h-5 mt-1 mr-3 text-[#00a9a7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ export default function Footer({ dictionary, locale }) {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-700">
+        <div className="pt-8 mt-12 border-t border-gray-700">
           <div className="text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} Medico Dental Clinic. All rights reserved.</p>
           </div>

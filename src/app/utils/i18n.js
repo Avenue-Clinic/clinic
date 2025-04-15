@@ -6,9 +6,9 @@ export const defaultLocale = 'en';
 
 // Dictionary structure for our translations
 const dictionaries = {
-  en: () => import('../locales/en.json').then(module => module.default),
-  ar: () => import('../locales/ar.json').then(module => module.default),
-  tr: () => import('../locales/tr.json').then(module => module.default),
+  en: () => import('../dictionaries/en.json').then(module => module.default),
+  ar: () => import('../dictionaries/ar.json').then(module => module.default),
+  tr: () => import('../dictionaries/tr.json').then(module => module.default),
 };
 
 export const getDirection = (locale) => {
@@ -21,9 +21,9 @@ export const getDictionary = async (locale) => {
   }
   
   try {
-    return dictionaries[locale]();
+    return await dictionaries[locale]();
   } catch (error) {
     console.error(`Failed to load dictionary for locale: ${locale}`, error);
-    return dictionaries[defaultLocale]();
+    return await dictionaries[defaultLocale]();
   }
 };
