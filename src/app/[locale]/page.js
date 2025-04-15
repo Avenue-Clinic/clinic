@@ -1,22 +1,12 @@
 import React from 'react';
-import Header from '../components/Header';
-import en from '../dictionaries/en.json';
-import ar from '../dictionaries/ar.json';
-import tr from '../dictionaries/tr.json';
+import { getDictionary } from '../utils/i18n';
 
-const dictionaries = {
-  en,
-  ar,
-  tr
-};
-
-export default function Home({ params: { locale } }) {
-  const dictionary = dictionaries[locale] || dictionaries.en;
-  console.log('Page Dictionary:', dictionary);
+export default async function Home({ params: { locale } }) {
+  const dictionary = await getDictionary(locale);
 
   return (
     <main>
-      <Header dictionary={dictionary} locale={locale} />
+      {/* Header is already included in layout.js, no need to include it here */}
     </main>
   );
 }

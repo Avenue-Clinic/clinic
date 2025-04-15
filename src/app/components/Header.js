@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
-import { Facebook, Instagram, Tiktok, Menu, ChevronDown, Phone } from 'lucide-react';
+import { Facebook, Instagram, Menu, ChevronDown, Phone } from 'lucide-react';
 
 export default function Header({ dictionary = {}, locale = 'en' }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,39 +22,36 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <header className="fixed top-0 right-0 left-0 z-50 bg-white">
       {/* Top Bar */}
       <div className="bg-[#003b4a] text-white py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container flex justify-between items-center px-4 mx-auto">
           <p className="text-sm font-medium">28,000 Smiles and Counting — Join Us in Istanbul!</p>
-          <div className="flex items-center gap-4">
+          <div className="flex gap-4 items-center">
             <a href="#" aria-label="Facebook" className="hover:text-[#00a9a7] transition-colors">
               <Facebook className="w-4 h-4" />
             </a>
             <a href="#" aria-label="Instagram" className="hover:text-[#00a9a7] transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
-            <a href="#" aria-label="TikTok" className="hover:text-[#00a9a7] transition-colors">
-              <Tiktok className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <div className="container mx-auto px-4 py-4 border-b">
-        <div className="flex items-center justify-between">
+      <div className="container px-4 py-4 mx-auto border-b">
+        <div className="flex justify-between items-center">
           <Link href={`/${locale}`} className="flex-shrink-0">
             <Image
-              src="/images/logo.png"
+              src="/images/logo.svg"
               alt="Medico Logo"
               width={150}
               height={40}
-              className="h-10 w-auto"
+              className="w-auto h-10"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden items-center space-x-8 lg:flex">
             <Link 
               href={`/${locale}`} 
               className="text-sm font-medium text-gray-700 hover:text-[#00a9a7] transition-colors"
@@ -96,7 +93,7 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden items-center space-x-4 lg:flex">
             <LanguageSwitcher currentLocale={locale} />
             <Link 
               href={`/${locale}/contact`} 
@@ -117,7 +114,7 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden mt-4 pb-4">
+          <div className="pb-4 mt-4 lg:hidden">
             <nav className="flex flex-col space-y-4">
               <Link 
                 href={`/${locale}`} 
@@ -133,7 +130,7 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
                 <ChevronDown className={`w-4 h-4 transition-transform ${treatmentsOpen ? 'rotate-180' : ''}`} />
               </button>
               {treatmentsOpen && (
-                <div className="pl-4 flex flex-col space-y-3">
+                <div className="flex flex-col pl-4 space-y-3">
                   <Link 
                     href={`/${locale}/treatments/dental-implants`} 
                     className="text-sm text-gray-600 hover:text-[#00a9a7] transition-colors"
@@ -178,7 +175,7 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
               >
                 {translations.contactUs}
               </Link>
-              <div className="pt-4 flex flex-col space-y-4">
+              <div className="flex flex-col pt-4 space-y-4">
                 <LanguageSwitcher currentLocale={locale} />
                 <Link 
                   href={`/${locale}/contact`} 
