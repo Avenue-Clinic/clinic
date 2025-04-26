@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { 
   IconBrandFacebook, 
@@ -20,7 +20,15 @@ import {
 export default function Header({ dictionary = {}, locale = 'en' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
   const isRTL = locale === 'ar';
+
+  useEffect(() => {
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 1280);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Provide default values for missing translations
   const translations = {
@@ -31,261 +39,298 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
     blog: dictionary?.header?.blog || 'Blog',
     contactUs: dictionary?.header?.contactUs || 'Contact Us',
     getConsultation: dictionary?.header?.getConsultation || 'Get Free Consultation',
-    smileCounter: dictionary?.header?.smileCounter || '28,000 Smiles and Counting — Join Us in Istanbul!'
+    smileCounter: dictionary?.header?.smileCounter || '28,000 Smiles and Counting — Join Us in Istanbul!',
+    clinicName: dictionary?.header?.clinicName || 'Avenue Clinic'
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <header className="bg-white">
       {/* Top bar with reduced padding */}
       <div className="bg-[#023752] text-white py-1.5">
-        <div className="max-w-[1350px] flex items-center justify-between mx-auto px-10">
-          <div className="flex items-center text-sm">
-            <span>{translations.smileCounter}</span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="#" aria-label="X" className="hover:text-[#95E8E0] transition-colors duration-300">
-              <IconBrandX size={16} />
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:text-[#95E8E0] transition-colors duration-300">
-              <IconBrandInstagram size={16} />
-            </a>
-            <a href="#" aria-label="Facebook" className="hover:text-[#95E8E0] transition-colors duration-300">
-              <IconBrandFacebook size={16} />
-            </a>
-            <a href="#" aria-label="TikTok" className="hover:text-[#95E8E0] transition-colors duration-300">
-              <IconBrandTiktok size={16} />
-            </a>
-            <a href="#" aria-label="YouTube" className="hover:text-[#95E8E0] transition-colors duration-300">
-              <IconBrandYoutube size={16} />
-            </a>
+        <div className="max-w-[1350px] mx-auto px-10">
+          <div className={`flex items-center justify-between lg:justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <div className={`flex items-center text-sm lg:text-left w-full lg:w-auto ${!isLargeScreen ? 'justify-center' : ''}`}>
+              <span>{translations.smileCounter}</span>
+            </div>
+            <div className={`items-center hidden space-x-4 lg:flex ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
+              <a href="#" aria-label="X" className={`hover:text-[#95E8E0] transition-colors duration-300 ${isRTL ? 'mr-4' : ''}`}>
+                <IconBrandX size={16} />
+              </a>
+              <a href="#" aria-label="Instagram" className="hover:text-[#95E8E0] transition-colors duration-300">
+                <IconBrandInstagram size={16} />
+              </a>
+              <a href="#" aria-label="Facebook" className="hover:text-[#95E8E0] transition-colors duration-300">
+                <IconBrandFacebook size={16} />
+              </a>
+              <a href="#" aria-label="TikTok" className="hover:text-[#95E8E0] transition-colors duration-300">
+                <IconBrandTiktok size={16} />
+              </a>
+              <a href="#" aria-label="YouTube" className="hover:text-[#95E8E0] transition-colors duration-300">
+                <IconBrandYoutube size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-{/* Main navigation with three distinct sections */}
-<nav className="max-w-[1350px] mx-auto relative py-2 px-8">
-  <div className="flex items-center justify-between ct-container">
-    {/* Left section - Logo */}
-    <div data-column="start" className="flex-shrink-0">
-      <div className="site-branding">
-        <Link href={`/${locale}`} className="site-logo-container">
-          <Image src="/logo.svg" alt="Logo" width={150} height={40} className="w-auto h-12" priority />
-        </Link>
-      </div>
-    </div>
-
-    {/* Middle/Right section - Navigation menu and language switcher */}
-    <div data-column="middle" className={`hidden lg:flex lg:items-center ${window.innerWidth >= 1280 ? 'justify-end' : 'justify-center'}`}>
-      <nav className="header-menu-1">
-        <ul className="flex items-center space-x-6 whitespace-nowrap text-[17px]">
-          <li>
-            <Link href={`/${locale}`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
-              {translations.home}
-            </Link>
-          </li>
-          <li className="relative group">
+      {/* Main navigation with three distinct sections */}
+      <nav className="max-w-[1350px] mx-auto relative py-2 px-4">
+        <div className="flex items-center justify-between">
+          {/* Left section - Logo and mobile menu button */}
+          {/* Keep justify-between, use order classes for RTL */}
+          <div className={`w-[250px] flex items-center justify-between`}>
+            {/* Add order-2 for RTL */}
+            <div className={`site-branding ${isRTL ? 'order-2' : ''}`}>
+              <Link href={`/${locale}`} className="site-logo-container">
+                <Image src="/logo.svg" alt="Logo" width={150} height={40} className="w-auto h-12" priority />
+              </Link>
+            </div>
+            {/* Use order-1 for RTL instead of order-first */}
             <button
-              className="flex items-center space-x-1 text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300"
-              onMouseEnter={() => setTreatmentsOpen(true)}
-              onMouseLeave={() => setTreatmentsOpen(false)}
+              onClick={() => setIsOpen(!isOpen)}
+              className={`lg:hidden text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300 ${isRTL ? 'order-1' : ''}`}
+              aria-label="Toggle menu"
             >
-              <span>{translations.treatments}</span>
-              <IconChevronDown size={16} />
+              <IconMenu2 size={24} />
             </button>
-            <ul 
-              className={`absolute ${isRTL ? 'right-0' : 'left-0'} w-48 py-2 bg-white rounded-md shadow-lg top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300`}
-              onMouseEnter={() => setTreatmentsOpen(true)}
-              onMouseLeave={() => setTreatmentsOpen(false)}
+          </div>
+
+          {/* Middle section - Navigation menu and language switcher */}
+          <div className="justify-center flex-1 hidden lg:flex lg:items-center">
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-[60px]`}>
+              <nav className="header-menu-1">
+                <ul className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-8 whitespace-nowrap text-[17px]`}>
+                  <li>
+                    <Link href={`/${locale}`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
+                      {translations.home}
+                    </Link>
+                  </li>
+                  <li className="relative group">
+                    <Link 
+                      href={`/${locale}/treatments`}
+                      className={`flex items-center space-x-1 ${isRTL ? 'space-x-reverse' : ''} text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300 ${isRTL ? 'rtl-text' : ''}`}
+                      onMouseEnter={() => setTreatmentsOpen(true)}
+                      onMouseLeave={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="whitespace-nowrap">{translations.treatments}</span>
+                      <IconChevronDown size={20} className={`transition-transform duration-300 ${treatmentsOpen ? 'rotate-180' : ''}`} />
+                    </Link>
+                    {/* Treatments dropdown menu */}
+                    <div 
+                      className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-full z-50 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 transition-all duration-300 ${
+                        treatmentsOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                      }`}
+                      onMouseEnter={() => setTreatmentsOpen(true)}
+                      onMouseLeave={() => setTreatmentsOpen(false)}
+                    >
+                      <Link 
+                        href={`/${locale}/treatments/dental-implants`}
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/hollywood-smile`}
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/all-on-implants`}
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
+                      </Link>
+                    </div>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}/gallery`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
+                      {translations.gallery}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}/about`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
+                      {translations.aboutUs}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}/blog`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
+                      {translations.blog}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}/contact`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
+                      {translations.contactUs}
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+              <div className={`flex items-center ${isRTL ? 'order-1' : ''}`}>
+                <LanguageSwitcher currentLocale={locale} />
+              </div>
+            </div>
+          </div>
+
+          {/* Right section - Search and consultation button */}
+          <div className={`w-[250px] hidden lg:flex items-center ${isRTL ? 'flex-row-reverse' : ''} justify-end space-x-6 ${isRTL ? 'space-x-reverse' : ''}`}>
+            <button 
+              className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300"
+              aria-label="Search"
             >
-              <li>
-                <Link 
-                  href={`/${locale}/treatments/dental-implants`} 
-                  className="text-sm text-[#4F5665] hover:text-[#05BBB5] transition-colors duration-300 block px-4 py-2"
-                >
-                  {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href={`/${locale}/treatments/hollywood-smile`} 
-                  className="text-sm text-[#4F5665] hover:text-[#05BBB5] transition-colors duration-300 block px-4 py-2"
-                >
-                  {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href={`/${locale}/treatments/all-on-implants`} 
-                  className="text-sm text-[#4F5665] hover:text-[#05BBB5] transition-colors duration-300 block px-4 py-2"
-                >
-                  {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link href={`/${locale}/gallery`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
-              {translations.gallery}
-            </Link>
-          </li>
-          <li>
-            <Link href={`/${locale}/about`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
-              {translations.aboutUs}
-            </Link>
-          </li>
-          <li>
-            <Link href={`/${locale}/blog`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
-              {translations.blog}
-            </Link>
-          </li>
-          <li>
-            <Link href={`/${locale}/contact`} className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300">
-              {translations.contactUs}
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      
-      {/* Language switcher in the middle section */}
-      <div className={`${isRTL ? 'mr-6' : 'ml-6'}`}>
-        <LanguageSwitcher currentLocale={locale} />
-      </div>
-    </div>
-
-    {/* Right section - Search and Consultation (only visible on xl screens) */}
-    <div data-column="end" className="flex-shrink-0 hidden xl:flex">
-      <div className="flex items-center" style={{ gap: isRTL ? '1rem' : '0.75rem' }}>
-        <button 
-          className="text-[#0B132A] hover:text-[#05BBB5] transition-colors duration-300"
-          aria-label="Search"
-        >
-          <IconSearch size={20} />
-        </button>
-        <Link
-          href={`/${locale}/consultation`}
-          className="bg-[#023752] text-white px-4 py-2 rounded-md hover:bg-[#05BBB5] transition-colors duration-300 flex items-center space-x-2 text-[16px]"
-        >
-          <IconPhone size={16} />
-          <span>{translations.getConsultation}</span>
-        </Link>
-      </div>
-    </div>
-
-    {/* Mobile menu button - show below 850px breakpoint */}
-    <div className="lg:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-2"
-        aria-label="Toggle menu"
-      >
-        <IconMenu2 size={24} />
-      </button>
-    </div>
-
-    {/* Mobile Language Switcher - centered below 850px */}
-    <div className="hidden max-w-[850px]:flex max-w-[850px]:justify-center max-w-[850px]:items-center flex-shrink-0 lg:hidden">
-      <LanguageSwitcher currentLocale={locale} />
-    </div>
-  </div>
-
-  {/* Mobile menu - slides from right */}
-  <div 
-    className={`fixed top-0 ${isRTL ? 'left-0' : 'right-0'} h-full w-80 bg-white shadow-lg transform ${isOpen ? 'translate-x-0' : isRTL ? '-translate-x-full' : 'translate-x-full'} transition-transform duration-300 ease-in-out z-50 overflow-y-auto`}
-  >
-    <div className="flex items-center justify-between p-4 border-b">
-      <span className="text-lg font-medium">{translations.menu || 'Menu'}</span>
-      <button 
-        onClick={() => setIsOpen(false)}
-        className="p-2 rounded-full hover:bg-gray-100"
-        aria-label="Close menu"
-      >
-        <IconX size={24} />
-      </button>
-    </div>
-    <nav className="flex flex-col p-4 space-y-4">
-      <Link 
-        href={`/${locale}`} 
-        className="text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-      >
-        {translations.home}
-      </Link>
-      <div>
-        <button 
-          onClick={() => setTreatmentsOpen(!treatmentsOpen)}
-          className="flex items-center justify-between w-full text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-        >
-          <span>{translations.treatments}</span>
-          <IconChevronDown className={`w-4 h-4 transition-transform duration-300 ${treatmentsOpen ? 'rotate-180' : ''}`} />
-        </button>
-        <div 
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${treatmentsOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
-        >
-          <div className={`flex flex-col ${isRTL ? 'pr-4' : 'pl-4'} pt-3 space-y-3`}>
+              <IconSearch size={20} />
+            </button>
             <Link 
-              href={`/${locale}/treatments/dental-implants`} 
-              className="text-sm text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+              href={`/${locale}/consultation`} 
+              className={`inline-flex items-center justify-center space-x-2 bg-[#023752] text-white px-5 py-2 rounded-full hover:bg-[#05BBB5] transition-colors duration-300 text-[12px] font-medium ${isRTL ? 'order-first' : ''}`}
             >
-              {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
-            </Link>
-            <Link 
-              href={`/${locale}/treatments/hollywood-smile`} 
-              className="text-sm text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
-            >
-              {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
-            </Link>
-            <Link 
-              href={`/${locale}/treatments/all-on-implants`} 
-              className="text-sm text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
-            >
-              {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
+              <IconPhone className="w-4 h-4" />
+              <span>{translations.getConsultation}</span>
             </Link>
           </div>
+
+          {/* Mobile menu */}
+          <div className={`fixed inset-y-0 ${!isRTL ? 'right-0' : 'left-0'} w-[300px] bg-white shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${isOpen ? 'translate-x-0' : !isRTL ? 'translate-x-full' : '-translate-x-full'}`}>
+            <div className="flex items-center justify-between p-4 border-b">
+              <span className="text-xl font-semibold text-[#023752]">{translations.clinicName}</span>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-full hover:text-[#05BBB5] transition-colors duration-300"
+                aria-label="Close menu"
+              >
+                <IconX size={24} />
+              </button>
+            </div>
+            
+            <nav className="flex flex-col p-4">
+              <div className="space-y-4 text-lg">
+                <Link 
+                  href={`/${locale}`} 
+                  className="block text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations.home}
+                </Link>
+                <div>
+                  <div className="flex items-center justify-between">
+                    <Link 
+                      href={`/${locale}/treatments`}
+                      className="text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {translations.treatments}
+                    </Link>
+                    <button 
+                      onClick={() => setTreatmentsOpen(!treatmentsOpen)}
+                      className="p-2 rounded-full hover:text-[#05BBB5] transition-colors duration-300"
+                    >
+                      <IconChevronDown className={`w-5 h-5 transition-transform duration-300 ${treatmentsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${treatmentsOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="flex flex-col pt-2 space-y-2">
+                      <Link 
+                        href={`/${locale}/treatments/dental-implants`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/hollywood-smile`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/all-on-implants`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <Link 
+                  href={`/${locale}/gallery`} 
+                  className="block text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations.gallery}
+                </Link>
+                <Link 
+                  href={`/${locale}/about`} 
+                  className="block text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations.aboutUs}
+                </Link>
+                <Link 
+                  href={`/${locale}/blog`} 
+                  className="block text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations.blog}
+                </Link>
+                <Link 
+                  href={`/${locale}/contact`} 
+                  className="block text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations.contactUs}
+                </Link>
+              </div>
+
+              <div className="mt-6">
+                <LanguageSwitcher currentLocale={locale} isMobile={true} />
+              </div>
+
+              <div className="mt-6">
+                <Link 
+                  href={`/${locale}/consultation`} 
+                  className="inline-flex items-center justify-center w-full space-x-2 bg-[#023752] text-white px-5 py-3 rounded-full hover:bg-[#05BBB5] transition-colors duration-300 text-[15px] font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <IconPhone className="w-4 h-4" />
+                  <span>{translations.getConsultation}</span>
+                </Link>
+              </div>
+
+              <div className={`flex items-center justify-center mt-8 space-x-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <a href="#" aria-label="X" className="text-gray-600 hover:text-[#05BBB5] transition-colors duration-300">
+                  <IconBrandX size={20} />
+                </a>
+                <a href="#" aria-label="Instagram" className="text-gray-600 hover:text-[#05BBB5] transition-colors duration-300">
+                  <IconBrandInstagram size={20} />
+                </a>
+                <a href="#" aria-label="Facebook" className="text-gray-600 hover:text-[#05BBB5] transition-colors duration-300">
+                  <IconBrandFacebook size={20} />
+                </a>
+                <a href="#" aria-label="TikTok" className="text-gray-600 hover:text-[#05BBB5] transition-colors duration-300">
+                  <IconBrandTiktok size={20} />
+                </a>
+                <a href="#" aria-label="YouTube" className="text-gray-600 hover:text-[#05BBB5] transition-colors duration-300">
+                  <IconBrandYoutube size={20} />
+                </a>
+              </div>
+            </nav>
+          </div>
+          
+          {/* Overlay when mobile menu is open */}
+          {isOpen && (
+            <div 
+              className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            ></div>
+          )}
         </div>
-      </div>
-      <Link 
-        href={`/${locale}/gallery`} 
-        className="text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-      >
-        {translations.gallery}
-      </Link>
-      <Link 
-        href={`/${locale}/about`} 
-        className="text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-      >
-        {translations.aboutUs}
-      </Link>
-      <Link 
-        href={`/${locale}/blog`} 
-        className="text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-      >
-        {translations.blog}
-      </Link>
-      <Link 
-        href={`/${locale}/contact`} 
-        className="text-sm font-medium text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
-      >
-        {translations.contactUs}
-      </Link>
-      <div className="pt-4">
-        <Link 
-          href={`/${locale}/consultation`} 
-          className="inline-flex items-center justify-center space-x-2 bg-[#023752] text-white px-6 py-2.5 rounded-full hover:bg-[#05BBB5] transition-colors duration-300 text-sm font-medium w-full"
-        >
-          <IconPhone className="w-4 h-4" />
-          <span>{translations.getConsultation}</span>
-        </Link>
-      </div>
-    </nav>
-  </div>
-  
-  {/* Overlay when mobile menu is open */}
-  {isOpen && (
-    <div 
-      className="fixed inset-0 z-40 bg-black bg-opacity-50"
-      onClick={() => setIsOpen(false)}
-    ></div>
-  )}
-</nav>
+      </nav>
+      <style jsx global>{`
+        .rtl-text:hover {
+          color: #05BBB5;
+        }
+      `}</style>
     </header>
   );
 }

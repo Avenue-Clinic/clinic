@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-inter)'],
-      },
       container: {
         center: true,
         padding: '2rem',
@@ -17,6 +14,13 @@ module.exports = {
           '2xl': '1400px',
         },
       },
+    },
+    fontFamily: {
+      DEFAULT: ['var(--font-plus-jakarta-sans)'],
+      sans: ['var(--font-plus-jakarta-sans)'],
+      'plus-jakarta-sans': ['var(--font-plus-jakarta-sans)'],
+      'rubik': ['var(--font-rubik)'],
+      'poppins': ['var(--font-poppins)'],
     },
   },
   plugins: [],

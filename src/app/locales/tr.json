@@ -1,16 +1,18 @@
 {
+    "dir": "ltr",
     "header": {
-      "home": "ANA SAYFA",
-      "treatments": "TEDAVİLER",
-      "gallery": "GALERİ",
-      "aboutUs": "HAKKIMIZDA",
-      "blog": "BLOG",
-      "contactUs": "İLETİŞİM",
-      "getConsultation": "Ücretsiz Danışmanlık Al"
+      "home": "Ana Sayfa",
+      "treatments": "Tedaviler",
+      "gallery": "Galeri",
+      "aboutUs": "Hakkımızda",
+      "blog": "Blog",
+      "contactUs": "İletişim",
+      "getConsultation": "ÜCRETSİZ Danışmanlık Alın",
+      "smileCounter": "28,000 Gülümseme ve Sayılıyor — İstanbul'da Bize Katılın!"
     },
     "hero": {
       "title": "Güzel Gülüşler Yaratmak, Sağlıklı Yarınlar Temin Etmek",
-      "subtitle": "Dünya standartlarına göre %70 daha uygun maliyetlerle, gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavilere öncelik veren uzman diş bakımını keşfedin."
+      "subtitle": "Gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavileri dünya standartlarından %70 daha uygun fiyatlarla keşfedin."
     },
     "form": {
       "name": "Ad Soyad",
@@ -19,12 +21,155 @@
       "submit": "Gönder"
     },
     "treatments": {
-      "dentalImplants": "Diş İmplantları",
-      "hollywoodSmile": "Hollywood Gülüşü",
-      "allOnImplants": "All-on-4/6 İmplantlar",
-      "dentalCrowns": "Diş Kronları",
-      "dentalVeneers": "Diş Veneer'ları",
-      "surgicalDentistry": "Cerrahi Diş Hekimliği"
+      "title": "Tedavilerimiz",
+      "subtitle": "Her Gülüş İçin Özel Diş Bakımı",
+      "allTreatments": "Tüm Tedaviler",
+      "items": {
+        "dentalImplants": {
+          "title": "Diş İmplantları",
+          "description": "Diş implantları, kayıp dişlerin yerine geçen kalıcı ve doğal görünümlü bir çözüm sunar.",
+          "image": "/images/dental-implant.jpg",
+          "icon": "/icons/dental-implant.svg",
+          "readMore": "Daha Fazla"
+        },
+        "smileMakeover": {
+          "title": "Hollywood Gülüşü",
+          "description": "Entegre prosedürlerin bir kombinasyonu ile gülüşünüzü tamamen dönüştüren kapsamlı bir kozmetik tedavi.",
+          "image": "/images/smile-makeover.jpg",
+          "icon": "/icons/smile-makeover.svg",
+          "readMore": "Daha Fazla"
+        },
+        "dentalVeneers": {
+          "title": "Diş Kaplamalar",
+          "description": "Diş kaplama, kusursuz ve parlak bir gülümseme için ideal olan popüler bir kozmetik tedavidir.",
+          "image": "/images/dental-veneer.jpg",
+          "icon": "/icons/dental-veneer.svg",
+          "readMore": "Daha Fazla"
+        },
+        "allOnImplants": {
+          "title": "All-on-4/6 İmplantlar",
+          "description": "Çoklu diş kaybı olan hastalar için sabit bir çözüm sunar. Dayanıklılık ve doğal görünüm sağlar.",
+          "image": "/images/all-on-implant.jpg",
+          "icon": "/icons/all-on-implant.svg",
+          "readMore": "Daha Fazla"
+        },
+        "dentalCrowns": {
+          "title": "Diş Kronları",
+          "description": "Hasar görmüş veya zayıf dişleri onarmak için yaygın bir çözüm, güç ve koruma sağlar.",
+          "image": "/images/dental-crown.jpg",
+          "icon": "/icons/dental-crown.svg",
+          "readMore": "Daha Fazla"
+        },
+        "surgicalDentistry": {
+          "title": "Cerrahi Diş Hekimliği",
+          "description": "Diş çekimi ve diş eti cerrahisi dahil karmaşık diş sorunlarını tedavi etmeyi amaçlayan prosedürler.",
+          "image": "/images/surgical-dentistry.jpg",
+          "icon": "/icons/surgical-dentistry.svg",
+          "readMore": "Daha Fazla"
+        }
+      }
+    },
+    "about": {
+      "label": "HAKKIMIZDA",
+      "title": "Dünya Standartlarında Diş Bakımı, Her Gülüş İçin Uygun Fiyatlı.",
+      "description": "Kliniğimiz, genel, kozmetik ve özel diş tedavilerinin tüm yelpazesiyle şefkatli, hasta odaklı bakım sağlamaya kendini adamıştır. Dünya çapında tanınan markalarla yüksek kaliteli diş çözümlerini, standart dünya geneli fiyatlarından %70'e varan oranda daha uygun maliyetlerle sunmaktayız.",
+      "stats": {
+        "smiles": {
+          "value": "+18K",
+          "label": "Mükemmel Hizalı Gülüş Başarısı"
+        },
+        "satisfaction": {
+          "value": "96%",
+          "label": "Hasta Memnuniyet Oranı"
+        }
+      },
+      "cta": "Daha Fazla Bilgi"
+    },
+    "expertise": {
+      "label": "UZMANLIK",
+      "title": "Uzmanlaşmış Diş Bakımında Mükemmellik Taahhüdü",
+      "description": "Kliniğimiz, her departmanda birden fazla yüksek vasıflı uzmanla, tüm tedavilerde kapsamlı diş uzmanlığı sunmaya adanmıştır. Kozmetik iyileştirmelerden karmaşık cerrahi prosedürlere kadar, uzman diş hekimlerimiz ekibi, benzersiz ihtiyaçlarınız için en iyi bakımı sunmak üzere işbirliği yapar.",
+      "stats": {
+        "value": "16+",
+        "label": "Uzman Diş Hekimi"
+      },
+      "features": [
+        {
+          "title": "Her İhtiyaç İçin Uzman Hekimler",
+          "description": "Ekibimiz, çeşitli diş alanlarında birden fazla uzman içerir, her hastanın odaklanmış uzmanlık ve kişiselleştirilmiş bakımdan faydalanmasını sağlar. Modern ve konforlu bir ortamda ileri teknoloji kullanarak en yüksek tedavi standartlarını sürdürmeye kararlıyız."
+        },
+        {
+          "title": "Son Teknoloji ve Hassas Teşhis",
+          "description": "CBCT görüntülemeden en son diş teknolojisine kadar, doğru teşhis ve etkili tedaviler sunmak için yalnızca en gelişmiş araçları kullanıyoruz. Teknolojiye olan bağlılığımız, hassasiyet ve verimlilikle olağanüstü sonuçlar elde etmemizi sağlar."
+        }
+      ],
+      "cta": "Hakkımızda Daha Fazla Bilgi"
+    },
+    "whyUs": {
+      "label": "NEDEN BİZİ SEÇMELİSİNİZ",
+      "title": "Olağanüstü Kalite ve Uygun Fiyat",
+      "description": "Medico Clinic, güvenilir global markalar ve yüksek kaliteli malzemeler kullanarak üst düzey diş tedavileri sunmaktadır - tüm bunlar dünya standartlarından %70'e varan oranda daha uygun fiyatlarla.",
+      "cta": "ÜCRETSİZ Danışmanlık Alın",
+      "features": {
+        "professionals": {
+          "title": "Deneyimli Profesyoneller",
+          "description": "Yüksek becerili profesyonel ekibimiz, genel diş hekimliğinden özel tedavilere kadar tüm diş bakımı alanlarında kapsamlı deneyime sahiptir."
+        },
+        "satisfaction": {
+          "title": "Yüksek Hasta Memnuniyeti",
+          "description": "Hastalar, olağanüstü sonuçlar, özenli bakım ve gülüşlerinde kalıcı etki için Medico Clinic'e güveniyor."
+        },
+        "materials": {
+          "title": "En Kaliteli Malzemeler",
+          "description": "En kaliteli malzemelere odaklanmamız, her prosedürün güvenlik, uzun ömürlülük ve hasta memnuniyeti açısından en yüksek standartları karşılamasını garanti eder."
+        }
+      }
+    },
+    "patientJourney": {
+      "label": "HASTA YOLCULUĞU",
+      "title": "Medico Clinic ile Yolculuğunuz",
+      "description": "Konforunuz, güvenliğiniz ve memnuniyetinizin ön planda olduğu özenle hazırlanmış bir yolculuğa başlayın. Detaylı çevrimiçi konsültasyondan kişiselleştirilmiş tedavi ve özel bakım sonrasına kadar, Medico Clinic'teki her adım dünya standartlarında bir deneyim sunmak için tasarlanmıştır.",
+      "slides": {
+        "slide1": {
+          "title": "#1 - Çevrimiçi Konsültasyon",
+          "description": "Yolculuğunuza evinizin konforundan detaylı bir çevrimiçi konsültasyonla başlayın. Özel çok dilli tıbbi danışman ekibimiz, dilin benzersiz ihtiyaçlarınızı anlamada asla bir engel olmamasını sağlamak için size yardımcı olmak üzere burada."
+        },
+        "slide2": {
+          "title": "#2 - Varış ve Transfer",
+          "description": "Türkiye'ye varışınızda, profesyonel ekibimizden sıcak bir karşılama yaşayın. Ekibimiz, konaklama yerinize sorunsuz ve güvenli bir transfer konusunda size yardımcı olacaktır. Size hak ettiğiniz konfor ve rahatlamayı sağlamak için özenle seçilmiş lüks otellerden birini seçin."
+        },
+        "slide3": {
+          "title": "#3 - Konaklama",
+          "description": "Konaklamanız konforunuz düşünülerek seçilmiş olup, kalışınız için huzurlu ve sofistike bir ortam sağlamaktadır. Her otel, kendinizi rahat hissetmenizi sağlamak için tasarlanmış olanaklarla donatılmıştır."
+        },
+        "slide4": {
+          "title": "#4 - Klinik Konsültasyon",
+          "description": "Diş hekimlerimiz, özel hedeflerinizi anlamak için zaman ayırır ve kişiselleştirilmiş tedavi planınızın her detayını gözden geçirir. Hassasiyet ve özen konusundaki derin bağlılıkları ile kalan tüm sorularınızı yanıtlamak için buradadırlar."
+        },
+        "slide5": {
+          "title": "#5 - Prosedür",
+          "description": "Tedaviniz, optimal sonuçları sağlamak için en son teknolojiyi ve gelişmiş cerrahi teknikleri kullanan yüksek vasıflı cerrahlar ve tıp uzmanları tarafından gerçekleştirilir."
+        },
+        "slide6": {
+          "title": "#6 - Kontrol",
+          "description": "Tedavinizin ardından ekibimiz, konforunuzu ve memnuniyetinizi sağlamak için kapsamlı bir işlem sonrası kontrol gerçekleştirir. Deneyimli doktorlarımız ilerlemenizi dikkatle izler ve tüm sorularınızı yanıtlar."
+        },
+        "slide7": {
+          "title": "#7 - Ayrılış",
+          "description": "Yolculuğunuz sona ererken, her adımda bakımınızı ve konforunuzu önceliklendiren profesyoneller tarafından yönetilen deneyiminizle yenilenmiş bir özgüven duygusuyla ayrılın. Medico Clinic sorunsuz, olağanüstü bir deneyim sunmaya kararlıdır."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Olağanüstü bakım ve dönüştürücü gülüşlerin gerçek hikayeleri",
+      "sectionTitle": "REFERANSLAR",
+      "button": "Tüm Referanslar"
+    },
+    "transformation": {
+      "title": "Hayat değiştiren etkiyi gösteren etkileyici sonuçlar",
+      "sectionTitle": "DÖNÜŞÜMÜ GÖR",
+      "button": "Tüm Sonuçlar",
+      "before": "Öncesi",
+      "after": "Sonrası"
     }
   }
-  

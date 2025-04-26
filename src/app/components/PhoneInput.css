@@ -1,0 +1,63 @@
+/* PhoneInput.css */
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: 44px !important; /* Match your input heights */
+  border-radius: 10px !important; /* Match your other inputs */
+  border: 1px solid #e5e7eb !important; /* Match your gray-300 */
+  font-size: 0.875rem !important; /* text-sm equivalent */
+  padding-left: 50px !important; /* Space for the flag */
+  transition: all 0.2s ease;
+}
+
+.react-tel-input .form-control:focus {
+  outline: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 2px #4fd1c5 !important; /* Your teal-400 color */
+}
+
+.react-tel-input .flag-dropdown {
+  border-radius: 10px 0 0 10px !important;
+  border: 1px solid #e5e7eb !important;
+  background-color: #f9fafb !important; /* Light gray background */
+}
+
+.react-tel-input .selected-flag {
+  border-radius: 10px 0 0 10px !important;
+  background-color: transparent !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* RTL support */
+[dir="rtl"] .react-tel-input .form-control {
+  padding-left: 12px !important;
+  padding-right: 50px !important;
+}
+
+[dir="rtl"] .react-tel-input .flag-dropdown {
+  border-radius: 0 10px 10px 0 !important;
+}
+
+[dir="rtl"] .react-tel-input .selected-flag {
+  border-radius: 0 10px 10px 0 !important;
+}
+
+/* Dropdown styles */
+.react-tel-input .country-list {
+  margin: 10px 0 !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.react-tel-input .country-list .country {
+  padding: 10px 15px !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+  background-color: rgba(5, 187, 181, 0.1) !important; /* Light version of your hover color */
+}

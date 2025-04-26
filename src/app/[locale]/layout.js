@@ -1,25 +1,44 @@
 // src/app/[locale]/layout.js
-import { getDirection, locales, getDictionary } from '../utils/i18n';
-import { rubik, poppins } from '../fonts';
-import { notFound } from 'next/navigation';
+import React from 'react';
+import { Rubik, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
 import Header from '../components/Header';
+import { locales } from '../utils/dictionary';
+import { getDictionary } from '../utils/dictionary';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta-sans',
+  weight: ['400', '500', '700'],
+});
+
+const rubik = Rubik({
+  subsets: ['latin'],
+  variable: '--font-rubik',
+  weight: ['400', '500', '700'],
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  weight: ['400', '500', '700'],
+});
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({ children, params: { locale } }) {
-  // Check if the locale is supported
+  // Validate locale
   if (!locales.includes(locale)) {
-    notFound();
+    locale = 'en'; // Default to English if locale is not supported
   }
 
-  const dir = getDirection(locale);
   const dictionary = await getDictionary(locale);
+  const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <html lang={locale} dir={dir} className={`${rubik.variable} ${poppins.variable}`}>
-      <body className={`${dir} font-rubik text-lg antialiased`} style={{ fontFamily: 'var(--font-rubik), var(--font-poppins)' }}>
+    <html lang={locale} dir={dir} className={plusJakartaSans.variable} style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}>
+      <body className={`${dir} text-lg antialiased`} style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}>
         <Header dictionary={dictionary} locale={locale} />
         {children}
       </body>

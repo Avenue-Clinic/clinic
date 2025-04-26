@@ -1,9 +1,11 @@
 import 'server-only';
 
+export const locales = ['en', 'tr', 'ar'];
+
 const dictionaries = {
-  en: () => import('../dictionaries/en.json').then((module) => module.default),
-  tr: () => import('../dictionaries/tr.json').then((module) => module.default),
-  ar: () => import('../dictionaries/ar.json').then((module) => module.default),
+  en: () => import('../locales/en.json').then((module) => module.default),
+  tr: () => import('../locales/tr.json').then((module) => module.default),
+  ar: () => import('../locales/ar.json').then((module) => module.default),
 };
 
 export const getDictionary = async (locale) => {
