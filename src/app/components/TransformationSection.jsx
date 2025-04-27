@@ -43,7 +43,7 @@ export default function TransformationSection({ dictionary }) {
   ]
 
   return (
-    <section className="bg-white overflow-hidden">
+    <section className="bg-[#FAFAFA] overflow-hidden">
       <div className="mx-[315px] py-[100px]">
         <div className={`flex items-center justify-between mb-[80px] ${isRTL ? 'flex-row-reverse' : ''}`}>
           <motion.div 

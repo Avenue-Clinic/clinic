@@ -4,11 +4,26 @@ import { notFound } from 'next/navigation';
 export const locales = ['en', 'ar', 'tr'];
 export const defaultLocale = 'en';
 
-// Dictionary structure for our translations
+const loadDictionary = async (locale) => {
+  const home = await import(`../locales/${locale}/home.json`).then((module) => module.default);
+  const header = await import(`../locales/${locale}/header.json`).then((module) => module.default);
+  const footer = await import(`../locales/${locale}/footer.json`).then((module) => module.default);
+  const form = await import(`../locales/${locale}/form.json`).then((module) => module.default);
+
+  // Merge all translations into one dictionary
+  return {
+    dir: locale === 'ar' ? 'rtl' : 'ltr',
+    header: header.header,   // Extract header translations from nested structure
+    footer,   // Footer specific translations
+    form,     // Form specific translations
+    ...home   // This contains most sections (hero, about, expertise, etc.)
+  };
+};
+
 const dictionaries = {
-  en: () => import('./dictionaries/en.json').then(module => module.default),
-  ar: () => import('./dictionaries/ar.json').then(module => module.default),
-  tr: () => import('./dictionaries/tr.json').then(module => module.default),
+  en: () => loadDictionary('en'),
+  ar: () => loadDictionary('ar'),
+  tr: () => loadDictionary('tr'),
 };
 
 export const getDirection = (locale) => {

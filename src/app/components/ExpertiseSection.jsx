@@ -34,9 +34,9 @@ const FeatureCard = ({ title, description, index }) => {
   );
 };
 
-const ExpertiseSection = ({ dictionary }) => {
-  const isRTL = dictionary.dir === 'rtl';
-  const { expertise } = dictionary;
+const ExpertiseSection = ({ dictionary = {} }) => {
+  const isRTL = dictionary?.dir === 'rtl';
+  const expertise = dictionary?.expertise || {};
 
   return (
     <section className="relative py-20 overflow-hidden bg-white">
@@ -52,17 +52,17 @@ const ExpertiseSection = ({ dictionary }) => {
           >
             <div>
               <h3 className="text-[var(--secondary)] uppercase tracking-wider text-[14px] font-[700] mb-5">
-                {expertise.label}
+                {expertise?.label}
               </h3>
               <h2 className="text-[var(--primary)] text-[46px] leading-[52px] font-bold">
-                {expertise.title}
+                {expertise?.title}
               </h2>
             </div>
             <p className="text-[#4F5665] text-[16px] leading-[29px] font-[400]">
-              {expertise.description}
+              {expertise?.description}
             </p>
             <div className="space-y-8">
-              {expertise.features.map((feature, index) => (
+              {expertise?.features?.map((feature, index) => (
                 <FeatureCard
                   key={index}
                   title={feature.title}
@@ -119,10 +119,10 @@ const ExpertiseSection = ({ dictionary }) => {
                 />
                 <div>
                   <h4 className="text-[var(--primary)] text-[24px] font-bold leading-none">
-                    {expertise.stats.value}
+                    {expertise?.stats?.value}
                   </h4>
                   <p className="text-[#4F5665] text-[16px]">
-                    {expertise.stats.label}
+                    {expertise?.stats?.label}
                   </p>
                 </div>
               </div>
@@ -131,7 +131,7 @@ const ExpertiseSection = ({ dictionary }) => {
             {/* Button */}
             <div className="absolute mt-4 -translate-x-1/2 bottom-20  left-[120px]">
               <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
-                {expertise.cta}
+                {expertise?.cta}
               </button>
             </div>
           </motion.div>

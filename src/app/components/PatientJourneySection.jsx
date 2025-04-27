@@ -3,46 +3,46 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const PatientJourneySection = ({ dictionary }) => {
-  const isRTL = dictionary.dir === 'rtl';
-  const { patientJourney } = dictionary;
+const PatientJourneySection = ({ dictionary = {} }) => {
+  const isRTL = dictionary?.dir === 'rtl';
+  const patientJourney = dictionary?.patientJourney || {};
   const [currentSlide, setCurrentSlide] = useState(1);
 
   const slides = [
     {
       number: 1,
       image: '/images/journey/online-consultation.jpg',
-      ...patientJourney.slides.slide1
+      ...(patientJourney?.slides?.slide1 || {})
     },
     {
       number: 2,
       image: '/images/journey/arrival-transfer.jpg',
-      ...patientJourney.slides.slide2
+      ...(patientJourney?.slides?.slide2 || {})
     },
     {
       number: 3,
       image: '/images/journey/accommodation.jpg',
-      ...patientJourney.slides.slide3
+      ...(patientJourney?.slides?.slide3 || {})
     },
     {
       number: 4,
       image: '/images/journey/clinical-consultation.jpg',
-      ...patientJourney.slides.slide4
+      ...(patientJourney?.slides?.slide4 || {})
     },
     {
       number: 5,
       image: '/images/journey/procedure.jpg',
-      ...patientJourney.slides.slide5
+      ...(patientJourney?.slides?.slide5 || {})
     },
     {
       number: 6,
       image: '/images/journey/checkup.jpg',
-      ...patientJourney.slides.slide6
+      ...(patientJourney?.slides?.slide6 || {})
     },
     {
       number: 7,
       image: '/images/journey/departure.jpg',
-      ...patientJourney.slides.slide7
+      ...(patientJourney?.slides?.slide7 || {})
     }
   ];
 
@@ -80,14 +80,14 @@ const PatientJourneySection = ({ dictionary }) => {
           >
             <div>
               <h3 className="text-[var(--secondary)] uppercase tracking-[0.2em] text-[14px] font-[700] mb-5">
-                {patientJourney.label}
+                {patientJourney?.label}
               </h3>
               <h2 className="text-[var(--text)] text-[40px] leading-[48px] font-[700]">
-                {patientJourney.title}
+                {patientJourney?.title}
               </h2>
             </div>
             <p className="text-[var(--text)] text-[16px] leading-[29px] font-[400]">
-              {patientJourney.description}
+              {patientJourney?.description}
             </p>
           </motion.div>
 

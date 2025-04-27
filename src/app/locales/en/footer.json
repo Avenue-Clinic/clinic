@@ -1,0 +1,33 @@
+{
+  "dir": "ltr",
+  "description": "Experience world-class dental care in Istanbul at 70% more affordable costs. Your perfect smile journey begins here.",
+  "quickLinks": "Quick Links",
+  "links": {
+    "home": "Home",
+    "treatments": "Treatments",
+    "gallery": "Gallery",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contactUs": "Contact Us"
+  },
+  "ourTreatments": "Our Treatments",
+  "treatmentLinks": {
+    "dentalImplants": "Dental Implants",
+    "hollywoodSmile": "Hollywood Smile",
+    "allOn4": "All-on-4/6 Implants",
+    "dentalCrowns": "Dental Crowns",
+    "dentalVeneers": "Dental Veneers"
+  },
+  "contact": "Contact",
+  "address": "123 Dental Street<br />Istanbul, Turkey",
+  "phone": "+90 123 456 7890",
+  "email": "info@medicodental.com",
+  "openingHours": {
+    "weekdays": "Mon - Fri: 9:00 AM - 6:00 PM",
+    "saturday": "Saturday: 10:00 AM - 4:00 PM",
+    "sunday": "Sunday: Closed"
+  },
+  "copyright": "{year} Medico Dental Clinic. All rights reserved.",
+  "madeWith": "made with",
+  "byTeam": "by Avenue team"
+}

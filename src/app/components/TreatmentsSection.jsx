@@ -46,9 +46,9 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
   );
 };
 
-const TreatmentsSection = ({ dictionary }) => {
-  const isRTL = dictionary.dir === 'rtl';
-  const { treatments } = dictionary;
+const TreatmentsSection = ({ dictionary = {} }) => {
+  const isRTL = dictionary?.dir === 'rtl';
+  const treatments = dictionary?.treatments || {};
 
   const treatmentsList = [
     'dentalImplants',

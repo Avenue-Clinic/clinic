@@ -1,15 +1,5 @@
 {
     "dir": "ltr",
-    "header": {
-      "home": "Ana Sayfa",
-      "treatments": "Tedaviler",
-      "gallery": "Galeri",
-      "aboutUs": "Hakkımızda",
-      "blog": "Blog",
-      "contactUs": "İletişim",
-      "getConsultation": "ÜCRETSİZ Danışmanlık Alın",
-      "smileCounter": "28,000 Gülümseme ve Sayılıyor — İstanbul'da Bize Katılın!"
-    },
     "hero": {
       "title": "Güzel Gülüşler Yaratmak, Sağlıklı Yarınlar Temin Etmek",
       "subtitle": "Gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavileri dünya standartlarından %70 daha uygun fiyatlarla keşfedin."
@@ -171,5 +161,43 @@
       "button": "Tüm Sonuçlar",
       "before": "Öncesi",
       "after": "Sonrası"
+    },
+    "contact": {
+      "sectionTitle": "BİZE ULAŞIN",
+      "title": "ÜCRETSİZ Diş Raporu Alın",
+      "subtitle": "Bilgilerinizi gönderin ve ihtiyaçlarınıza özel bir teklif alın.",
+      "form": {
+        "namePlaceholder": "Ad Soyad",
+        "phonePlaceholder": "Telefon Numarası",
+        "emailPlaceholder": "E-posta Adresi",
+        "messagePlaceholder": "Mesajınız",
+        "submitButton": "Gönder"
+      },
+      "faq": {
+        "title": "Tedavilerimiz hakkında bilmeniz gereken her şey",
+        "subtitle": "SSS bölümümüzde diş tedavilerimiz, prosedürlerimiz ve hasta bakımı hakkındaki yaygın sorulara hızlı yanıtlar bulun.",
+        "questions": {
+          "treatments": {
+            "question": "Hangi tür diş tedavileri sunuyorsunuz?",
+            "answer": "Koruyucu bakım, kozmetik diş hekimliği, restoratif tedaviler ve ağız cerrahisi dahil olmak üzere kapsamlı bir diş tedavisi yelpazesi sunuyoruz. Hizmetlerimiz arasında diş implantları, veneerler, kronlar, diş beyazlatma, ortodonti ve tam gülüş tasarımı gibi tedaviler yer alır. Her tedavi, benzersiz ihtiyaçlarınızı karşılamak ve daha sağlıklı, daha güvenli bir gülümseme elde etmenize yardımcı olmak için özel olarak tasarlanmıştır."
+          },
+          "affordability": {
+            "question": "Tedavileriniz diğer ülkelere kıyasla uygun fiyatlı mı?",
+            "answer": "Evet, Medico Clinic, kaliteden ödün vermeden, diğer birçok ülkeye göre %70'e varan oranda daha uygun fiyatlarla üst düzey diş tedavileri sunmaktadır. Malzeme ve teknolojide yüksek standartları sağlamak için küresel olarak güvenilir markalarla ortaklık yapıyor, rekabetçi fiyatlarla mükemmel sonuçlar sunuyoruz."
+          },
+          "rightTreatment": {
+            "question": "Hangi diş tedavisinin benim için doğru olduğunu nasıl bilirim?",
+            "answer": "Uzman ekibimiz, diş sağlığınızı değerlendirmek için ileri teknoloji kullanarak detaylı bir konsültasyon ve tanı sürecinde size rehberlik edecektir. Bu değerlendirmeye dayanarak, işlev, estetik veya genel ağız sağlığını iyileştirme hedeflerinize uygun en uygun tedavi seçeneklerini önereceğiz."
+          },
+          "materials": {
+            "question": "Diş tedavileri için yüksek kaliteli malzemeler kullanıyor musunuz?",
+            "answer": "Kesinlikle. Her tedavi için dayanıklılık, konfor ve doğal bir görünüm sağlayan, dünyaca ünlü markalardan sadece en kaliteli malzemeleri kullanıyoruz. Kaliteli malzemelere odaklanmamız, diş işlerinizin zamana karşı dayanıklı olmasını garanti eder ve size güvenebileceğiniz kalıcı sonuçlar sunar."
+          },
+          "duration": {
+            "question": "Diş tedavilerinin tamamlanması ne kadar sürer?",
+            "answer": "Tedavi süresi, spesifik prosedüre ve sizin özel ihtiyaçlarınıza bağlıdır. Hollywood Smile gibi bazı tedaviler tek seansta tamamlanabilirken, diş implantları veya ortodonti gibi diğerleri birkaç ay boyunca birden fazla seans gerektirebilir. Ekibimiz, buna göre plan yapmanıza yardımcı olmak için ilk konsültasyonunuzda net bir zaman çizelgesi sunacaktır."
+          }
+        }
+      }
     }
   }

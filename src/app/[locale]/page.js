@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDictionary } from '../utils/dictionary';
+import { getDictionary } from '../utils/i18n';
 import Hero from '../components/Hero';
 import LeadForm from '../components/LeadForm';
 import AboutSection from '../components/AboutSection';
@@ -11,6 +11,7 @@ import PatientJourneySection from '../components/PatientJourneySection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import TransformationSection from '../components/TransformationSection';
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default async function Home({ params: { locale } }) {
       <PatientJourneySection dictionary={dictionary} />
       <TestimonialsSection dictionary={dictionary} />
       <TransformationSection dictionary={dictionary} />
+      <ContactSection dictionary={dictionary} />
       <Footer dictionary={dictionary} />
     </main>
   );

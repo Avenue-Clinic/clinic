@@ -4,9 +4,9 @@ import { useState } from 'react';
 import CustomPhoneInput from './CustomPhoneInput';
 import { IconSend } from '@tabler/icons-react';
 
-export default function LeadForm({ dictionary }) {
+export default function LeadForm({ dictionary = {} }) {
   const [phone, setPhone] = useState('');
-  const { form } = dictionary;
+  const formDict = dictionary?.form || {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function LeadForm({ dictionary }) {
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 p-14 pt-7 bg-white rounded-[50px] sm:grid-cols-3">
           <input
             type="text"
-            placeholder={form.name}
+            placeholder={formDict.name || ''}
             required
             className="w-full h-11 px-4 text-sm border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
           />
@@ -28,12 +28,12 @@ export default function LeadForm({ dictionary }) {
               value={phone}
               onChange={setPhone}
               dictionary={dictionary}
-              placeholder={form.phone}
+              placeholder={formDict.phone || ''}
             />
           </div>
           <input
             type="email"
-            placeholder={form.email}
+            placeholder={formDict.email || ''}
             required
             className="w-full h-11 px-4 text-sm border border-gray-300 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
           />
@@ -42,7 +42,7 @@ export default function LeadForm({ dictionary }) {
               type="submit"
               className="mt-4 inline-flex items-center justify-center space-x-1 px-7 py-6 h-11 text-[12px] font-medium text-white bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] transition-colors duration-300"
             >
-              <span>{form.submit}</span>
+              <span>{formDict.submit || ''}</span>
               <IconSend size={18} className="ms-4 " />
             </button>
           </div>

@@ -34,10 +34,10 @@ const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   return <div ref={ref}>{count ? `${prefix}${count}${suffix}` : '0'}</div>;
 };
 
-export default function AboutSection({ dictionary }) {
-  const { about } = dictionary;
+export default function AboutSection({ dictionary = {} }) {
+  const about = dictionary?.about || {};
   const [isHovered, setIsHovered] = useState(false);
-  const isRTL = dictionary.dir === 'rtl';
+  const isRTL = dictionary?.dir === 'rtl';
 
   return (
     <section className="py-12">
@@ -123,7 +123,7 @@ export default function AboutSection({ dictionary }) {
                   <div className="text-[42px] font-semibold text-[var(--primary)] leading-none">
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats.smiles.label}</div>
+                  <div className="mt-1 text-sm text-gray-500">{about.stats?.smiles?.label}</div>
                 </motion.div>
 
                 <motion.div
@@ -135,7 +135,7 @@ export default function AboutSection({ dictionary }) {
                   <div className="text-[42px] font-bold text-[var(--primary)] leading-none">
                     <CounterAnimation end="96" suffix="%" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats.satisfaction.label}</div>
+                  <div className="mt-1 text-sm text-gray-500">{about.stats?.satisfaction?.label}</div>
                 </motion.div>
               </div>
 

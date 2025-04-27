@@ -1,15 +1,6 @@
 {
     "dir": "ltr",
-    "header": {
-      "home": "Home",
-      "treatments": "Treatments",
-      "gallery": "Gallery",
-      "aboutUs": "About Us",
-      "blog": "Blog",
-      "contactUs": "Contact Us",
-      "getConsultation": "Get a FREE Consultation",
-      "smileCounter": "28,000 Smiles and Counting — Join Us in Istanbul!"
-    },
+    
     "hero": {
       "title": "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows",
       "subtitle": "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."
@@ -171,5 +162,43 @@
       "button": "All Results",
       "before": "Before",
       "after": "After"
+    },
+    "contact": {
+      "sectionTitle": "CONTACT US",
+      "title": "Get Your FREE Dental Report",
+      "subtitle": "Submit your info and get a quote personalized to your needs.",
+      "form": {
+        "namePlaceholder": "Name Surname",
+        "phonePlaceholder": "Phone Number",
+        "emailPlaceholder": "Email Address",
+        "messagePlaceholder": "Your Message",
+        "submitButton": "Submit"
+      },
+      "faq": {
+        "title": "Everything you need to know about our treatments",
+        "subtitle": "Find quick answers to common questions about our dental treatments, procedures, and patient care in our FAQ section.",
+        "questions": {
+          "treatments": {
+            "question": "What types of dental treatments do you offer?",
+            "answer": "We provide a comprehensive range of dental treatments, including preventive care, cosmetic dentistry, restorative treatments, and oral surgery. Our services include dental implants, veneers, crowns, teeth whitening, orthodontics, and full smile makeovers, among others. Each treatment is tailored to meet your unique needs and help you achieve a healthier, more confident smile."
+          },
+          "affordability": {
+            "question": "Are your treatments affordable compared to other countries?",
+            "answer": "Yes, Medico Clinic offers top-quality dental treatments at up to 70% more affordable rates than in many other countries, without compromising on quality. We partner with globally trusted brands to ensure high standards in materials and technology, delivering excellent results at competitive prices."
+          },
+          "rightTreatment": {
+            "question": "How do I know which dental treatment is right for me?",
+            "answer": "Our expert team will guide you through a detailed consultation and diagnostic process, using advanced technology to assess your dental health. Based on this assessment, we'll recommend the most suitable treatment options that align with your goals, whether it's improving function, aesthetics, or overall oral health."
+          },
+          "materials": {
+            "question": "Do you use high-quality materials for dental treatments?",
+            "answer": "Absolutely. We only use top-grade materials from renowned global brands, ensuring durability, comfort, and a natural look for each treatment. Our focus on quality materials guarantees that your dental work will stand the test of time, giving you lasting results you can trust."
+          },
+          "duration": {
+            "question": "How long does it take to complete dental treatments?",
+            "answer": "Treatment duration depends on the specific procedure and your unique needs. Some treatments, like Hollywood Smile, can be completed in a single visit, while others, like dental implants or orthodontics, may require multiple visits over a few months. Our team will provide a clear timeline during your initial consultation to help you plan accordingly."
+          }
+        }
+      }
     }
   }

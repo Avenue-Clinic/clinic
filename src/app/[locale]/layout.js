@@ -2,8 +2,8 @@
 import React from 'react';
 import { Rubik, Poppins, Plus_Jakarta_Sans } from 'next/font/google';
 import Header from '../components/Header';
-import { locales } from '../utils/dictionary';
-import { getDictionary } from '../utils/dictionary';
+import { locales } from '../utils/i18n';
+import { getDictionary } from '../utils/i18n';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -37,8 +37,8 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <html lang={locale} dir={dir} className={plusJakartaSans.variable} style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}>
-      <body className={`${dir} text-lg antialiased`} style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}>
+    <html lang={locale} dir={dir} className={`${plusJakartaSans.variable} ${rubik.variable}`} style={{ fontFamily: locale === 'ar' ? 'var(--font-rubik)' : 'var(--font-plus-jakarta-sans)' }}>
+      <body className={`${dir} text-lg antialiased`} style={{ fontFamily: locale === 'ar' ? 'var(--font-rubik)' : 'var(--font-plus-jakarta-sans)' }}>
         <Header dictionary={dictionary} locale={locale} />
         {children}
       </body>
