@@ -124,22 +124,40 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
                       onMouseLeave={() => setTreatmentsOpen(false)}
                     >
                       <Link 
-                        href={`/${locale}/treatments/dental-implants`}
+                        href={`/${locale}/treatments/dental-implants`} 
                         className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
                       >
                         {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
                       </Link>
                       <Link 
-                        href={`/${locale}/treatments/hollywood-smile`}
+                        href={`/${locale}/treatments/hollywood-smile`} 
                         className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
                       >
                         {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
                       </Link>
                       <Link 
-                        href={`/${locale}/treatments/all-on-implants`}
+                        href={`/${locale}/treatments/all-on-implants`} 
                         className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
                       >
-                        {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
+                        {dictionary?.treatments?.allOnImplants || 'All-on-4/6 Implants'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/dental-crowns`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.dentalCrowns || 'Dental Crowns'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/dental-veneers`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.dentalVeneers || 'Dental Veneers'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/surgical-dentistry`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                      >
+                        {dictionary?.treatments?.surgicalDentistry || 'Surgical Dentistry'}
                       </Link>
                     </div>
                   </li>
@@ -247,7 +265,28 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
                         className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
                         onClick={() => setIsOpen(false)}
                       >
-                        {dictionary?.treatments?.allOnImplants || 'All-on-Implants'}
+                        {dictionary?.treatments?.allOnImplants || 'All-on-4/6 Implants'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/dental-crowns`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.dentalCrowns || 'Dental Crowns'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/dental-veneers`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.dentalVeneers || 'Dental Veneers'}
+                      </Link>
+                      <Link 
+                        href={`/${locale}/treatments/surgical-dentistry`} 
+                        className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] transition-colors duration-300"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dictionary?.treatments?.surgicalDentistry || 'Surgical Dentistry'}
                       </Link>
                     </div>
                   </div>

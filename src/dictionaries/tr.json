@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "label": "İletişim",
+    "address": {
+      "title": "Adres",
+      "description": "Beyoğlu mah. 2, Cami sokak, Küçükçekmece/ İstanbul"
+    },
+    "contact": {
+      "title": "İletişim",
+      "email": "info@medicclinic.net",
+      "phone": "+90 552 663 0630"
+    },
+    "hours": {
+      "title": "Çalışma Saatleri",
+      "weekdays": "Pazartesi - Cuma: 09:00 - 19:00",
+      "saturday": "Cumartesi: 09:00 - 16:00",
+      "sunday": "Pazar: Kapalı"
+    }
+  }
+}

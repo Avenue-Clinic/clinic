@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import AboutValues from './AboutValues';
 
 const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   const [count, setCount] = useState(0);
@@ -182,7 +181,6 @@ export default function AboutSection({ dictionary = {} }) {
           </motion.div>
         </div>
       </div>
-      <AboutValues dictionary={dictionary} /> 
     </section>
   );
 }

@@ -10,6 +10,7 @@ const loadDictionary = async (locale) => {
   const footer = await import(`../locales/${locale}/footer.json`).then((module) => module.default);
   const form = await import(`../locales/${locale}/form.json`).then((module) => module.default);
   const about = await import(`../locales/${locale}/about.json`).then((module) => module.default);
+  const dentalImplants = await import(`../locales/${locale}/dental-implants.json`).then((module) => module.default);
 
   // Merge all translations into one dictionary
   return {
@@ -18,6 +19,7 @@ const loadDictionary = async (locale) => {
     footer,   // Footer specific translations
     form,     // Form specific translations    
     about,    // About page specific translations
+    'dental-implants': dentalImplants,  // Dental implants translations
     ...home   // This contains most sections (hero, about, expertise, etc.)
   };
 };

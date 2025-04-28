@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Kalıcı Diş İmplantları ile Gülüşünüzü Geri Kazanın",
+    "description": "Diş implantları, eksik dişler için kalıcı ve doğal görünümlü bir çözüm sunar, özgüvenle gülümsemenizi, yemek yemenizi ve konuşmanızı sağlar. Çene kemiğinizle kusursuz bir şekilde bütünleşecek şekilde tasarlanan implantlarımız, stabilite, dayanıklılık ve kendi dişleriniz gibi hissettiren bir restorasyon sunar.",
+    "stats": {
+      "affordability": {
+        "value": "70",
+        "label": "Daha Uygun Fiyatlı"
+      },
+      "durability": {
+        "value": "15",
+        "label": "Yıl Kalıcı Sonuçlar"
+      }
+    },
+    "cta": "ÜCRETSİZ Diş Raporu Alın"
+  },
+  "benefits": {
+    "title": "Diş İmplantlarının Genel Bakışı ve Temel Faydaları",
+    "description": "Diş implantları, eksik dişleri değiştirmek için tasarlanmış, hem işlevselliği hem de estetiği restore eden son teknoloji bir çözümdür. Protez veya köprülerden farklı olarak, implantlar çene kemiğine cerrahi olarak yerleştirilir ve eşsiz destek ve uzun ömür sağlar. Kalıcı bir çözüm arayan hastalar için ideal olan implantlar, gülüşünüzü dönüştürebilir ve ağız sağlığınızı iyileştirebilir.",
+    "features": {
+      "natural_appearance": {
+        "title": "Doğal Görünüm",
+        "description": "Diş implantları doğal dişlerinizle kusursuz bir şekilde uyum sağlar, gülüşünüzün estetiğini restore eder ve size güvenle hissedeceğiniz bir görünüm kazandırır."
+      },
+      "improved_chewing": {
+        "title": "Gelişmiş Çiğneme ve Yeme Konforu",
+        "description": "Protezlerden farklı olarak, diş implantları doğal dişler gibi işlev görür ve sevdiğiniz yiyecekleri rahatsızlık veya endişe duymadan yemenize olanak tanır."
+      },
+      "enhanced_speech": {
+        "title": "Gelişmiş Konuşma",
+        "description": "Eksik dişler veya uyumsuz protezler konuşmayı zorlaştırabilir. İmplantlar, net ve güvenle konuşmanıza yardımcı olan stabilite sağlar."
+      },
+      "long_lasting": {
+        "title": "Uzun Ömürlü Çözüm",
+        "description": "Uygun bakımla, diş implantları ömür boyu dayanacak şekilde tasarlanmıştır ve geçici çözümlere kıyasla dayanıklı ve uygun maliyetli bir alternatif sunar."
+      },
+      "jawbone_health": {
+        "title": "Çene Kemiği Sağlığının Korunması",
+        "description": "Diş implantları çene kemiğini uyarır ve kemik kaybını önler, yüz yapınızı ve genel ağız sağlığınızı korur."
+      },
+      "easy_maintenance": {
+        "title": "Kolay Bakım",
+        "description": "Doğal dişler gibi, diş implantları da sadece düzenli fırçalama, diş ipi kullanımı ve diş kontrolü gerektirir - özel bakım gerekmez."
+      }
+    }
+  },
+  "transformation": {
+    "title": "Diş İmplantı Dönüşümleri",
+    "description": "Diş implantı prosedürlerimizle elde edilen olağanüstü dönüşümleri görün. Her vaka, gerçek bir hastanın özgüvenli ve sağlıklı bir gülümsemeye giden yolculuğunu temsil eder.",
+    "before": "Öncesi",
+    "after": "Sonrası",
+    "cases": [
+      {
+        "id": 1,
+        "beforeImage": "/images/implants/before1.jpg",
+        "afterImage": "/images/implants/after1.jpg",
+        "alt": "Diş İmplantı Vakası 1"
+      },
+      {
+        "id": 2,
+        "beforeImage": "/images/implants/before2.jpg",
+        "afterImage": "/images/implants/after2.jpg",
+        "alt": "Diş İmplantı Vakası 2"
+      }
+    ]
+  }
+}
