@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const AboutHeader = ({ dictionary }) => {
   const pathname = usePathname();
@@ -28,15 +29,23 @@ const AboutHeader = ({ dictionary }) => {
            background: "linear-gradient(90deg, #252D62 0%, #023752 100%)"
          }}>
       <div className="container px-4 mx-auto">
-        <h1 className="text-center text-white"
-            style={{
-              fontSize: "54px",
-              fontWeight: 700,
-              lineHeight: "65px"
-            }}>
+        <motion.h1 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center text-white"
+          style={{
+            fontSize: "54px",
+            fontWeight: 700,
+            lineHeight: "65px"
+          }}>
           {dictionary.about.label}
-        </h1>
-        <div className="flex justify-center gap-4 mt-4">
+        </motion.h1>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="flex justify-center gap-4 mt-4">
           {pathname.startsWith("/ar") ? (
             <>
               <Link href={pathname.replace("/ar", "/en")}
@@ -82,7 +91,7 @@ const AboutHeader = ({ dictionary }) => {
               </Link>
             </>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
