@@ -5,6 +5,11 @@
       "title": "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows",
       "subtitle": "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."
     },
+    "gallery": {
+      "title": "Gallery",
+      "images": "Images",
+      "videos": "Videos"
+    },
     "form": {
       "name": "Name Surname",
       "phone": "Phone Number",
@@ -74,7 +79,10 @@
           "label": "Patient Satisfaction Rate Achieved"
         }
       },
-      "cta": "More About Us"
+      "cta": "More About Us",
+      "committed_excellence": "COMMITTED TO EXCELLENCE",
+      "healthy_smiles_trust": "Driven by a Vision of Healthy Smiles and Lasting Trust.",
+      "contact_now": "Contact Now"
     },
     "expertise": {
       "label": "EXPERTISE",

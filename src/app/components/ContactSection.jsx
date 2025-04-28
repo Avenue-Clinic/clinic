@@ -24,13 +24,14 @@ export default function ContactSection({ dictionary }) {
   return (
     <section className="overflow-hidden bg-white">
       <div className="mx-[315px] py-[100px] pb-[200px]">
-        <div className={`flex gap-[100px] ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className={`flex gap-[70px] ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Contact Form */}
           <motion.div 
             className="flex-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
               {contact.sectionTitle}
@@ -83,9 +84,10 @@ export default function ContactSection({ dictionary }) {
           {/* FAQ Section */}
           <motion.div 
             className="flex-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
               FAQS
@@ -121,9 +123,13 @@ export default function ContactSection({ dictionary }) {
                     )}
                   </button>
                   <div 
-                    className={`overflow-hidden transition-all duration-500 ${
+                    className={`overflow-hidden transition-all ${
                       activeQuestion === key ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
+                    style={{
+                      transitionDuration: '600ms',
+                      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
                   >
                     <div className="px-6 py-4 bg-[#FAFAFA]">
                       <p className="text-[16px] leading-[29px] text-[var(--text)]">{question.answer}</p>

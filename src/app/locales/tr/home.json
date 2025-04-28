@@ -1,8 +1,14 @@
 {
     "dir": "ltr",
+    
     "hero": {
-      "title": "Güzel Gülüşler Yaratmak, Sağlıklı Yarınlar Temin Etmek",
-      "subtitle": "Gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavileri dünya standartlarından %70 daha uygun fiyatlarla keşfedin."
+      "title": "Güzel Gülüşler Yaratıyor, Daha Sağlıklı Yarınlar Sağlıyoruz",
+      "subtitle": "Gülüşünüzün sağlığı ve güzelliği için en kaliteli tedavileri dünya standartlarından %70 daha uygun maliyetlerle sunan uzman diş bakımını keşfedin."
+    },
+    "gallery": {
+      "title": "Galeri",
+      "images": "Resimler",
+      "videos": "Videolar"
     },
     "form": {
       "name": "Ad Soyad",
@@ -73,7 +79,10 @@
           "label": "Hasta Memnuniyet Oranı"
         }
       },
-      "cta": "Daha Fazla Bilgi"
+      "cta": "Daha Fazla Bilgi",
+      "committed_excellence": "MÜKEMMELLİĞE ADANMIŞ",
+      "healthy_smiles_trust": "Sağlıklı Gülüşler ve Kalıcı Güven Vizyonuyla Hareket Ediyoruz.",
+      "contact_now": "Şimdi İletişime Geçin"
     },
     "expertise": {
       "label": "UZMANLIK",

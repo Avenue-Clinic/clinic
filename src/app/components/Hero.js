@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Hero({ dictionary = {}, locale = 'en' }) {
   const isRTL = locale === 'ar';
@@ -21,7 +22,12 @@ export default function Hero({ dictionary = {}, locale = 'en' }) {
         </div>
         
         {/* Content */}
-        <div className="relative z-[2] container mx-auto px-6 h-full flex flex-col justify-center">
+        <motion.div 
+          className="relative z-[2] container mx-auto px-6 h-full flex flex-col justify-center"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="mb-6 font-bold text-[56px] leading-[72px]">
               {dictionary?.hero?.title || "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows"}
@@ -30,7 +36,7 @@ export default function Hero({ dictionary = {}, locale = 'en' }) {
               {dictionary?.hero?.subtitle || "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."}
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

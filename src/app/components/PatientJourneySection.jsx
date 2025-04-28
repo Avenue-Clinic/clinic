@@ -67,7 +67,7 @@ const PatientJourneySection = ({ dictionary = {} }) => {
   };
 
   return (
-    <section className="relative py-[100px] overflow-hidden bg-white ">
+    <section className="relative py-[100px] overflow-hidden bg-white z-10">
       <div className="max-w-[1300px] px-4 mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-[385px,1fr] gap-8 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
           {/* Left Content */}

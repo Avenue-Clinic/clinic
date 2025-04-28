@@ -9,13 +9,15 @@ const loadDictionary = async (locale) => {
   const header = await import(`../locales/${locale}/header.json`).then((module) => module.default);
   const footer = await import(`../locales/${locale}/footer.json`).then((module) => module.default);
   const form = await import(`../locales/${locale}/form.json`).then((module) => module.default);
+  const about = await import(`../locales/${locale}/about.json`).then((module) => module.default);
 
   // Merge all translations into one dictionary
   return {
     dir: locale === 'ar' ? 'rtl' : 'ltr',
     header: header.header,   // Extract header translations from nested structure
     footer,   // Footer specific translations
-    form,     // Form specific translations
+    form,     // Form specific translations    
+    about,    // About page specific translations
     ...home   // This contains most sections (hero, about, expertise, etc.)
   };
 };

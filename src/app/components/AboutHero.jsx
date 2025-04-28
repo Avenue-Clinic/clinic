@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
-import AboutValues from './AboutValues';
 
 const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   const [count, setCount] = useState(0);
@@ -35,54 +34,43 @@ const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   return <div ref={ref}>{count ? `${prefix}${count}${suffix}` : '0'}</div>;
 };
 
-export default function AboutSection({ dictionary = {} }) {
+const AboutHero = ({ dictionary }) => {
+  const isRTL = dictionary.dir === "rtl";
+  const [currentSlide, setCurrentSlide] = useState(0);
   const about = dictionary?.about || {};
-  const [isHovered, setIsHovered] = useState(false);
-  const isRTL = dictionary?.dir === 'rtl';
+
+  const slides = [
+    {
+      number: 0,
+      image: "/images/slider/aboutus1.jpg",
+    },
+    {
+      number: 1,
+      image: "/images/slider/aboutus2.jpg",
+    },
+    {
+      number: 2,
+      image: "/images/slider/aboutus3.jpg",
+    },
+  ];
+
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const goToSlide = (slideNumber) => {
+    setCurrentSlide(slideNumber);
+  };
 
   return (
-    <section className="py-12">
-      <div className="container relative h-[555px] mx-auto max-w-[1300px] px-0">
-        <div className={`grid items-center h-full grid-cols-1 md:grid-cols-2 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-          {/* Image container */}
-          <div className={`relative h-full ${isRTL ? 'md:order-2' : 'md:order-1'}`}>
-            <div 
-              className={`absolute top-1/2 -translate-y-1/2 w-[585px] h-[490px] rounded-xl overflow-hidden ${
-                isRTL ? 'right-10' : 'left-[5px]'
-              }`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <Image
-                src="/images/placeholder-dental.jpg"
-                alt="Dental Care Video"
-                fill
-                className="object-cover"
-              />
-              <motion.div 
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40"
-                animate={{
-                  scale: isHovered ? 1.1 : 1,
-                  opacity: isHovered ? 0.6 : 0.4
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center w-20 h-20 rounded-full bg-[var(--primary)]"
-                  animate={{
-                    scale: isHovered ? 1.2 : 1
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                  </svg>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Text container */}
+    <section className="py-20">
+      <div className="container px-4 mx-auto">
+        <div className="grid items-center grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Text Content */}
           <motion.div 
             className={`max-w-[650px] flex flex-col justify-center ${
               isRTL ? 'text-right' : ''
@@ -153,7 +141,7 @@ export default function AboutSection({ dictionary = {} }) {
                 className={isRTL ? "text-right" : "text-left"}
               >
                 <Link
-                  href="/about-us"
+                  href="/contact"
                   className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] ${isRTL ? 'flex-row-reverse' : ''}`}
                 >
                   {about.cta}
@@ -180,9 +168,82 @@ export default function AboutSection({ dictionary = {} }) {
               </motion.div>
             </div>
           </motion.div>
+
+{/* Image Carousel */}
+<motion.div
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="relative w-[600px]"
+>
+  {/* Slider Container */}
+  <div className="relative h-[500px] overflow-hidden ">
+    {/* Navigation Chevrons */}
+    <button
+      onClick={goToPrevSlide}
+      className="absolute z-10 -translate-y-1/2 left-4 top-1/2"
+      aria-label="Previous slide"
+    >
+      <Image src="/icons/chl.svg" alt="Previous" width={24} height={24} />
+    </button>
+    
+    <button
+      onClick={goToNextSlide}
+      className="absolute z-10 -translate-y-1/2 right-8 top-1/2"
+      aria-label="Next slide"
+    >
+      <Image src="/icons/chr.svg" alt="Next" width={24} height={24} />
+    </button>
+
+    {slides.map((slide, index) => (
+      <div
+        key={slide.number}
+        className={`absolute inset-0 w-full h-full py-16 transition-all duration-700 ease-in-out ${
+          currentSlide === slide.number
+            ? 'opacity-100 translate-x-0'
+            : currentSlide > slide.number
+            ? 'opacity-0 -translate-x-full'
+            : 'opacity-0 translate-x-full'
+        }`}
+      >
+        <div className="relative w-full h-full">
+          <div className="absolute inset-[5px] rounded-[30px] overflow-hidden">
+            <Image
+              src={slide.image}
+              alt={`About Us Slide ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="600px"
+              priority={index === 0}
+            />
+          </div>
+          <div className="absolute inset-0 rounded-[30px] border-[5px] border-white"></div>
         </div>
       </div>
-      <AboutValues dictionary={dictionary} /> 
+    ))}
+  </div>
+
+  {/* Navigation Dots */}
+  <div className="flex justify-center gap-2 mt-4">
+    {slides.map((slide) => (
+      <button
+        key={slide.number}
+        onClick={() => goToSlide(slide.number)}
+        className={`w-2 h-2 rounded-full transition-all ${
+          currentSlide === slide.number
+            ? 'bg-[var(--primary)] w-6'
+            : 'bg-gray-300'
+        }`}
+        aria-label={`Go to slide ${slide.number}`}
+      />
+    ))}
+  </div>
+</motion.div>
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+export default AboutHero;

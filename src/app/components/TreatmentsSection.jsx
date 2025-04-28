@@ -10,7 +10,7 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
       viewport={{ once: true }}
       transition={{
         duration: 0.5,
-        delay: index * 0.2
+        delay: index < 3 ? index * 0.2 : (index - 3) * 0.2
       }}
       className="max-w-[400px] p-10 bg-white rounded-[40px]"
     >
