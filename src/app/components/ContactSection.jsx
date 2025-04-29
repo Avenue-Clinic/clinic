@@ -23,7 +23,7 @@ export default function ContactSection({ dictionary }) {
 
   return (
     <section className="overflow-hidden bg-white">
-      <div className="mx-[315px] py-[100px] pb-[200px]">
+      <div className="container mx-auto py-[100px] pb-[200px]">
         <div className={`flex gap-[70px] ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Contact Form */}
           <motion.div 

@@ -8,7 +8,7 @@ const TestimonialsSection = ({ dictionary, inverted = false }) => {
 
   return (
     <section className={inverted ? "bg-[#FAFAFA]" : "bg-[var(--primary)]"}>
-      <div className="mx-[315px] py-[100px]">
+      <div className="container mx-auto py-[100px]">
         <div className={`flex items-center justify-between mb-[80px] ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className="max-w-[820px]">
             <h3 className={`text-[14px] font-bold leading-[17px] tracking-[0.2em] mb-5 ${inverted ? "text-[var(--secondary)]" : "text-white"}`}>
