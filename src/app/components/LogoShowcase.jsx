@@ -20,6 +20,9 @@ const LogoShowcase = () => {
   return (
     <section className="py-12 bg-white">
       <div className="container px-4 mx-auto">
+        <h2 className="text-center text-2xl md:text-3xl font-medium mb-12">
+          Powered by top-quality solutions from the most <span className="text-[--secondary]">trusted</span> brands in dentistry.
+        </h2>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={50}
@@ -45,7 +48,7 @@ const LogoShowcase = () => {
               <img
                 src={brand}
                 alt={`Brand ${index % brands.length + 1}`}
-                className="object-contain w-auto h-12 transition-all duration-300 grayscale hover:grayscale-0"
+                className="object-contain h-8 transition-all duration-300 grayscale hover:grayscale-0"
               />
             </SwiperSlide>
           ))}
