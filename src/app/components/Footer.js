@@ -66,7 +66,7 @@ export default function Footer({ dictionary = {}, locale }) {
             <ul className="space-y-4">
               <li><Link href={`/${locale}/treatments/dental-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalImplants}</Link></li>
               <li><Link href={`/${locale}/treatments/hollywood-smile`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.hollywoodSmile}</Link></li>
-              <li><Link href={`/${locale}/treatments/all-on-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.allOn4}</Link></li>
+              <li><Link href={`/${locale}/treatments/all-on-4-6-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.allOn4}</Link></li>
               <li><Link href={`/${locale}/treatments/dental-crowns`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalCrowns}</Link></li>
               <li><Link href={`/${locale}/treatments/dental-veneers`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalVeneers}</Link></li>
             </ul>

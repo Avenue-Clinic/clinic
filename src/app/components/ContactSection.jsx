@@ -36,8 +36,10 @@ export default function ContactSection({ dictionary }) {
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
               {contact.sectionTitle}
             </h3>
-            <h2 className="text-[42px] font-bold leading-[55px] text-[var(--primary)] mb-4">
-              Get Your <span className="text-[var(--secondary)]">FREE</span> Dental Report
+            <h2 
+              className="text-[42px] font-bold leading-[55px] text-[var(--primary)] mb-4"
+              dangerouslySetInnerHTML={{ __html: dictionary?.contact?.getFreeReport || 'Get Your <span className="text-[var(--secondary)]">FREE</span> Dental Report' }}
+            >
             </h2>
             <p className="text-[16px] leading-[24px] text-[#6B7280] mb-8">
               {contact.subtitle}

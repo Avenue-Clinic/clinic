@@ -10,7 +10,7 @@ export default async function Contact({ params: { locale } }) {
   return (
     <main>
       <ContactHeader dictionary={dictionary} />
-      <ContactCards dictionary={dictionary} />
+      <ContactCards dictionary={dictionary} locale={locale} />
       <ContactMapSection dictionary={dictionary} />
       <Footer dictionary={dictionary} />
     </main>

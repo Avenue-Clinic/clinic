@@ -54,7 +54,7 @@ export default function LeadForm({ dictionary = {} }) {
         {/* No animation on the form container */}
         <form 
           onSubmit={handleSubmit} 
-          className="grid grid-cols-1 gap-6 p-14 pt-7 bg-white rounded-[50px] sm:grid-cols-3"
+          className="grid grid-cols-1 gap-6 p-8 sm:p-14 pt-7 bg-white rounded-[50px] sm:grid-cols-3"
         >
           {/* Wrap inputs in a motion.div for staggered animation */}
           <motion.div

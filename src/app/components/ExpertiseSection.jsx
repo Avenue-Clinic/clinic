@@ -41,14 +41,15 @@ const ExpertiseSection = ({ dictionary = {} }) => {
   return (
     <section className="relative py-20 overflow-hidden bg-white">
       <div className="max-w-[1270px] px-4 mx-auto">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
-          {/* Left Content */}
+        {/* Horizontal layout for lg and above, vertical stack for smaller screens */}
+        <div className={`grid grid-cols-1 lg:grid-cols-2 lg:gap-16 ${isRTL ? 'lg:flex lg:flex-row-reverse' : ''}`}>
+          {/* Left/Right Content based on language direction */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-8"
+            className="mx-auto space-y-8 text-center lg:text-left lg:mx-0"
           >
             <div>
               <h3 className="text-[var(--secondary)] uppercase tracking-wider text-[14px] font-[700] mb-5">
@@ -73,66 +74,73 @@ const ExpertiseSection = ({ dictionary = {} }) => {
             </div>
           </motion.div>
 
-          {/* Right Content */}
+          {/* Right/Left Image Content based on language direction */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative h-[800px]"
+            className="relative mt-16 lg:mt-0"
           >
-            {/* Background Pattern */}
-            <div className="absolute right-0 top-[100px] w-[600px] h-[500px] overflow-hidden rounded-[40px]">
-              <Image
-                src="/images/expertise-background.jpg"
-                alt="Background Pattern"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            {/* Expertise Images */}
-            <Image
-              src="/images/expertise-1.jpg"
-              alt="Dental Expertise"
-              width={270}
-              height={400}
-              className="absolute left-[-3px] top-[60px] rounded-[30px] object-cover z-10 shadow-lg"
-            />
-            <Image
-              src="/images/expertise-2.jpg"
-              alt="Dental Technology"
-              width={270}
-              height={350}
-              className="absolute right-[30px] bottom-[150px] rounded-[40px] object-cover z-10 shadow-lg"
-            />
-
-            {/* Expert Dentist Stats */}
-            <div className="absolute left-[-5px] bottom-[200px] bg-white p-8 rounded-[30px] shadow-lg max-w-[280px] z-20">
-              <div className="flex items-center gap-12">
+            <div className="relative h-[500px] md:h-[600px] lg:h-[700px] w-full max-w-[1000px] mx-auto lg:mx-0">
+              {/* Background Pattern - Responsive */}
+              <div className="absolute left-1/2 lg:left-auto lg:right-[78px] top-1/2 lg:top-[100px] transform lg:transform-none -translate-x-1/2 -translate-y-1/2 lg:translate-x-0 lg:translate-y-0 w-[80%] lg:w-[520px] h-[70%] lg:h-[500px] max-h-[500px] overflow-hidden rounded-[40px]">
                 <Image
-                  src="/icons/dentist.svg"
-                  alt="Dentists Icon"
-                  width={60}
-                  height={60}
+                  src="/images/expertise-background.jpg"
+                  alt="Background Pattern"
+                  fill
+                  className="object-cover"
+                  priority
                 />
-                <div>
-                  <h4 className="text-[var(--primary)] text-[24px] font-bold leading-none">
-                    {expertise?.stats?.value}
-                  </h4>
-                  <p className="text-[#4F5665] text-[16px]">
-                    {expertise?.stats?.label}
-                  </p>
+              </div>
+
+              {/* First Expertise Image - Responsive and positioned according to screen size */}
+              <div className="absolute left-1/2 lg:left-auto lg:right-[48%] top-1/2 lg:top-[10%] transform lg:transform-none -translate-x-1/2 -translate-y-1/2 lg:translate-x-0 lg:translate-y-0 w-[30%] max-w-[270px] aspect-[270/400] rounded-[30px] overflow-hidden z-20 shadow-lg">
+                <Image
+                  src="/images/expertise-1.jpg"
+                  alt="Dental Expertise"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              {/* Second Expertise Image - Responsive and positioned according to screen size */}
+              <div className="absolute left-1/2 lg:left-[49.5%] bottom-[30%] lg:bottom-[16%] transform lg:transform-none -translate-x-1/2 lg:translate-x-0 w-[25%] max-w-[250px] aspect-[250/330] rounded-[40px] overflow-hidden z-10 shadow-lg">
+                <Image
+                  src="/images/expertise-2.jpg"
+                  alt="Dental Technology"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Expert Dentist Stats - Responsive and positioned according to screen size */}
+              <div className="absolute left-1/2 lg:left-auto lg:right-[50%] bottom-[20%] lg:bottom-[18%] transform lg:transform-none -translate-x-1/2 lg:translate-x-0 bg-white p-4 md:p-6 lg:p-6 rounded-[30px] shadow-lg max-w-[300px] z-20 w-[35%]">
+                <div className="flex items-center gap-4 md:gap-8 lg:gap-12">
+                  <div className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] lg:w-[60px] lg:h-[60px] relative">
+                    <Image
+                      src="/icons/dentist.svg"
+                      alt="Dentists Icon"
+                      fill
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-[var(--primary)] text-[18px] md:text-[20px] lg:text-[24px] font-bold leading-none">
+                      {expertise?.stats?.value}
+                    </h4>
+                    <p className="text-[#4F5665] text-[14px] md:text-[16px]">
+                      {expertise?.stats?.label}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Button */}
-            <div className="absolute mt-4 -translate-x-1/2 bottom-20  left-[120px]">
-              <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
-                {expertise?.cta}
-              </button>
+              {/* Button */}
+              <div className="absolute left-1/2 lg:left-[120px] bottom-[5%] lg:bottom-20 transform lg:transform-none -translate-x-1/2 lg:-translate-x-1/2">
+                <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
+                  {expertise?.cta}
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>

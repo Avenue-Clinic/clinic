@@ -29,10 +29,10 @@ export default function Hero({ dictionary = {}, locale = 'en' }) {
           transition={{ duration: 0.8 }}
         >
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="mb-6 font-bold text-[56px] leading-[72px]">
+            <h1 className="mb-6 font-bold text-[38px] sm:text-[56px] leading-[46px] sm:leading-[72px]">
               {dictionary?.hero?.title || "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows"}
             </h1>
-            <p className="max-w-2xl mx-auto text-base md:text-lg opacity-90">
+            <p className="max-w-2xl mx-auto text-[16px] md:text-lg opacity-90">
               {dictionary?.hero?.subtitle || "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."}
             </p>
           </div>

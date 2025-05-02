@@ -82,20 +82,16 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
               {translations.home}
             </Link>
             <div className="relative group">
-              <button
-                onClick={() => setTreatmentsOpen(!treatmentsOpen)}
+              <Link
+                href={`/${locale}/treatments`}
                 className="flex items-center text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
               >
                 <span>{translations.treatments}</span>
-                <IconChevronDown className={`w-4 h-4 ml-1 transform transition-transform duration-200 ${treatmentsOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {/* Treatments dropdown menu */}
+                <IconChevronDown className="w-4 h-4 ml-1" />
+              </Link>
+              {/* Treatments dropdown menu - now appears on hover via group-hover */}
               <div 
-                className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-full z-50 mt-1 w-64 bg-white rounded-lg shadow-lg py-2 transition-all duration-300 ${
-                  treatmentsOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                }`}
-                onMouseEnter={() => setTreatmentsOpen(true)}
-                onMouseLeave={() => setTreatmentsOpen(false)}
+                className="absolute left-0 z-50 invisible w-64 py-2 mt-1 transition-all duration-300 bg-white rounded-lg shadow-lg opacity-0 top-full group-hover:opacity-100 group-hover:visible"
               >
                 <Link 
                   href={`/${locale}/treatments/dental-implants`} 
@@ -110,7 +106,7 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
                   {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
                 </Link>
                 <Link 
-                  href={`/${locale}/treatments/all-on-implants`} 
+                  href={`/${locale}/treatments/all-on-4-6-implants`} 
                   className="block px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
                 >
                   {dictionary?.treatments?.allOnImplants || 'All-on-4/6 Implants'}
@@ -196,38 +192,47 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
                 </Link>
                 {/* In the mobile menu section - modify the treatments section */}
                 <div>
-                  <div className="flex items-center justify-between">
-                    <button 
-                      onClick={() => setTreatmentsOpen(!treatmentsOpen)}
-                      className="text-gray-700 hover:text-[#05BBB5] transition-colors duration-300 w-full text-left flex items-center justify-between"
+                <div className="flex items-center justify-between">
+                  <Link 
+                    href={`/${locale}/treatments`}
+                    className="text-gray-700 hover:text-[#05BBB5] transition-colors duration-300"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {translations.treatments}
+                  </Link>
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setTreatmentsOpen(!treatmentsOpen);
+                    }}
+                    className="p-2 rounded-full hover:text-[#05BBB5] transition-colors duration-300"
+                  >
+                    <IconChevronDown className={`w-5 h-5 transition-transform duration-300 ${treatmentsOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${treatmentsOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="flex flex-col pt-2 space-y-1">
+                    <Link 
+                      href={`/${locale}/treatments/dental-implants`} 
+                      className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
+                      onClick={() => setIsOpen(false)}
                     >
-                      <span>{translations.treatments}</span>
-                      <IconChevronDown className={`w-5 h-5 transition-transform duration-300 ${treatmentsOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                  </div>
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${treatmentsOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="flex flex-col pt-2 space-y-1">
-                      <Link 
-                        href={`/${locale}/treatments/dental-implants`} 
-                        className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
-                      </Link>
-                      <Link 
-                        href={`/${locale}/treatments/hollywood-smile`} 
-                        className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
-                      </Link>
-                      <Link 
-                        href={`/${locale}/treatments/all-on-implants`} 
-                        className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {dictionary?.treatments?.allOnImplants || 'All-on-4/6 Implants'}
-                      </Link>
+                      {dictionary?.treatments?.dentalImplants || 'Dental Implants'}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/treatments/hollywood-smile`} 
+                      className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {dictionary?.treatments?.hollywoodSmile || 'Hollywood Smile'}
+                    </Link>
+                    <Link 
+                      href={`/${locale}/treatments/all-on-4-6-implants`} 
+                      className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {dictionary?.treatments?.allOnImplants || 'All-on-4/6 Implants'}
+                    </Link>
                       <Link 
                         href={`/${locale}/treatments/dental-crowns`} 
                         className="block pl-4 py-2 text-[#4F5665] text-[16px] hover:text-[#05BBB5] transition-colors duration-300"

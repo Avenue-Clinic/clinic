@@ -6,90 +6,60 @@ import { motion } from "framer-motion";
 
 const TreatmentsHeader = ({ dictionary }) => {
   const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1]; // Extract locale from path ('en', 'tr', 'ar')
   
-  const getOppositeLocale = (currentPath) => {
-    if (currentPath.startsWith("/tr")) {
-      return currentPath.replace("/tr", "/en");
-    } else if (currentPath.startsWith("/ar")) {
-      return currentPath.replace("/ar", "/en");
-    } else {
-      return currentPath.replace("/en", "/tr");
-    }
-  };
+  // Ensure dictionary and header are loaded
+  const headerDict = dictionary?.header || {};
+  const treatmentsTitle = headerDict.treatmentsTitle || 'Treatments'; // Default fallback
 
-  const translations = {
-    en: "Treatments",
-    tr: "Tedavilerimiz",
-    ar: "العلاجات"
+  const getOppositeLocalePath = (targetLocale) => {
+    // Replaces the current locale segment in the path with the target locale
+    return pathname.replace(`/${currentLocale}`, `/${targetLocale}`);
   };
 
   return (
     <div className="relative w-full py-[130px] md:py-[160px]"
          style={{
            background: "linear-gradient(90deg, #252D62 0%, #023752 100%)"
-         }}>
-      <div className="container px-4 mx-auto">
-        <motion.h1 
+         }}
+    >
+      <div className="container relative z-10 mx-auto">
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           className="text-center text-white"
-          style={{
-            fontSize: "54px",
-            fontWeight: 700,
-            lineHeight: "65px"
-          }}>
-          {dictionary?.treatments?.label || "Treatments"}
-        </motion.h1>
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex justify-center gap-4 mt-4">
-          {pathname.startsWith("/ar") ? (
-            <>
-              <Link href={pathname.replace("/ar", "/en")}
-                    className="text-white transition-colors hover:text-[var(--secondary)]"
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      lineHeight: "26px"
-                    }}>
-                {translations.en}
-              </Link>
-              <span className="text-white">/</span>
-              <Link href={pathname.replace("/ar", "/tr")}
-                    className="text-white transition-colors hover:text-[var(--secondary)]"
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      lineHeight: "26px"
-                    }}>
-                {translations.tr}
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href={getOppositeLocale(pathname)}
-                    className="text-white transition-colors hover:text-[var(--secondary)]"
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      lineHeight: "26px"
-                    }}>
-                {pathname.startsWith("/tr") ? translations.en : translations.tr}
-              </Link>
-              <span className="text-white">/</span>
-              <Link href={pathname.replace(/(\/en|\/tr)/, "/ar")}
-                    className="text-white transition-colors hover:text-[var(--secondary)]"
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      lineHeight: "26px"
-                    }}>
-                {translations.ar}
-              </Link>
-            </>
+        >
+          <h1 className="text-[48px] md:text-[64px] font-bold mb-4">{treatmentsTitle}</h1>
+          <div className="flex items-center justify-center space-x-2">
+            <Link href={`/${currentLocale}`}>{headerDict.home || 'Home'}</Link>
+            <span className="text-white">/</span>
+            <span className="font-semibold text-white">{treatmentsTitle}</span>
+          </div>
+          {/* Language switcher - Simplified using dictionary */} 
+          {headerDict.en && headerDict.tr && headerDict.ar && (
+            <div className="flex items-center justify-center mt-4 space-x-2 text-[16px] font-[400] leading-[26px]">
+              {currentLocale !== 'en' && (
+                <Link href={getOppositeLocalePath('en')}
+                      className="text-white transition-colors hover:text-[var(--secondary)]">
+                  {headerDict.en} {/* Use title from dictionary */}
+                </Link>
+              )}
+              {currentLocale !== 'en' && currentLocale !== 'tr' && <span className="text-white">/</span>}
+              {currentLocale !== 'tr' && (
+                <Link href={getOppositeLocalePath('tr')}
+                      className="text-white transition-colors hover:text-[var(--secondary)]">
+                  {headerDict.tr} {/* Use title from dictionary */}
+                </Link>
+              )}
+              {currentLocale !== 'ar' && (currentLocale === 'en' || currentLocale === 'tr') && <span className="text-white">/</span>}
+              {currentLocale !== 'ar' && (
+                <Link href={getOppositeLocalePath('ar')}
+                      className="text-white transition-colors hover:text-[var(--secondary)]">
+                  {headerDict.ar} {/* Use title from dictionary */}
+                </Link>
+              )}
+            </div>
           )}
         </motion.div>
       </div>

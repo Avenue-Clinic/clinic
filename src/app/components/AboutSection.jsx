@@ -41,13 +41,13 @@ export default function AboutSection({ dictionary = {} }) {
 
   return (
     <section className="py-12">
-      <div className="container relative h-[555px] mx-auto max-w-[1300px] px-0">
-        <div className={`grid items-center h-full grid-cols-1 md:grid-cols-2 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+      <div className="container relative mx-auto px-4 lg:px-6 xl:px-[20px] max-w-[1300px] py-8 lg:py-12">
+        <div className={`grid items-center gap-8 grid-cols-1 lg:grid-cols-2 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
           {/* Image container */}
-          <div className={`relative h-full ${isRTL ? 'md:order-2' : 'md:order-1'}`}>
+          <div className={`relative w-full aspect-[585/490] max-h-[490px] ${isRTL ? 'lg:order-2' : 'lg:order-1'}`}>
             <div 
-              className={`absolute top-1/2 -translate-y-1/2 w-[585px] h-[490px] rounded-xl overflow-hidden ${
-                isRTL ? 'right-10' : 'left-[5px]'
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[585px] h-full rounded-xl overflow-hidden ${
+                isRTL ? 'lg:left-auto lg:right-10 lg:translate-x-0' : 'lg:right-auto lg:left-[5px] lg:translate-x-0'
               }`}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -83,8 +83,8 @@ export default function AboutSection({ dictionary = {} }) {
 
           {/* Text container */}
           <motion.div 
-            className={`max-w-[650px] flex flex-col justify-center ${
-              isRTL ? 'text-right' : ''
+            className={`w-full max-w-[650px] flex flex-col justify-center px-0 lg:px-4 mx-auto lg:mx-0 text-center lg:text-left ${
+              isRTL ? 'lg:text-right' : ''
             }`}
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -119,24 +119,24 @@ export default function AboutSection({ dictionary = {} }) {
                 {about.description}
               </motion.p>
 
-              <div className={`mt-8 flex ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'} gap-20 items-center`}>
+              <div className={`mt-8 flex ${isRTL ? 'lg:flex-row-reverse lg:justify-end' : 'lg:flex-row'} justify-center gap-10 lg:gap-20  items-center`}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className={isRTL ? "text-right" : "text-left"}
+                  className={`lg:text-${isRTL ? "right" : "left"} text-center`}
                 >
-                  <div className="text-[42px] font-semibold text-[var(--primary)] leading-none">
+                  <div className="text-[42px] font-semibold text-[var(--primary)] leading-none ">
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats?.smiles?.label}</div>
+                  <div className="pl-4 mt-1 text-sm text-gray-500 lg:pl-0">{about.stats?.smiles?.label}</div>
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className={isRTL ? "text-right" : "text-left"}
+                  className={`lg:text-${isRTL ? "right" : "left"} text-center`}
                 >
                   <div className="text-[42px] font-bold text-[var(--primary)] leading-none">
                     <CounterAnimation end="96" suffix="%" />
@@ -149,12 +149,12 @@ export default function AboutSection({ dictionary = {} }) {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className={isRTL ? "text-right" : "text-left"}
+                className={`lg:text-${isRTL ? "right" : "left"} text-center`}
               >
                 <Link
-                  href="/about-us"
-                  className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] ${isRTL ? 'flex-row-reverse' : ''}`}
-                >
+                href="/about-us"
+                className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] mx-auto lg:mx-0 ${isRTL ? 'flex-row-reverse' : ''}`}
+              >
                   {about.cta}
                   <svg 
                     className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} 

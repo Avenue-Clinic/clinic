@@ -12,10 +12,10 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
         duration: 0.5,
         delay: index < 3 ? index * 0.2 : (index - 3) * 0.2
       }}
-      className="max-w-[400px] p-10 bg-white rounded-[40px]"
+      className="w-[400px] sm:max-w-[450px] md:max-w-[400px] p-10 bg-white rounded-[40px]"
     >
-      <div className="flex items-center mb-4">
-        <div className="w-[50px] h-[58px] -mt-[8px]">
+      <div className="flex flex-col items-center mb-4 text-center md:flex-row md:text-left">
+        <div className="w-[50px] h-[58px] -mt-[8px] mb-3 md:mb-0">
           <Image
             src={icon}
             alt={`${title} Icon`}
@@ -23,7 +23,7 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
             height={50}
           />
         </div>
-        <h2 className="ml-4 text-xl leading-[24px] font-bold text-[var(--primary)]">{title}</h2>
+        <h2 className="md:ml-4 text-xl leading-[24px] font-bold text-[var(--primary)]">{title}</h2>
       </div>
       
       <div className="relative w-full h-56 mb-6">
@@ -35,13 +35,15 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
         />
       </div>
       
-      <p className="mb-8 text-[#4F5665] text-[16px] leading-[29px] font-[400]">
+      <p className="mb-8 text-[#4F5665] text-[16px] leading-[29px] font-[400] text-center md:text-left">
         {description}
       </p>
       
-      <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
-        {readMore}
-      </button>
+      <div className="flex justify-center md:justify-start">
+        <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
+          {readMore}
+        </button>
+      </div>
     </motion.div>
   );
 };
@@ -67,9 +69,9 @@ const TreatmentsSection = ({ dictionary = {} }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className={`flex items-center justify-between mb-20 ${isRTL ? 'flex-row-reverse' : ''}`}
+          className={`flex flex-col md:flex-row items-center md:justify-between mb-20 text-center md:text-left ${isRTL ? 'md:flex-row-reverse' : ''}`}
         >
-          <div>
+          <div className="mb-6 md:mb-0">
             <h3 className="text-[var(--secondary)] uppercase tracking-wider text-sm font-bold mb-5">{treatments.title}</h3>
             <h2 className="text-[var(--primary)] text-[46px] leading-[52px] font-bold max-w-[700px]">{treatments.subtitle}</h2>
           </div>
@@ -78,7 +80,7 @@ const TreatmentsSection = ({ dictionary = {} }) => {
           </button>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
           {treatmentsList.map((treatment, index) => (
             <TreatmentCard
               key={treatment}
