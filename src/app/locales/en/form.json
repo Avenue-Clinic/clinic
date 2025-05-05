@@ -1,7 +1,0 @@
-{
-  "name": "Full Name",
-  "phone": "Phone Number",
-  "email": "Email Address",
-  "submit": "Get a FREE Dental Report",
-  "getFreeReport": "Get Your <span className='text-[var(--secondary)]'>FREE</span> Dental Report"
-}

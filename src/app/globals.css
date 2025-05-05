@@ -3,15 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --primary: #023752;
-  --secondary: #05bbb5;
-  --background: #ffffff;
-  --text: #222222;
-  --secondary-text: #4F5665; 
-  --red: #dc1a3d;
-  
+  --primary: #0B132A;        /* Deep navy, solid primary */
+  --secondary: #F5A623;      /* Vibrant gold for contrast (pairs well with dark blues) */
+  --background: white;     /* Slightly lighter navy for backgrounds */
+  --text: #F9FAFB;           /* Soft white, very readable */
+  --secondary-text: #A0AEC0; /* Muted bluish-gray for subtle text */
+  --red: #FF6B6B;         /* Bright coral red for attention-grabbing elements */
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -79,7 +77,7 @@ html {
   }
 
   .btn-primary:hover {
-    background-color: #008e8c;
+    background-color: var(--secondary);
   }
 
   /* Phone Input Styles */

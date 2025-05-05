@@ -1,8 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-const TreatmentCard = ({ icon, image, title, description, readMore, index }) => {
+const TreatmentCard = ({ icon, image, title, description, readMore, index, slug, locale }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -40,9 +41,9 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
       </p>
       
       <div className="flex justify-center md:justify-start">
-        <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
+        <Link href={`/${locale}/treatments/${slug}`} className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
           {readMore}
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
@@ -51,14 +52,15 @@ const TreatmentCard = ({ icon, image, title, description, readMore, index }) => 
 const TreatmentsSection = ({ dictionary = {} }) => {
   const isRTL = dictionary?.dir === 'rtl';
   const treatments = dictionary?.treatments || {};
+  const locale = dictionary?.dir === 'rtl' ? 'ar' : 'en';
 
   const treatmentsList = [
-    'dentalImplants',
-    'smileMakeover',
-    'dentalVeneers',
-    'allOnImplants',
-    'dentalCrowns',
-    'surgicalDentistry'
+    { id: 'dentalImplants', slug: 'dental-implants' },
+    { id: 'smileMakeover', slug: 'hollywood-smile' },
+    { id: 'dentalVeneers', slug: 'dental-veneers' },
+    { id: 'allOnImplants', slug: 'all-on-4-6-implants' },
+    { id: 'dentalCrowns', slug: 'dental-crowns' },
+    { id: 'surgicalDentistry', slug: 'surgical-dentistry' }
   ];
 
   return (
@@ -75,21 +77,23 @@ const TreatmentsSection = ({ dictionary = {} }) => {
             <h3 className="text-[var(--secondary)] uppercase tracking-wider text-sm font-bold mb-5">{treatments.title}</h3>
             <h2 className="text-[var(--primary)] text-[46px] leading-[52px] font-bold max-w-[700px]">{treatments.subtitle}</h2>
           </div>
-          <button className="inline-flex items-center px-8 py-4 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] text-base font-semibold">
+          <Link href={`/${locale}/treatments`} className="inline-flex items-center px-8 py-4 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] text-base font-semibold">
             {treatments.allTreatments}
-          </button>
+          </Link>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3 justify-items-center">
           {treatmentsList.map((treatment, index) => (
             <TreatmentCard
-              key={treatment}
-              icon={treatments.items[treatment].icon}
-              image={treatments.items[treatment].image}
-              title={treatments.items[treatment].title}
-              description={treatments.items[treatment].description}
-              readMore={treatments.items[treatment].readMore}
+              key={treatment.id}
+              icon={treatments.items[treatment.id].icon}
+              image={treatments.items[treatment.id].image}
+              title={treatments.items[treatment.id].title}
+              description={treatments.items[treatment.id].description}
+              readMore={treatments.items[treatment.id].readMore}
               index={index}
+              slug={treatment.slug}
+              locale={locale}
             />
           ))}
         </div>

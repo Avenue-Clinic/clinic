@@ -2,18 +2,38 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { locales } from '../utils/i18n';
+import { locales, defaultLocale } from '../utils/i18n';
 import ReactCountryFlag from 'react-country-flag';
+import Cookies from 'js-cookie';
+
+const LANG_COOKIE_NAME = 'preferred-lang';
 
 const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   
-  const pathWithoutLocale = pathname.split('/').slice(2).join('/');
-  
   const handleLocaleChange = (locale) => {
-    const newPath = `/${locale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    // Set the preferred language cookie
+    Cookies.set(LANG_COOKIE_NAME, locale, { path: '/', expires: 365 });
+
+    // Correctly determine the base path part (the part after the locale, or the full path if no locale)
+    let basePath = '';
+    const pathSegments = pathname.split('/'); // e.g., ['', 'en', 'about'] or ['', 'about'] or [''] for root
+    
+    // Check if the *current* path's first segment is a known locale
+    if (locales.includes(pathSegments[1])) {
+      // Path has a locale prefix: /en/about -> segments ['', 'en', 'about']
+      basePath = pathSegments.slice(2).join('/'); // 'about'
+    } else if (pathSegments.length > 1 && pathSegments[1] !== '') {
+      // Path has no locale prefix but is not root: /about -> segments ['', 'about']
+      basePath = pathSegments.slice(1).join('/'); // 'about'
+    }
+
+    // Always construct the path with the locale prefix, even for default locale
+    const newPath = `/${locale}${basePath ? `/${basePath}` : ''}`;
+    
+    console.log(`Switcher: Switching to ${locale}. Current: ${pathname}, Base: '${basePath}', New: ${newPath}`); // Debug logging
     router.push(newPath);
   };
   
@@ -38,14 +58,14 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
                 height: '20px',
               }}
             />
-            <span className="text-lg text-gray-700">{languageMap[currentLocale].name}</span>
+            <span className="text-lg text-[var(--primary)]">{languageMap[currentLocale].name}</span>
           </div>
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-full hover:text-[#05BBB5] transition-colors duration-300"
+            className="p-2 rounded-full hover:text-[var(--secondary)] transition-colors duration-300"
           >
             <svg 
-              className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+              className={`w-5 h-5 transition-transform duration-300 text-[var(--primary)] hover:text-[var(--secondary)] ${isOpen ? 'rotate-180' : ''}`}
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -62,7 +82,7 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
                 <button
                   key={locale}
                   onClick={() => handleLocaleChange(locale)}
-                  className="flex items-center px-4 py-2 text-gray-600 hover:text-[#05BBB5] hover:bg-gray-50 transition-colors duration-300"
+                  className="flex items-center px-4 py-2 transition-colors duration-300 hover:bg-gray-50"
                 >
                   <ReactCountryFlag
                     countryCode={languageMap[locale].countryCode}
@@ -73,7 +93,7 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
                       marginRight: '8px'
                     }}
                   />
-                  <span className="text-lg">{languageMap[locale].name}</span>
+                  <span className="text-lg text-[var(--primary)] hover:text-[var(--secondary)]">{languageMap[locale].name}</span>
                 </button>
               )
             ))}
@@ -86,7 +106,7 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
   return (
     <div className="relative group">
       <button
-        className={`flex items-center hover:text-[#05BBB5] transition-colors duration-300 ${isRTL ? 'flex-row-reverse' : ''}`}
+        className={`flex items-center hover:text-[var(--secondary)] transition-colors duration-300 ${isRTL ? 'flex-row-reverse' : ''}`}
       >
         <ReactCountryFlag
           countryCode={languageMap[currentLocale].countryCode}
@@ -98,9 +118,9 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
             marginLeft: isRTL ? '8px' : '0'
           }}
         />
-        <span>{currentLocale.toUpperCase()}</span>
+        <span className="text-[var(--primary)] group-hover:text-[var(--secondary)] transition-colors">{currentLocale.toUpperCase()}</span>
         <svg 
-          className={`w-4 h-4 ${isRTL ? 'mr-1' : 'ml-1'}`} 
+          className={`w-4 h-4 ${isRTL ? 'mr-1' : 'ml-1'} text-[var(--primary)] group-hover:text-[var(--secondary)] transition-colors`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24" 
@@ -114,23 +134,26 @@ const LanguageSwitcher = ({ currentLocale, isMobile = false }) => {
         <div className={`flex px-2 py-1 ${isRTL ? 'space-x-reverse' : 'space-x-2'}`}>
           {locales.map((locale) => (
             <button
-              key={locale}
-              onClick={() => handleLocaleChange(locale)}
-              className={`flex flex-col items-center p-2 rounded hover:bg-gray-50 ${
-                currentLocale === locale ? 'text-[#05BBB5]' : 'text-[#0B132A]'
-              }`}
-            >
-              <ReactCountryFlag
-                countryCode={languageMap[locale].countryCode}
-                svg
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  marginBottom: '4px'
-                }}
-              />
-              <span className="text-sm whitespace-nowrap">{languageMap[locale].name}</span>
-            </button>
+  key={locale}
+  onClick={() => handleLocaleChange(locale)}
+  className={`flex flex-col items-center p-2 rounded transition-colors ${
+    currentLocale === locale
+      ? 'text-[var(--secondary)] bg-gray-50'
+      : 'text-[var(--primary)] hover:bg-gray-100'
+  }`}
+>
+  <ReactCountryFlag
+    countryCode={languageMap[locale].countryCode}
+    svg
+    style={{
+      width: '20px',
+      height: '20px',
+      marginBottom: '4px'
+    }}
+  />
+  <span className="text-sm whitespace-nowrap">{languageMap[locale].name}</span>
+</button>
+
           ))}
         </div>
       </div>

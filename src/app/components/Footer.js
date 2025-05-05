@@ -65,14 +65,15 @@ export default function Footer({ dictionary = {}, locale }) {
             <h3 className="mb-6 text-xl font-semibold">{footerDict?.ourTreatments}</h3>
             <ul className="space-y-4">
               <li><Link href={`/${locale}/treatments/dental-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalImplants}</Link></li>
-              <li><Link href={`/${locale}/treatments/hollywood-smile`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.hollywoodSmile}</Link></li>
-              <li><Link href={`/${locale}/treatments/all-on-4-6-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.allOn4}</Link></li>
-              <li><Link href={`/${locale}/treatments/dental-crowns`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalCrowns}</Link></li>
+              <li><Link href={`/${locale}/treatments/hollywood-smile`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.smileMakeover}</Link></li>
               <li><Link href={`/${locale}/treatments/dental-veneers`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalVeneers}</Link></li>
+              <li><Link href={`/${locale}/treatments/all-on-4-6-implants`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.allOnImplants}</Link></li>
+              <li><Link href={`/${locale}/treatments/dental-crowns`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.dentalCrowns}</Link></li>
+              <li><Link href={`/${locale}/treatments/surgical-dentistry`} className="text-gray-300 hover:text-white hover:underline">{footerDict?.treatmentLinks?.surgicalDentistry}</Link></li>
             </ul>
           </div>
 
-                    {/* Column 4 - Contact */}
+          {/* Column 4 - Contact */}
           <div className={isRTL ? 'lg:order-1' : 'lg:order-4'}>
             <h3 className="mb-6 text-xl font-semibold">{footerDict?.contact}</h3>
             <div className="space-y-4">

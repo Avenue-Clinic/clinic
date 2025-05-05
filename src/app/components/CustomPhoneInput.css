@@ -32,7 +32,7 @@
   
   .phone-number-input:focus {
     border-color: transparent;
-    box-shadow: 0 0 0 2px #4fd1c5;
+    box-shadow: 0 0 0 2px var(--secondary);
   }
   
   .country-flag {

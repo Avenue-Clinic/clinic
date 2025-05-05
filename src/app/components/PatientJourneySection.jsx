@@ -8,43 +8,12 @@ const PatientJourneySection = ({ dictionary = {} }) => {
   const patientJourney = dictionary?.patientJourney || {};
   const [currentSlide, setCurrentSlide] = useState(1);
 
-  const slides = [
-    {
-      number: 1,
-      image: '/images/journey/online-consultation.jpg',
-      ...(patientJourney?.slides?.slide1 || {})
-    },
-    {
-      number: 2,
-      image: '/images/journey/arrival-transfer.jpg',
-      ...(patientJourney?.slides?.slide2 || {})
-    },
-    {
-      number: 3,
-      image: '/images/journey/accommodation.jpg',
-      ...(patientJourney?.slides?.slide3 || {})
-    },
-    {
-      number: 4,
-      image: '/images/journey/clinical-consultation.jpg',
-      ...(patientJourney?.slides?.slide4 || {})
-    },
-    {
-      number: 5,
-      image: '/images/journey/procedure.jpg',
-      ...(patientJourney?.slides?.slide5 || {})
-    },
-    {
-      number: 6,
-      image: '/images/journey/checkup.jpg',
-      ...(patientJourney?.slides?.slide6 || {})
-    },
-    {
-      number: 7,
-      image: '/images/journey/departure.jpg',
-      ...(patientJourney?.slides?.slide7 || {})
-    }
-  ];
+  const slides = patientJourney?.steps?.map((step, index) => ({
+    number: index + 1,
+    title: step.title,
+    description: step.description,
+    image: `/images/journey/step${index + 1}.jpg`
+  })) || [];
 
   useEffect(() => {
     const timer = setInterval(() => {

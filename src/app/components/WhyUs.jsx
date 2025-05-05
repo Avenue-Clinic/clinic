@@ -34,13 +34,13 @@ const WhyUs = ({ dictionary = {} }) => {
   const features = [
     {
       icon: '/icons/professional.svg',
-      title: whyUs?.features?.professionals?.title,
-      description: whyUs?.features?.professionals?.description,
+      title: whyUs?.features?.expertise?.title,
+      description: whyUs?.features?.expertise?.description,
     },
     {
-      icon: '/icons/patient.svg',
-      title: whyUs?.features?.satisfaction?.title,
-      description: whyUs?.features?.satisfaction?.description,
+      icon: '/icons/money.svg',
+      title: whyUs?.features?.affordability?.title,
+      description: whyUs?.features?.affordability?.description,
     },
     {
       icon: '/icons/material.svg',
@@ -120,7 +120,7 @@ const WhyUs = ({ dictionary = {} }) => {
             <div className="grid gap-5">
               {features.map((feature, index) => (
                 <FeatureCard
-                  key={feature.title}
+                  key={feature.title || index}
                   icon={feature.icon}
                   title={feature.title}
                   description={feature.description}

@@ -1,33 +1,34 @@
 {
-  "dir": "ltr",
-  "description": "İstanbul'da dünya standartlarında diş bakımını %70 daha uygun maliyetlerle deneyimleyin. Kusursuz gülüş yolculuğunuz burada başlıyor.",
-  "quickLinks": "Hızlı Bağlantılar",
-  "links": {
-    "home": "Ana Sayfa",
-    "treatments": "Tedaviler",
-    "gallery": "Galeri",
-    "aboutUs": "Hakkımızda",
-    "blog": "Blog",
-    "contactUs": "İletişim"
-  },
-  "ourTreatments": "Tedavilerimiz",
-  "treatmentLinks": {
-    "dentalImplants": "Diş İmplantları",
-    "hollywoodSmile": "Hollywood Gülüşü",
-    "allOn4": "All-on-4/6 İmplantlar",
-    "dentalCrowns": "Diş Kronları",
-    "dentalVeneers": "Diş Kaplamaları"
-  },
-  "contact": "İletişim",
-  "address": "123 Dental Sokak<br />İstanbul, Türkiye",
-  "phone": "+90 123 456 7890",
-  "email": "info@medicodental.com",
-  "openingHours": {
-    "weekdays": "Pzt - Cum: 09:00 - 18:00",
-    "saturday": "Cumartesi: 10:00 - 16:00",
-    "sunday": "Pazar: Kapalı"
-  },
-  "copyright": "{year} Medico Diş Kliniği. Tüm hakları saklıdır.",
-  "madeWith": "Avenue ekibi tarafından",
-  "byTeam": "'le yapıldı"
+  "footer": {
+    "description": "İstanbul'da dünya standartlarında diş bakımını %70 daha uygun fiyatlarla deneyimleyin. Mükemmel gülüş yolculuğunuz burada başlıyor.",
+    "quickLinks": "Hızlı Bağlantılar",
+    "links": {
+      "home": "Anasayfa",
+      "treatments": "Tedaviler",
+      "gallery": "Galeri",
+      "aboutUs": "Hakkımızda",
+      "blog": "Blog",
+      "contactUs": "İletişim"
+    },
+    "ourTreatments": "Tedavilerimiz",
+    "treatmentLinks": {
+      "dentalImplants": "Diş İmplantları",
+      "hollywoodSmile": "Hollywood Gülüşü",
+      "allOn4": "All-on-4/6 İmplantlar",
+      "dentalCrowns": "Diş Kaplamaları",
+      "dentalVeneers": "Porselen Laminalar"
+    },
+    "contact": "İletişim",
+    "address": "Diş Caddesi 123<br />İstanbul, Türkiye",
+    "phone": "+90 123 456 7890",
+    "email": "info@medicodental.com",
+    "openingHours": {
+      "weekdays": "Pzt - Cum: 09:00 - 18:00",
+      "saturday": "Cumartesi: 10:00 - 16:00",
+      "sunday": "Pazar: Kapalı"
+    },
+    "copyright": "{year} Medico Diş Kliniği. Tüm hakları saklıdır.",
+    "madeWith": "ile hazırlandı",
+    "byTeam": "Avenue ekibi tarafından"
+  }
 }

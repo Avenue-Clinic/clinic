@@ -40,8 +40,8 @@ export default function AboutSection({ dictionary = {} }) {
   const isRTL = dictionary?.dir === 'rtl';
 
   return (
-    <section className="py-12">
-      <div className="container relative mx-auto px-4 lg:px-6 xl:px-[20px] max-w-[1300px] py-8 lg:py-12">
+    <section className="py-12 bg-white">
+      <div className="container relative mx-auto px-8 lg:px-6 xl:px-[20px] max-w-[1300px] py-8 lg:py-12">
         <div className={`grid items-center gap-8 grid-cols-1 lg:grid-cols-2 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
           {/* Image container */}
           <div className={`relative w-full aspect-[585/490] max-h-[490px] ${isRTL ? 'lg:order-2' : 'lg:order-1'}`}>
@@ -105,7 +105,7 @@ export default function AboutSection({ dictionary = {} }) {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mt-4 text-[46px] font-bold text-[var(--primary)] leading-[55px] max-w-[590px]"
+                className="mt-4 text-[34px] md:text-[46px] font-bold text-[var(--primary)] leading-[55px] max-w-[590px]"
               >
                 {about.title}
               </motion.h2>
@@ -119,14 +119,14 @@ export default function AboutSection({ dictionary = {} }) {
                 {about.description}
               </motion.p>
 
-              <div className={`mt-8 flex ${isRTL ? 'lg:flex-row-reverse lg:justify-end' : 'lg:flex-row'} justify-center gap-10 lg:gap-20  items-center`}>
+              <div className={`mt-8 flex ${isRTL ? 'lg:flex-row-reverse lg:justify-end' : 'lg:flex-row'} justify-between items-center lg:pr-8`}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className={`lg:text-${isRTL ? "right" : "left"} text-center`}
                 >
-                  <div className="text-[42px] font-semibold text-[var(--primary)] leading-none ">
+                  <div className="text-[28px] md:text-[42px] font-semibold text-[var(--primary)] leading-none ">
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
                   <div className="pl-4 mt-1 text-sm text-gray-500 lg:pl-0">{about.stats?.smiles?.label}</div>
@@ -138,7 +138,7 @@ export default function AboutSection({ dictionary = {} }) {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className={`lg:text-${isRTL ? "right" : "left"} text-center`}
                 >
-                  <div className="text-[42px] font-bold text-[var(--primary)] leading-none">
+                  <div className="text-[28px] md:text-[42px] font-bold text-[var(--primary)] leading-none">
                     <CounterAnimation end="96" suffix="%" />
                   </div>
                   <div className="mt-1 text-sm text-gray-500">{about.stats?.satisfaction?.label}</div>

@@ -17,9 +17,31 @@ const fadeInUp = {
 
 export default function ContactSection({ dictionary }) {
   const isRTL = dictionary.dir === 'rtl'
-  const { contact } = dictionary
+  const { contact } = dictionary || {}
   const [activeQuestion, setActiveQuestion] = useState(null)
   const [phone, setPhone] = useState('')
+
+  // Default values in case properties are missing
+  const contactDefaults = {
+    sectionTitle: "CONTACT US",
+    getFreeReport: "Get Your <span className='text-[var(--secondary)]'>FREE</span> Dental Report",
+    subtitle: "Fill in the form below to get your free dental consultation",
+    form: {
+      namePlaceholder: "Full Name",
+      phonePlaceholder: "Phone Number",
+      emailPlaceholder: "Email Address",
+      messagePlaceholder: "Your Message",
+      submitButton: "Submit"
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Find answers to common questions about our services",
+      questions: {}
+    }
+  }
+
+  // Safely access contact properties with fallbacks
+  const contactData = contact || contactDefaults
 
   return (
     <section className="overflow-hidden bg-white">
@@ -34,21 +56,20 @@ export default function ContactSection({ dictionary }) {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
-              {contact.sectionTitle}
+              {contactData.sectionTitle || contactDefaults.sectionTitle}
             </h3>
             <h2 
               className="text-[42px] font-bold leading-[55px] text-[var(--primary)] mb-4"
-              dangerouslySetInnerHTML={{ __html: dictionary?.contact?.getFreeReport || 'Get Your <span className="text-[var(--secondary)]">FREE</span> Dental Report' }}
-            >
-            </h2>
+              dangerouslySetInnerHTML={{ __html: contactData.getFreeReport || contactDefaults.getFreeReport }}
+            />
             <p className="text-[16px] leading-[24px] text-[#6B7280] mb-8">
-              {contact.subtitle}
+              {contactData.subtitle || contactDefaults.subtitle}
             </p>
             <form className="space-y-4">
               <div>
                 <input
                   type="text"
-                  placeholder={contact.form.namePlaceholder}
+                  placeholder={contactData.form?.namePlaceholder || contactDefaults.form.namePlaceholder}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
               </div>
@@ -57,19 +78,19 @@ export default function ContactSection({ dictionary }) {
                   value={phone}
                   onChange={setPhone}
                   dictionary={dictionary}
-                  placeholder={contact.form.phonePlaceholder}
+                  placeholder={contactData.form?.phonePlaceholder || contactDefaults.form.phonePlaceholder}
                 />
               </div>
               <div>
                 <input
                   type="email"
-                  placeholder={contact.form.emailPlaceholder}
+                  placeholder={contactData.form?.emailPlaceholder || contactDefaults.form.emailPlaceholder}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
               </div>
               <div>
                 <textarea
-                  placeholder={contact.form.messagePlaceholder}
+                  placeholder={contactData.form?.messagePlaceholder || contactDefaults.form.messagePlaceholder}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
@@ -78,7 +99,7 @@ export default function ContactSection({ dictionary }) {
                 type="submit"
                 className="px-7 py-4 text-[16px] font-semibold transition-all bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)]"
               >
-                {contact.form.submitButton}
+                {contactData.form?.submitButton || contactDefaults.form.submitButton}
               </button>
             </form>
           </motion.div>
@@ -95,13 +116,13 @@ export default function ContactSection({ dictionary }) {
               FAQS
             </h3>
             <h2 className="text-[42px] font-bold leading-[55px] text-[var(--primary)] mb-4">
-              {contact.faq.title}
+              {contactData.faq?.title || contactDefaults.faq.title}
             </h2>
             <p className="text-[16px] leading-[24px] text-[#6B7280] mb-8">
-              {contact.faq.subtitle}
+              {contactData.faq?.subtitle || contactDefaults.faq.subtitle}
             </p>
             <div className="space-y-4">
-              {Object.entries(contact.faq.questions).map(([key, question]) => (
+              {Object.entries(contactData.faq?.questions || {}).map(([key, question]) => (
                 <div key={key} className="rounded-[20px] overflow-hidden">
                   <button
                     className={`w-full px-6 py-4 flex items-center justify-between text-left transition-all duration-500 ${

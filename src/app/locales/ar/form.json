@@ -1,7 +1,0 @@
-{
-  "name": "الاسم الكامل",
-  "phone": "رقم الهاتف",
-  "email": "البريد الإلكتروني",
-  "submit": "احصل على تقرير أسنان مجاني",
-  "getFreeReport": "احصل على تقرير أسنانك <span className='text-[var(--secondary)]'>المجاني</span>"
-}

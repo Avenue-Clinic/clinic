@@ -1,32 +1,51 @@
 import { NextResponse } from 'next/server';
 import { locales, defaultLocale } from './src/app/utils/i18n';
 
-export function middleware(request) {
-  // Get the pathname of the request (e.g. /, /about, /blog/first-post)fdf
-  const pathname = request.nextUrl.pathname;
+const LANG_COOKIE_NAME = 'preferred-lang';
 
-  // Check if the pathname is missing a locale
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+export function middleware(request) {
+  const { pathname } = request.nextUrl;
+  // Get preferred language from cookie or use default
+  const preferredLang = request.cookies.get(LANG_COOKIE_NAME)?.value || defaultLocale;
+
+  // Skip middleware for static files and API routes
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/static') ||
+    pathname.match(/\.(jpg|jpeg|png|gif|svg|ico|css|js)$/)
+  ) {
+    return NextResponse.next();
+  }
+
+  // Redirect /en/* paths to /* for cleaner URLs (English is default)
+  if (pathname.startsWith(`/${defaultLocale}/`) || pathname === `/${defaultLocale}`) {
+    const newPath = pathname === `/${defaultLocale}` 
+      ? '/' 
+      : pathname.slice(defaultLocale.length + 1);
+    return NextResponse.redirect(new URL(newPath, request.url));
+  }
+
+  // Handle the root path - internally rewrite to default locale
+  if (pathname === '/') {
+    return NextResponse.rewrite(new URL(`/${defaultLocale}${pathname}`, request.url));
+  }
+
+  // Check if path has a valid locale
+  const pathnameHasValidLocale = locales.some(
+    locale => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
   );
 
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = defaultLocale;
-
-    // e.g. incoming request is /products
-    // The new URL is now /en/products
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
-    );
+  // If path doesn't have a valid locale prefix (and isn't root), add one based on preferences
+  if (!pathnameHasValidLocale && pathname !== '/') {
+    // Use preferred language from cookie or default
+    return NextResponse.rewrite(new URL(`/${preferredLang}${pathname}`, request.url));
   }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  // Match all paths except certain static files and API routes
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
 };

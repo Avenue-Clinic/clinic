@@ -1,26 +1,24 @@
 {
-    "dir": "ltr",
-    "header": {
-      "home": "Home",
-      "treatments": "Treatments",
-      "gallery": "Gallery",
-      "aboutUs": "About Us",
-      "blog": "Blog",
-      "contactUs": "Contact Us",
-      "getConsultation": "Get a FREE Consultation",
-      "smileCounter": "28,000 Smiles and Counting — Join Us in Istanbul!",
-      "contact": "Contact Us",
-      "getQuote": "Get a Quote",
-      "treatmentsTitle": "Treatments"
-    },
-    "hero": {
-      "title": "Crafting Beautiful Smiles, Ensuring Healthier Tomorrows",
-      "subtitle": "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."
-    },
-    "form": {
-      "name": "Name Surname",
-      "phone": "Phone Number",
-      "email": "Email Address",
-      "submit": "Get a FREE Dental Report"
-    }
+  "header": {
+    "home": "Home",
+    "treatments": "Treatments",
+    "gallery": "Gallery",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "getConsultation": "Online Appointment",
+    "smileCounter": "28,000 Smiles and Counting — Join Us in Istanbul!",
+    "contact": "Contact Us",
+    "getQuote": "Get a Quote",
+    "treatmentsTitle": "Treatments"
+  },
+  "headerTreatments": {
+    "headerDentalImplants": "Dental Implants",
+    "headerHollywoodSmile": "Hollywood Smile",
+    "headerDentalVeneers": "Dental Veneers",
+    "headerAllOn46Implants": "All-on-4/6 Implants",
+    "headerDentalCrowns": "Dental Crowns",
+    "headerSurgicalDentistry": "Surgical Dentistry",
+    "headerSmileMakeover": "Smile Makeover"
+  }
 }

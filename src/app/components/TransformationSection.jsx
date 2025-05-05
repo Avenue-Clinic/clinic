@@ -17,9 +17,11 @@ const fadeInUp = {
 
 export default function TransformationSection({ dictionary }) {
   const isRTL = dictionary.dir === 'rtl'
-  const { transformation } = dictionary
+  const transformation = dictionary.transformation || dictionary.hero?.transformation
   const [hoveredImage, setHoveredImage] = useState(null)
   const [isDragging, setIsDragging] = useState(false)
+
+  if (!transformation) return null
 
   const transformations = [
     {
@@ -134,10 +136,10 @@ export default function TransformationSection({ dictionary }) {
               {hoveredImage === item.id && !isDragging && (
                 <>
                   <div className="absolute inset-0 transition-opacity duration-500 pointer-events-none bg-black/40 rounded-2xl" />
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500">
+                  <div className={`absolute ${isRTL ? 'right-6' : 'left-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}>
                     <span className="text-sm font-medium text-white">{transformation.before}</span>
                   </div>
-                  <div className="absolute right-6 top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500">
+                  <div className={`absolute ${isRTL ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}>
                     <span className="text-sm font-medium text-white">{transformation.after}</span>
                   </div>
                 </>

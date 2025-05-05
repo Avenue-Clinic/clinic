@@ -1,0 +1,287 @@
+{
+  "hero": {
+  "title": "Transforming Smiles with Precision, Creating Confident Futures",
+  "subtitle": "Experience world-class dental treatments in Istanbul with Avenue Clinic—where your oral health and aesthetics come first, at prices up to 70% lower than global averages."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "images": "Images",
+    "videos": "Videos"
+  },
+  "form": {
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "submit": "Get a FREE Dental Report",
+    "getFreeReport": "Get Your <span className='text-[var(--secondary)]'>FREE</span> Dental Report"
+  },
+  "treatments": {
+    "title": "OUR TREATMENTS",
+    "subtitle": "Comprehensive dental care tailored for every smile",
+    "allTreatments": "All Treatments",
+    "items": {
+      "dentalImplants": {
+        "title": "Dental Implants",
+        "description": "Dental implants are the top choice for replacing missing teeth, offering a durable, natural-looking solution.",
+        "image": "/images/dental-implant.jpg",
+        "icon": "/icons/dental-implant.svg",
+        "readMore": "Read More",
+        "hero": {
+          "title": "Reclaim Your Smile with Lasting Dental Implants",
+          "description": "Dental implants provide a permanent and natural-looking solution to missing teeth, allowing you to smile, eat, and speak with confidence. Designed to integrate seamlessly with your jawbone, our implants offer stability, durability, and a restoration that feels like your own teeth.",
+          "stats": {
+            "affordability": {
+              "value": "70",
+              "label": "More Affordable"
+            },
+            "durability": {
+              "value": "15",
+              "label": "Years Of Lasting Results"
+            }
+          },
+          "cta": "Get a FREE Dental Report"
+        },
+        "benefits": {
+          "title": "Overview and Key Benefits of Dental Implants",
+          "description": "Dental implants are a state-of-the-art solution to replace missing teeth, designed to restore both functionality and aesthetics. Unlike dentures or bridges, implants are surgically placed in the jawbone, providing unmatched support and longevity. Ideal for patients looking for a permanent fix, implants can transform your smile and improve oral health.",
+          "features": {
+            "natural_appearance": {
+              "title": "Natural-Looking Appearance",
+              "description": "Dental implants blend seamlessly with your natural teeth, restoring your smile's aesthetics and giving you a look you can feel confident about."
+            },
+            "improved_chewing": {
+              "title": "Improved Chewing and Eating Comfort",
+              "description": "Unlike dentures, dental implants function like natural teeth, allowing you to eat your favorite foods without discomfort or worry."
+            },
+            "enhanced_speech": {
+              "title": "Enhanced Speech",
+              "description": "Missing teeth or ill-fitting dentures can make speech challenging. Implants offer stability, helping you speak clearly and confidently."
+            },
+            "long_lasting": {
+              "title": "Long-Lasting Solution",
+              "description": "With proper care, dental implants are designed to last a lifetime, providing a durable and cost-effective alternative to temporary solutions."
+            },
+            "jawbone_health": {
+              "title": "Protection of Jawbone Health",
+              "description": "Dental implants stimulate the jawbone and prevent bone loss, maintaining your facial structure and overall oral health."
+            },
+            "easy_maintenance": {
+              "title": "Easy Maintenance",
+              "description": "Just like natural teeth, dental implants only require regular brushing, flossing, and dental check-ups—no special care is needed."
+            }
+          }
+        },
+        "transformation": {
+          "title": "Dental Implant Transformations",
+          "description": "See the remarkable transformations achieved through our dental implant procedures. Each case represents a real patient's journey to a confident, healthy smile.",
+          "before": "Before",
+          "after": "After",
+          "cases": [
+            {
+              "id": 1,
+              "beforeImage": "/images/implants/before1.jpg",
+              "afterImage": "/images/implants/after1.jpg",
+              "alt": "Dental Implant Case 1"
+            },
+            {
+              "id": 2,
+              "beforeImage": "/images/implants/before2.jpg",
+              "afterImage": "/images/implants/after2.jpg",
+              "alt": "Dental Implant Case 2"
+            }
+          ]
+        }
+      },
+      "smileMakeover": {
+        "title": "Smile Makeover",
+        "description": "It is a comprehensive cosmetic treatment that transforms your smile with a blend of procedures.",
+        "image": "/images/smile-makeover.jpg",
+        "icon": "/icons/smile-makeover.svg",
+        "readMore": "Read More"
+      },
+      "dentalVeneers": {
+        "title": "Dental Veneers",
+        "description": "Veneers are a popular cosmetic treatment in dental tourism, ideal for achieving a flawless, bright smile.",
+        "image": "/images/dental-veneer.jpg",
+        "icon": "/icons/dental-veneer.svg",
+        "readMore": "Read More"
+      },
+      "allOnImplants": {
+        "title": "All-on-4/6 Implants",
+        "description": "Offer a fixed, full-arch solution for patients with multiple missing teeth. It provides durability and a natural look.",
+        "image": "/images/all-on-implant.jpg",
+        "icon": "/icons/all-on-implant.svg",
+        "readMore": "Read More"
+      },
+      "dentalCrowns": {
+        "title": "Dental Crowns",
+        "description": "A popular solution for restoring damaged or weakened teeth, providing strength, and protection.",
+        "image": "/images/dental-crown.jpg",
+        "icon": "/icons/dental-crown.svg",
+        "readMore": "Read More"
+      },
+      "surgicalDentistry": {
+        "title": "Surgical Dentistry",
+        "description": "Procedures aimed at addressing complex dental issues, including extractions, gum and bone surgeries.",
+        "image": "/images/surgical-dentistry.jpg",
+        "icon": "/icons/surgical-dentistry.svg",
+        "readMore": "Read More"
+      }
+    }
+  },
+  "about": {
+  "label": "About Us",
+  "title": "Exceptional Dental Expertise, Designed to Fit Every Budget.",
+  "description": "At Avenue Clinic, we combine personalized care with cutting-edge dental technology to deliver outstanding results across general, cosmetic, and advanced treatments. Our trusted team uses internationally acclaimed materials—offering premium care in Istanbul at prices up to 70% lower than global standards.",
+  "stats": {
+    "smiles": {
+      "value": "+10K",
+      "label": "Transformed Smiles Delivered"
+    },
+    "satisfaction": {
+      "value": "96%",
+      "label": "Overall Patient Satisfaction Rate"
+    }
+  },
+    "vision_section": {
+      "our_mission": "Our Mission",
+      "mission_desc": "We aim to make premium dental care accessible, empowering healthier, more confident smiles through personalized and compassionate service.",
+      "our_vision": "Our Vision",
+      "vision_desc": "Our vision is to lead in providing affordable, world-class dental care that transforms lives and builds trust, setting a new global standard in quality, accessibility, and patient-focused treatment.",
+      "our_value": "Our Value",
+      "value_desc": "Our value is upholding transparency and honesty in all aspects of patient care and service, and treating every patient with empathy, respect, and personalized attention to ensure a comfortable experience."
+    },
+    "cta": "More About Us",
+    "committed_excellence": "COMMITTED TO EXCELLENCE",
+    "healthy_smiles_trust": "Driven by a Vision of Healthy Smiles and Lasting Trust.",
+    "contact_now": "Contact Now"
+  },
+  "expertise": {
+    "label": "EXPERTISE",
+    "title": "Commitment to Excellence in Specialized Dental Care",
+    "features": [
+      {
+        "title": "Advanced Technology",
+        "description": "State-of-the-art equipment and modern techniques for precise, comfortable treatments."
+      },
+      {
+        "title": "Expert Team",
+        "description": "Highly skilled dental professionals with extensive experience in cosmetic and restorative procedures."
+      },
+      {
+        "title": "Quality Materials",
+        "description": "Premium, globally recognized dental materials ensuring lasting results."
+      }
+    ],
+    "stats": {
+      "dentists": "15+",
+      "experience": "Years of Excellence"
+    },
+    "cta": "Learn More About Us"
+  },
+  "whyUs": {
+    "label": "WHY CHOOSE US",
+    "title": "Exceptional Quality and Affordability",
+    "description": "Experience world-class dental care that combines advanced technology, expert professionals, and premium materials - all at prices that make quality dental care accessible to everyone.",
+    "cta": "Book Your Consultation",
+    "features": {
+      "professionals": {
+        "title": "Expert Professionals",
+        "description": "Our team of highly skilled dentists brings years of experience and expertise in delivering exceptional dental care."
+      },
+      "satisfaction": {
+        "title": "Patient Satisfaction",
+        "description": "We prioritize your comfort and satisfaction, ensuring a positive experience throughout your dental journey."
+      },
+      "materials": {
+        "title": "Top-Quality Materials",
+        "description": "Our focus on top-grade materials guarantees that each procedure meets the highest standards of safety, longevity, and patient satisfaction."
+      }
+    }
+  },
+  "patientJourney": {
+    "label": "PATIENT JOURNEY",
+    "title": "Your Journey with Medico Clinic",
+    "description": "Embark on a carefully crafted journey where your comfort, safety, and satisfaction come first. From a detailed online consultation to personalized treatment and dedicated post-care, every step with Medico Clinic is designed to provide a world-class experience.",
+    "slides": {
+      "slide1": {
+        "title": "#1 - Online Consultation",
+        "description": "Begin your journey with a comprehensive online consultation. Our expert team will review your dental concerns, medical history, and treatment goals to create a personalized care plan tailored to your needs."
+      },
+      "slide2": {
+        "title": "#2 - Treatment Planning",
+        "description": "Receive a detailed treatment plan outlining procedures, timeline, and costs. Our team will address all your questions and ensure you're fully informed about your upcoming dental care journey."
+      },
+      "slide3": {
+        "title": "#3 - Travel Arrangements",
+        "description": "Once you're ready to proceed, our dedicated team will assist you with travel arrangements, accommodation recommendations, and scheduling your treatment dates for a seamless experience."
+      },
+      "slide4": {
+        "title": "#4 - Arrival & Welcome",
+        "description": "Upon arrival in Istanbul, experience our warm hospitality. You'll be greeted by our team and transported to your accommodation, ensuring a comfortable start to your dental journey."
+      },
+      "slide5": {
+        "title": "#5 - The Procedure",
+        "description": "Your treatment will be performed by our expert dental team using advanced technology and premium materials. We prioritize your comfort and safety throughout the entire process."
+      },
+      "slide6": {
+        "title": "#6 - Recovery & Care",
+        "description": "Receive comprehensive post-treatment care instructions and support. Our team remains available to address any concerns during your recovery period."
+      },
+      "slide7": {
+        "title": "#7 - Departure",
+        "description": "As your journey concludes, depart with a renewed sense of confidence, knowing your experience was led by professionals who prioritize your care and comfort at every step. From your initial consultation to your final check-up, Medico Clinic is committed to delivering a seamless, exceptional experience."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Real stories of exceptional care and transformative smiles",
+    "sectionTitle": "TESTIMONIALS",
+    "button": "All Testimonials"
+  },
+  "transformation": {
+    "title": "Stunning results that showcase the life changing impact",
+    "sectionTitle": "SEE THE TRANSFORMATION",
+    "button": "All Results",
+    "before": "Before",
+    "after": "After"
+  },
+  "contact": {
+    "sectionTitle": "CONTACT US",
+    "title": "Get Your FREE Dental Report",
+    "subtitle": "Submit your info and get a quote personalized to your needs.",
+    "form": {
+      "namePlaceholder": "Name Surname",
+      "phonePlaceholder": "Phone Number",
+      "emailPlaceholder": "Email Address",
+      "messagePlaceholder": "Your Message",
+      "submitButton": "Submit"
+    },
+    "faq": {
+      "title": "Everything you need to know about our treatments",
+      "subtitle": "Find quick answers to common questions about our dental treatments, procedures, and patient care in our FAQ section.",
+      "questions": {
+        "treatments": {
+          "question": "What types of dental treatments do you offer?",
+          "answer": "We provide a comprehensive range of dental treatments, including preventive care, cosmetic dentistry, restorative treatments, and oral surgery. Our services include dental implants, veneers, crowns, teeth whitening, orthodontics, and full smile makeovers, among others. Each treatment is tailored to meet your unique needs and help you achieve a healthier, more confident smile."
+        },
+        "affordability": {
+          "question": "Are your treatments affordable compared to other countries?",
+          "answer": "Yes, Medico Clinic offers top-quality dental treatments at up to 70% more affordable rates than in many other countries, without compromising on quality. We partner with globally trusted brands to ensure high standards in materials and technology, delivering excellent results at competitive prices."
+        },
+        "rightTreatment": {
+          "question": "How do I know which dental treatment is right for me?",
+          "answer": "Our expert team will guide you through a detailed consultation and diagnostic process, using advanced technology to assess your dental health. Based on this assessment, we'll recommend the most suitable treatment options that align with your goals, whether it's improving function, aesthetics, or overall oral health."
+        },
+        "materials": {
+          "question": "Do you use high-quality materials for dental treatments?",
+          "answer": "Absolutely. We only use top-grade materials from renowned global brands, ensuring durability, comfort, and a natural look for each treatment. Our focus on quality materials guarantees that your dental work will stand the test of time, giving you lasting results you can trust."
+        },
+        "duration": {
+          "question": "How long does it take to complete dental treatments?",
+          "answer": "Treatment duration depends on the specific procedure and your unique needs. Some treatments, like Hollywood Smile, can be completed in a single visit, while others, like dental implants or orthodontics, may require multiple visits over a few months. Our team will provide a clear timeline during your initial consultation to help you plan accordingly."
+        }
+      }
+    }
+  }
+}

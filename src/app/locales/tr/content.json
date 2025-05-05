@@ -1,0 +1,279 @@
+{
+    "hero": {
+      "title": "Güzel Gülüşler Yaratıyoruz, Daha Sağlıklı Yarınlar Sağlıyoruz",
+      "subtitle": "Gülüşünüzün sağlığı ve estetiği için öncelikli, yüksek kaliteli tedavilerle tanışın; üstelik dünya standartlarına göre %70 daha uygun maliyetle."
+    },
+    "gallery": {
+      "title": "Galeri",
+      "images": "Görseller",
+      "videos": "Videolar"
+    },
+    "form": {
+      "name": "Ad Soyad",
+      "phone": "Telefon Numarası",
+      "email": "E-Posta Adresi",
+      "submit": "ÜCRETSİZ Diş Raporu Alın",
+      "getFreeReport": "<span className='text-[var(--secondary)]'>ÜCRETSİZ</span> Diş Raporunuzu Alın"
+    },
+    "treatments": {
+      "title": "TEDAVİLERİMİZ",
+      "subtitle": "Her gülüşe özel kapsamlı diş bakımı",
+      "allTreatments": "Tüm Tedaviler",
+      "items": {
+        "dentalImplants": {
+          "title": "Diş İmplantları",
+          "description": "Eksik dişlerin yerine kalıcı, doğal görünümlü bir çözüm sunan en iyi tercihtir.",
+          "image": "/images/dental-implant.jpg",
+          "icon": "/icons/dental-implant.svg",
+          "readMore": "Devamını Oku",
+          "hero": {
+            "title": "Kalıcı Diş İmplantları ile Gülüşünü Geri Kazan",
+            "description": "Diş implantları, eksik dişlerinize kalıcı ve doğal görünümlü bir çözüm sunar; gülümsemenize, konuşmanıza ve yemenize yeniden özgüven katar. Çene kemiğinizle uyumlu şekilde entegre olacak şekilde tasarlanan implantlarımız, yüksek dayanıklılık ve doğal bir his sağlar.",
+            "stats": {
+              "affordability": {
+                "value": "70",
+                "label": "Daha Uygun Fiyat"
+              },
+              "durability": {
+                "value": "15",
+                "label": "Yıl Kalıcı Sonuç"
+              }
+            },
+            "cta": "ÜCRETSİZ Diş Raporu Alın"
+          },
+          "benefits": {
+            "title": "Diş İmplantlarının Genel Bilgisi ve Temel Faydaları",
+            "description": "Diş implantları, hem fonksiyonel hem estetik açıdan eksik dişlerin yerini almak üzere tasarlanmış son teknoloji bir çözümdür. Protez veya köprülerin aksine, çene kemiğine cerrahi olarak yerleştirilen implantlar uzun ömürlü ve sağlam bir destek sunar. Kalıcı çözüm arayan hastalar için idealdir.",
+            "features": {
+              "natural_appearance": {
+                "title": "Doğal Görünüm",
+                "description": "Diş implantları doğal dişlerle kusursuz uyum sağlayarak estetik bir gülümseme sunar."
+              },
+              "improved_chewing": {
+                "title": "Daha Rahat Çiğneme",
+                "description": "Protezlerin aksine, implantlar doğal diş gibi işlev görür ve rahatça yemek yemenizi sağlar."
+              },
+              "enhanced_speech": {
+                "title": "Daha Net Konuşma",
+                "description": "Eksik dişler ya da gevşek protezler konuşmayı zorlaştırabilir. İmplantlar sabit durarak konuşmanızı iyileştirir."
+              },
+              "long_lasting": {
+                "title": "Uzun Ömürlü Çözüm",
+                "description": "Doğru bakım ile implantlar ömür boyu kalabilir ve geçici çözümlere göre daha ekonomik olabilir."
+              },
+              "jawbone_health": {
+                "title": "Çene Kemiğini Koruma",
+                "description": "İmplantlar çene kemiğini uyarır ve kemik kaybını önler, yüz hattınızı korur."
+              },
+              "easy_maintenance": {
+                "title": "Kolay Bakım",
+                "description": "Doğal dişlerde olduğu gibi, implantlar da sadece fırçalama, diş ipi ve düzenli kontroller gerektirir."
+              }
+            }
+          },
+          "transformation": {
+            "title": "Diş İmplantı Dönüşümleri",
+            "description": "İmplant tedavilerimizle gerçekleştirilen etkileyici dönüşümleri görün. Her vaka, hastalarımızın sağlıklı ve özgüvenli bir gülümsemeye kavuşma yolculuğunu temsil eder.",
+            "before": "Önce",
+            "after": "Sonra",
+            "cases": [
+              {
+                "id": 1,
+                "beforeImage": "/images/implants/before1.jpg",
+                "afterImage": "/images/implants/after1.jpg",
+                "alt": "İmplant Vaka 1"
+              },
+              {
+                "id": 2,
+                "beforeImage": "/images/implants/before2.jpg",
+                "afterImage": "/images/implants/after2.jpg",
+                "alt": "İmplant Vaka 2"
+              }
+            ]
+          }
+        },
+        "smileMakeover": {
+          "title": "Gülüş Tasarımı",
+          "description": "Birden fazla işlemi birleştirerek gülüşünüzü tamamen dönüştüren kapsamlı estetik tedavidir.",
+          "image": "/images/smile-makeover.jpg",
+          "icon": "/icons/smile-makeover.svg",
+          "readMore": "Devamını Oku"
+        },
+        "dentalVeneers": {
+          "title": "Porselen Lamina (Veneer)",
+          "description": "Estetik bir gülüş için ideal olan, diş turizminin en popüler tedavilerindendir.",
+          "image": "/images/dental-veneer.jpg",
+          "icon": "/icons/dental-veneer.svg",
+          "readMore": "Devamını Oku"
+        },
+        "allOnImplants": {
+          "title": "All-on-4/6 İmplantlar",
+          "description": "Birden fazla eksik diş için sabit, tam ark çözüm sunar. Doğal görünüm ve dayanıklılık sağlar.",
+          "image": "/images/all-on-implant.jpg",
+          "icon": "/icons/all-on-implant.svg",
+          "readMore": "Devamını Oku"
+        },
+        "dentalCrowns": {
+          "title": "Diş Kaplamaları",
+          "description": "Hasarlı veya zayıflamış dişlerin onarılması ve korunması için sık kullanılan bir çözümdür.",
+          "image": "/images/dental-crown.jpg",
+          "icon": "/icons/dental-crown.svg",
+          "readMore": "Devamını Oku"
+        },
+        "surgicalDentistry": {
+          "title": "Cerrahi Diş Tedavileri",
+          "description": "Çekimler, diş eti ve kemik cerrahileri gibi karmaşık vakaları ele alır.",
+          "image": "/images/surgical-dentistry.jpg",
+          "icon": "/icons/surgical-dentistry.svg",
+          "readMore": "Devamını Oku"
+        }
+      }
+    },
+    "expertise": {
+      "label": "UZMANLIK",
+      "title": "Uzman Diş Bakımında Mükemmellik Taahhüdü",
+      "features": [
+        {
+          "title": "İleri Teknoloji",
+          "description": "En son teknolojileri kullanarak yüksek kaliteli tedavi sağlıyoruz"
+        },
+        {
+          "title": "Uzman Ekip",
+          "description": "Deneyimli diş hekimlerimiz ve uzmanlarımızla en iyi bakımı sunuyoruz"
+        },
+        {
+          "title": "Kapsamlı Bakım",
+          "description": "Her hastanın ihtiyaçlarına özel, bütünsel tedavi yaklaşımı"
+        }
+      ],
+      "stats": {
+        "dentists": "15+",
+        "experience": "Yıllık Deneyim"
+      },
+      "cta": "Hakkımızda Daha Fazla"
+    },
+    "whyUs": {
+      "label": "NEDEN BİZ",
+      "title": "Olağanüstü Kalite, Uygun Maliyet",
+      "description": "Dünya standartlarında diş bakımını herkes için erişilebilir kılıyoruz. Küresel fiyatlardan %70'e varan oranda daha uygun maliyetlerle yüksek kaliteli çözümler sunuyoruz.",
+      "features": {
+        "professionals": {
+          "title": "Uzman Ekip",
+          "description": "Deneyimli diş hekimlerimiz ve uzmanlarımızla en iyi bakımı sunuyoruz."
+        },
+        "satisfaction": {
+          "title": "Hasta Memnuniyeti",
+          "description": "Her hastanın konfor ve memnuniyetini önceliklendiriyoruz."
+        },
+        "materials": {
+          "title": "Kaliteli Malzemeler",
+          "description": "Hasta memnuniyeti ve uzun ömürlü sonuçlar için en kaliteli malzemeleri kullanıyoruz."
+        }
+      }
+    },
+    "patientJourney": {
+      "label": "HASTA YOLCULUĞU",
+      "title": "Medico Kliniği'ndeki Yolculuğunuz",
+      "description": "Konfor, güvenlik ve memnuniyetin öncelikli olduğu özenle tasarlanmış yolculuğunuza başlayın. İlk konsültasyondan tedavi ve takibe kadar, Medico'daki her adım size unutulmaz bir deneyim sunar.",
+      "slides": {
+        "slide1": {
+          "title": "#1 - Online Konsültasyon",
+          "description": "Ücretsiz diş raporunuzu almak için formu doldurun veya bizi arayın."
+        },
+        "slide2": {
+          "title": "#2 - Tedavi Planlaması",
+          "description": "Detaylı muayene ve tedavi planınızın oluşturulması."
+        },
+        "slide3": {
+          "title": "#3 - Seyahat Düzenlemeleri",
+          "description": "Size özel hazırlanan tedavi planı ve maliyet bilgilendirmesi."
+        },
+        "slide4": {
+          "title": "#4 - Varış ve Karşılama",
+          "description": "İstanbul'a varışınızda sıcak bir karşılama ve konforlu transferiniz."
+        },
+        "slide5": {
+          "title": "#5 - Tedavi",
+          "description": "Uzman ekibimiz tarafından tedavinizin gerçekleştirilmesi."
+        },
+        "slide6": {
+          "title": "#6 - İyileşme ve Bakım",
+          "description": "Tedavi sonrası düzenli kontroller ve bakım tavsiyeleri."
+        },
+        "slide7": {
+          "title": "#7 - Ayrılış",
+          "description": "Her adımda özenle ilgilenildiğiniz profesyonel bir deneyimden sonra yeni gülüşünüzle ayrılış."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Üstün Bakım ve Dönüştürücü Gülüşlerin Gerçek Hikayeleri",
+      "sectionTitle": "HASTA YORUMLARI",
+      "button": "Tüm Yorumlar"
+    },
+    "about": {
+      "label": "Hakkımızda",
+      "title": "Her Gülüş İçin Uygun Fiyatlı, Dünya Standartlarında Diş Bakımı",
+      "description": "Kapsamlı genel, estetik ve uzmanlık gerektiren diş tedavilerinin sunulduğu kliniğimizde, hastaya odaklı bir anlayışla hizmet veriyoruz. Küresel olarak tanınan markalarla çalışıyor, dünya standartlarına göre %70'e varan daha uygun maliyetlerle yüksek kaliteli çözümler sunuyoruz.",
+      "stats": {
+        "smiles": {
+          "value": "+18B",
+          "label": "Mükemmel Gülüş Tasarlandı"
+        },
+        "satisfaction": {
+          "value": "96%",
+          "label": "Hasta Memnuniyeti Oranı"
+        }
+      },
+      "vision_section": {
+        "our_mission": "Misyonumuz",
+        "mission_desc": "Kişiselleştirilmiş ve şefkatli hizmetle, daha sağlıklı ve kendinden emin gülüşlere ulaşmayı herkes için mümkün kılmak.",
+        "our_vision": "Vizyonumuz",
+        "vision_desc": "Yaşamları dönüştüren, güven inşa eden ve hasta odaklı yaklaşımı benimseyerek küresel kalite ve erişilebilirlikte yeni standartlar belirleyen lider bir klinik olmak.",
+        "our_value": "Değerlerimiz",
+        "value_desc": "Hizmetin her aşamasında şeffaflık ve dürüstlüğü esas alarak, her hastaya empati, saygı ve kişisel ilgi ile yaklaşmak."
+      },
+      "cta": "Hakkımızda Daha Fazlası",
+      "committed_excellence": "MÜKEMMELLİĞE BAĞLILIK",
+      "healthy_smiles_trust": "Sağlıklı Gülüşler ve Güven Dolu Bir Vizyonla Yol Alıyoruz.",
+      "contact_now": "Şimdi İletişime Geçin"
+    },
+    "contact": {
+      "sectionTitle": "BİZE ULAŞIN",
+      "title": "ÜCRETSİZ Diş Raporu Alın",
+      "subtitle": "Bilgilerinizi gönderin ve ihtiyaçlarınıza özel bir teklif alın.",
+      "form": {
+        "namePlaceholder": "Ad Soyad",
+        "phonePlaceholder": "Telefon Numarası",
+        "emailPlaceholder": "E-posta Adresi",
+        "messagePlaceholder": "Mesajınız",
+        "submitButton": "Gönder"
+      },
+      "faq": {
+        "title": "Tedavilerimiz hakkında bilmeniz gereken her şey",
+        "subtitle": "SSS bölümümüzde diş tedavileri, prosedürler ve hasta bakımı hakkında sık sorulan sorulara hızlı yanıtlar bulabilirsiniz.",
+        "questions": {
+          "treatments": {
+            "question": "Hangi diş tedavilerini sunuyorsunuz?",
+            "answer": "Koruyucu bakım, kozmetik diş hekimliği, restoratif tedaviler ve ağız cerrahisi dahil olmak üzere kapsamlı diş tedavileri sunuyoruz. Hizmetlerimiz arasında diş implantları, laminalar, kaplamalar, diş beyazlatma, ortodonti ve tam gülüş tasarımı yer alıyor. Her tedavi, sağlıklı ve özgüvenli bir gülümsemeye kavuşma yolculuğunu temsil eder."
+          },
+          "affordability": {
+            "question": "Tedavileriniz diğer ülkelere göre uygun fiyatlı mı?",
+            "answer": "Evet, Medico Kliniği kaliteden ödün vermeden, diğer ülkelere göre %70'e varan oranda daha uygun fiyatlarla üst düzey diş tedavileri sunuyor. Yüksek standartlarda malzeme ve teknoloji kullanımını garanti etmek için küresel olarak güvenilir markalarla çalışıyoruz."
+          },
+          "rightTreatment": {
+            "question": "Hangi diş tedavisinin benim için doğru olduğunu nasıl bilirim?",
+            "answer": "Uzman ekibimiz, diş sağlığınızı değerlendirmek için ileri teknoloji kullanarak detaylı bir konsültasyon ve tanı süreci uygulayacaktır. Bu değerlendirmeye dayanarak, işlev, estetik veya genel ağız sağlığı hedeflerinize uygun en uygun tedavi seçeneklerini önereceğiz."
+          },
+          "materials": {
+            "question": "Diş tedavilerinde yüksek kaliteli malzemeler kullanıyor musunuz?",
+            "answer": "Kesinlikle. Her tedavide dayanıklılık, konfor ve doğal görünüm sağlamak için sadece tanınmış küresel markalardan üst düzey malzemeler kullanıyoruz. Kaliteli malzeme odağımız, diş tedavinizin zamana karşı dayanıklı olmasını ve güvenebileceğiniz kalıcı sonuçlar elde etmenizi garanti eder."
+          },
+          "duration": {
+            "question": "Diş tedavilerinin tamamlanması ne kadar sürer?",
+            "answer": "Tedavi süresi, spesifik prosedüre ve özel ihtiyaçlarınıza bağlıdır. Hollywood Smile gibi bazı tedaviler tek seansta tamamlanabilirken, diş implantları veya ortodonti gibi diğerleri birkaç ay içinde birden fazla seans gerektirebilir. İlk konsültasyonunuzda ekibimiz, planlamanıza yardımcı olmak için net bir zaman çizelgesi sunacaktır."
+          }
+        }
+      }
+    }
+  }

@@ -2,7 +2,7 @@
 
 const BenefitsDentalImplants = ({ dictionary }) => {
   const isRTL = dictionary?.dir === 'rtl';
-  const benefits = dictionary?.['dental-implants']?.benefits;
+  const benefits = dictionary?.treatments?.items?.dentalImplants?.benefits;
 
   const FeatureCard = ({ title, description }) => (
     <div className="flex gap-6 pl-4">

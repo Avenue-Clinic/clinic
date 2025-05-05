@@ -1,33 +1,35 @@
 {
-  "dir": "rtl",
-  "description": "جرب رعاية الأسنان بمستوى عالمي في إسطنبول بتكلفة أقل بنسبة ٧٠٪. رحلتك نحو الابتسامة المثالية تبدأ هنا.",
-  "quickLinks": "روابط سريعة",
-  "links": {
-    "home": "الرئيسية",
-    "treatments": "العلاجات",
-    "gallery": "معرض الصور",
-    "aboutUs": "من نحن",
-    "blog": "المدونة",
-    "contactUs": "اتصل بنا"
-  },
-  "ourTreatments": "علاجاتنا",
-  "treatmentLinks": {
-    "dentalImplants": "زراعة الأسنان",
-    "hollywoodSmile": "ابتسامة هوليوود",
-    "allOn4": "تقنية أول أون فور",
-    "dentalCrowns": "تيجان الأسنان",
-    "dentalVeneers": "فينير الأسنان"
-  },
-  "contact": "اتصل بنا",
-  "address": "شارع البغداد رقم ١٢٣<br />كاديكوي، إسطنبول",
-  "phone": "+٩٠ ١٢٣ ٤٥٦ ٧٨٩٠",
-  "email": "info@medicodental.com",
-  "openingHours": {
-    "weekdays": "الإثنين - الجمعة: ٩:٠٠ - ١٨:٠٠",
-    "saturday": "السبت: ١٠:٠٠ - ١٦:٠٠",
-    "sunday": "الأحد: مغلق"
-  },
-  "copyright": "{year} عيادة ميديكو للأسنان. جميع الحقوق محفوظة",
-  "madeWith": "صنع بـ ",
-  "byTeam": "بواسطة فريق افينيو"
-}
+    "footer": {
+      "description": "اختبر رعاية أسنان عالمية في إسطنبول بتكاليف أقل بنسبة 70%. رحلتك نحو الابتسامة المثالية تبدأ من هنا.",
+      "quickLinks": "روابط سريعة",
+      "links": {
+        "home": "الصفحة الرئيسية",
+        "treatments": "العلاجات",
+        "gallery": "المعرض",
+        "aboutUs": "من نحن",
+        "blog": "المدونة",
+        "contactUs": "تواصل معنا"
+      },
+      "ourTreatments": "علاجاتنا",
+      "treatmentLinks": {
+        "dentalImplants": "زراعة الأسنان",
+        "hollywoodSmile": "ابتسامة هوليوود",
+        "allOn4": "زراعة All-on-4/6",
+        "dentalCrowns": "تيجان الأسنان",
+        "dentalVeneers": "عدسات الأسنان"
+      },
+      "contact": "التواصل",
+      "address": "123 شارع الأسنان<br />إسطنبول، تركيا",
+      "phone": "+90 123 456 7890",
+      "email": "info@medicodental.com",
+      "openingHours": {
+        "weekdays": "الاثنين - الجمعة: 9:00 صباحاً - 6:00 مساءً",
+        "saturday": "السبت: 10:00 صباحاً - 4:00 مساءً",
+        "sunday": "الأحد: مغلق"
+      },
+      "copyright": "© {year} عيادة ميديكو للأسنان. جميع الحقوق محفوظة.",
+      "madeWith": "صنع بحب",
+      "byTeam": "بواسطة فريق Avenue"
+    }
+  }
+  

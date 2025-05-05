@@ -8,7 +8,7 @@ import CounterAnimation from "./CounterAnimation";
 const DentalHero = ({ dictionary }) => {
   const isRTL = dictionary?.dir === "rtl";
   const [currentSlide, setCurrentSlide] = useState(0);
-  const implants = dictionary?.["dental-implants"]?.hero || {};
+  const implants = dictionary?.treatments?.items?.dentalImplants?.hero || {};
 
   // Debug: Log the dictionary structure
   console.log('Dictionary in DentalHero:', dictionary);
