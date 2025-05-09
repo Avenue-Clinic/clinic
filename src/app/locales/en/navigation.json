@@ -1,0 +1,93 @@
+{
+  "mainNav": {
+    "home": {
+      "title": "Home",
+      "link": "/"
+    },
+    "treatments": {
+      "title": "Treatments",
+      "link": "/treatments",
+      "dropdown": true
+    },
+    "gallery": {
+      "title": "Gallery",
+      "link": "/gallery"
+    },
+    "aboutUs": {
+      "title": "About Us",
+      "link": "/about"
+    },
+    "blog": {
+      "title": "Blog",
+      "link": "/blog"
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "link": "/contact"
+    }
+  },
+  "treatmentsNav": {
+    "dentalImplants": {
+      "title": "Dental Implants",
+      "link": "/treatments/dental-implants"
+    },
+    "hollywoodSmile": {
+      "title": "Hollywood Smile",
+      "link": "/treatments/hollywood-smile"
+    },
+    "dentalVeneers": {
+      "title": "Dental Veneers",
+      "link": "/treatments/dental-veneers"
+    },
+    "allOn46Implants": {
+      "title": "All-on-4/6 Implants",
+      "link": "/treatments/all-on46-implants"
+    },
+    "dentalCrowns": {
+      "title": "Dental Crowns",
+      "link": "/treatments/dental-crowns"
+    },
+    "surgicalDentistry": {
+      "title": "Surgical Dentistry",
+      "link": "/treatments/surgical-dentistry"
+    },
+    "smileMakeover": {
+      "title": "Smile Makeover",
+      "link": "/treatments/smile-makeover"
+    }
+  },
+  "footerNav": {
+    "columns": {
+      "quickLinks": {
+        "title": "Quick Links",
+        "items": [
+          "home",
+          "treatments",
+          "gallery",
+          "aboutUs",
+          "blog",
+          "contactUs"
+        ]
+      },
+      "ourTreatments": {
+        "title": "Our Treatments",
+        "items": [
+          "dentalImplants",
+          "hollywoodSmile",
+          "dentalVeneers",
+          "allOn46Implants",
+          "dentalCrowns",
+          "surgicalDentistry"
+        ]
+      }
+    }
+  },
+  "socialNav": {
+    "instagram": "https://www.instagram.com/avenue.dental.clinic/",
+    "facebook": "https://www.facebook.com/Avenue.dental.cliniq",
+    "whatsapp": "https://wa.me/5514813048",
+    "x": "https://x.com",
+    "tiktok": "https://tiktok.com",
+    "youtube": "https://youtube.com"
+  }
+}

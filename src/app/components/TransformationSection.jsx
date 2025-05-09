@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
-import { ReactCompareSlider } from 'react-compare-slider'
-import { useState } from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { ReactCompareSlider } from 'react-compare-slider';
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 // Animation variants
 const fadeInUp = {
@@ -11,45 +12,46 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
-  }
-}
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
 
-export default function TransformationSection({ dictionary }) {
-  const isRTL = dictionary.dir === 'rtl'
-  const transformation = dictionary.transformation || dictionary.hero?.transformation
-  const [hoveredImage, setHoveredImage] = useState(null)
-  const [isDragging, setIsDragging] = useState(false)
+export default function TransformationSection({ dictionary, locale = 'en' }) {
+  const isRTL = dictionary.dir === 'rtl';
+  const transformation =
+    dictionary.transformation || dictionary.hero?.transformation;
+  const [hoveredImage, setHoveredImage] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
 
-  if (!transformation) return null
+  if (!transformation) return null;
 
   const transformations = [
     {
       id: 1,
       beforeImage: '/images/btrans1.jpg',
       afterImage: '/images/atrans1.jpg',
-      alt: 'Transformation 1'
+      alt: 'Transformation 1',
     },
     {
       id: 2,
       beforeImage: '/images/btrans2.jpg',
       afterImage: '/images/atrans2.jpg',
-      alt: 'Transformation 2'
+      alt: 'Transformation 2',
     },
     {
       id: 3,
       beforeImage: '/images/btrans3.jpg',
       afterImage: '/images/atrans3.jpg',
-      alt: 'Transformation 3'
-    }
-  ]
+      alt: 'Transformation 3',
+    },
+  ];
 
   return (
     <section className="bg-[#FAFAFA] overflow-hidden">
-      <div className="container mx-auto py-[100px]">
-        <div className={`flex items-center justify-between mb-[80px] ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <motion.div 
-            className="max-w-[820px]"
+      <div className="container mx-auto py-[100px] md:py-[120px]">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-4 lg:gap-0 mb-[80px]">
+          <motion.div
+            className="max-w-[820px] md:max-w-[900px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -58,31 +60,33 @@ export default function TransformationSection({ dictionary }) {
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
               {transformation.sectionTitle}
             </h3>
-            <motion.h2 
-              className="text-[46px] font-bold leading-[55px] text-[var(--primary)]"
+            <motion.h2
+              className="text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[42px] md:leading-[42px] lg:leading-[55px] text-[var(--primary)]"
               variants={fadeInUp}
               transition={{ delay: 0.2 }}
             >
               {transformation.title}
             </motion.h2>
           </motion.div>
-          <motion.button 
-            className="px-7 py-4 text-[16px] font-semibold transition-all bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)]"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInUp}
-            transition={{ delay: 0.4 }}
-          >
-            {transformation.button}
-          </motion.button>
+          <Link href={`/${dictionary?.lang}/gallery`} passHref legacyBehavior>
+            <motion.button
+              className="px-7 py-4 text-[16px] font-semibold transition-all bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)]"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeInUp}
+              transition={{ delay: 0.4 }}
+            >
+              {transformation.button}
+            </motion.button>
+          </Link>
         </div>
 
-        <div className="flex gap-[20px] mt-[60px]">
+        <div className="flex flex-col md:flex-row gap-[20px] md:gap-[40px] mt-[60px]">
           {transformations.map((item, index) => (
-            <motion.div 
-              key={item.id} 
-              className="relative w-[403px] h-[403px] group"
+            <motion.div
+              key={item.id}
+              className="relative w-full aspect-square max-w-[403px] mx-auto group"
               onMouseEnter={() => setHoveredImage(item.id)}
               onMouseLeave={() => setHoveredImage(null)}
               initial="hidden"
@@ -95,7 +99,7 @@ export default function TransformationSection({ dictionary }) {
                 onPointerDown={() => setIsDragging(true)}
                 onPointerUp={() => setIsDragging(false)}
                 itemOne={
-                  <div className="relative w-[403px] h-[403px]">
+                  <div className="relative w-full aspect-square">
                     <Image
                       src={item.beforeImage}
                       alt={`${item.alt} Before`}
@@ -106,7 +110,7 @@ export default function TransformationSection({ dictionary }) {
                   </div>
                 }
                 itemTwo={
-                  <div className="relative w-[403px] h-[403px]">
+                  <div className="relative w-full aspect-square">
                     <Image
                       src={item.afterImage}
                       alt={`${item.alt} After`}
@@ -117,15 +121,15 @@ export default function TransformationSection({ dictionary }) {
                   </div>
                 }
                 style={{
-                  height: '403px',
-                  width: '403px',
+                  height: '100%',
+                  width: '100%',
                   borderRadius: '1rem',
                   '--rcs-handle-size': '40px',
                   '--rcs-handle-color': 'white',
                   '--rcs-handle-arrow-color': 'var(--primary)',
                   '--rcs-handle-border-color': 'white',
                   '--rcs-line-color': 'white',
-                  '--rcs-line-width': '3px'
+                  '--rcs-line-width': '3px',
                 }}
                 position={50}
                 onPositionChange={() => {}}
@@ -136,11 +140,19 @@ export default function TransformationSection({ dictionary }) {
               {hoveredImage === item.id && !isDragging && (
                 <>
                   <div className="absolute inset-0 transition-opacity duration-500 pointer-events-none bg-black/40 rounded-2xl" />
-                  <div className={`absolute ${isRTL ? 'right-6' : 'left-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}>
-                    <span className="text-sm font-medium text-white">{transformation.before}</span>
+                  <div
+                    className={`absolute ${isRTL ? 'right-6' : 'left-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}
+                  >
+                    <span className="text-sm font-medium text-white">
+                      {transformation.before}
+                    </span>
                   </div>
-                  <div className={`absolute ${isRTL ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}>
-                    <span className="text-sm font-medium text-white">{transformation.after}</span>
+                  <div
+                    className={`absolute ${isRTL ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}
+                  >
+                    <span className="text-sm font-medium text-white">
+                      {transformation.after}
+                    </span>
                   </div>
                 </>
               )}
@@ -149,5 +161,5 @@ export default function TransformationSection({ dictionary }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

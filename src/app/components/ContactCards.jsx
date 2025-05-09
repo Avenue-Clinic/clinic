@@ -1,10 +1,10 @@
-"use server";
+'use server';
 
-import Image from "next/image";
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
+import Image from 'next/image';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
-const ContactCardItem = dynamic(() => import("./ContactCardItem"), {
+const ContactCardItem = dynamic(() => import('./ContactCardItem'), {
   ssr: true,
   loading: ({ index }) => (
     <div className="animate-pulse bg-gray-200 p-[30px] rounded-[30px] h-[250px]" />
@@ -13,40 +13,40 @@ const ContactCardItem = dynamic(() => import("./ContactCardItem"), {
 
 const cards = [
   {
-    icon: "/icons/address.svg",
-    alt: "Address",
-    titleKey: "address",
-    fallbackTitle: "Address",
-    content: (dict) => dict?.form?.address || "Beyoğlu mah. 2, Cami sokak, Küçükçekmece/ Istanbul"
+    icon: '/icons/address.svg',
+    alt: 'Address',
+    titleKey: 'address',
+    fallbackTitle: 'Address',
+    content: (dict) => dict?.footer?.address,
   },
   {
-    icon: "/icons/contact.svg",
-    alt: "Contact",
-    titleKey: "contact",
-    fallbackTitle: "Contact",
+    icon: '/icons/contact.svg',
+    alt: 'Contact',
+    titleKey: 'contact',
+    fallbackTitle: 'Contact',
     content: (dict) => (
       <>
-        {dict?.form?.email || "info@medicclinic.net"}
+        {dict?.footer?.email}
         <br />
-        {dict?.form?.phone || "+90 552 663 0630"}
+        {dict?.footer?.phone}
       </>
-    )
+    ),
   },
   {
-    icon: "/icons/hours.svg",
-    alt: "Opening Hours",
-    titleKey: "hours",
-    fallbackTitle: "Opening Hours",
+    icon: '/icons/hours.svg',
+    alt: 'Opening Hours',
+    titleKey: 'hours',
+    fallbackTitle: 'Opening Hours',
     content: (dict) => (
       <>
-        {dict?.form?.weekdays || "Monday to Friday: 9am - 7pm"}
+        {dict?.footer?.openingHours?.weekdays}
         <br />
-        {dict?.form?.saturday || "Saturday: 9am - 4pm"}
+        {dict?.footer?.openingHours?.saturday}
         <br />
-        {dict?.form?.sunday || "Sunday: Closed"}
+        {dict?.footer?.openingHours?.sunday}
       </>
-    )
-  }
+    ),
+  },
 ];
 
 const ContactCards = ({ dictionary, locale }) => {
@@ -59,9 +59,11 @@ const ContactCards = ({ dictionary, locale }) => {
           {cards.map((card, index) => {
             const renderedContent = card.content(dictionary);
             return (
-              <Suspense 
-                key={index} 
-                fallback={<div className="animate-pulse bg-gray-200 p-[30px] rounded-[30px] h-[250px]" />}
+              <Suspense
+                key={index}
+                fallback={
+                  <div className="animate-pulse bg-gray-200 p-[30px] rounded-[30px] h-[250px]" />
+                }
               >
                 <ContactCardItem
                   cardInfo={{

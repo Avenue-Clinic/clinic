@@ -13,6 +13,7 @@
     "@react-google-maps/api": "^2.20.6",
     "@tabler/icons-react": "^3.31.0",
     "framer-motion": "^12.7.4",
+    "html-react-parser": "^5.2.3",
     "js-cookie": "^3.0.5",
     "lucide-react": "0.288.0",
     "motion": "^12.7.4",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "autoprefixer": "10.4.16",
     "postcss": "8.4.31",
+    "prettier": "^3.5.3",
     "tailwindcss": "3.4.0"
   }
 }

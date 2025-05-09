@@ -1,6 +1,6 @@
-'use client'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+'use client';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const FeatureCard = ({ icon, title, description, index, isRTL }) => (
   <motion.div
@@ -10,13 +10,21 @@ const FeatureCard = ({ icon, title, description, index, isRTL }) => (
     viewport={{ once: true }}
     className="bg-[var(--primary-800)] p-7 rounded-2xl relative"
   >
-    <div className="space-y-5">
-      <div className="bg-white w-[52px] h-[52px] rounded-lg flex items-center justify-center">
-        <Image src={icon} width={36} height={36} alt={title} className="w-9 h-9" />
+    <div className="space-y-4">
+      <div className="flex items-center gap-4">
+        <div className="bg-white w-[52px] h-[52px] rounded-lg flex items-center justify-center flex-shrink-0">
+          <Image
+            src={icon}
+            width={36}
+            height={36}
+            alt={title}
+            className="w-9 h-9"
+          />
+        </div>
+        <h3 className="text-[20px] font-semibold leading-[24px] text-white">
+          {title}
+        </h3>
       </div>
-      <h3 className="text-[20px] font-semibold leading-[24px] text-white">
-        {title}
-      </h3>
       <p className="text-[16px] font-normal leading-[29px] text-white/80">
         {description}
       </p>
@@ -25,7 +33,7 @@ const FeatureCard = ({ icon, title, description, index, isRTL }) => (
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/10" />
     )}
   </motion.div>
-)
+);
 
 const WhyUs = ({ dictionary = {} }) => {
   const whyUs = dictionary?.whyUs || {};
@@ -34,13 +42,13 @@ const WhyUs = ({ dictionary = {} }) => {
   const features = [
     {
       icon: '/icons/professional.svg',
-      title: whyUs?.features?.expertise?.title,
-      description: whyUs?.features?.expertise?.description,
+      title: whyUs?.features?.professionals?.title,
+      description: whyUs?.features?.professionals?.description,
     },
     {
-      icon: '/icons/money.svg',
-      title: whyUs?.features?.affordability?.title,
-      description: whyUs?.features?.affordability?.description,
+      icon: '/icons/patient.svg',
+      title: whyUs?.features?.satisfaction?.title,
+      description: whyUs?.features?.satisfaction?.description,
     },
     {
       icon: '/icons/material.svg',
@@ -61,11 +69,13 @@ const WhyUs = ({ dictionary = {} }) => {
 
   return (
     <section className="bg-[var(--primary)] text-white py-16">
-      <div className="container px-4 mx-auto">
-        <div className={`flex flex-col lg:flex-row gap-12 items-center ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+      <div className="container px-8 mx-auto">
+        <div
+          className={`flex flex-col lg:flex-row gap-12 items-center ${isRTL ? 'lg:flex-row-reverse' : ''}`}
+        >
           {/* Left Content */}
-          <motion.div 
-            className="space-y-10 lg:w-1/2 lg:pr-8"
+          <motion.div
+            className="md:space-y-8 lg:space-y-10 lg:w-1/2 lg:pr-8"
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -85,7 +95,7 @@ const WhyUs = ({ dictionary = {} }) => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-[46px] font-bold leading-[55px] mb-6"
+              className="text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[1.2] mb-6"
             >
               {whyUs?.title}
             </motion.h2>
@@ -94,7 +104,7 @@ const WhyUs = ({ dictionary = {} }) => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-[16px] font-normal leading-[29px] opacity-90 mb-8"
+              className="text-[14px] md:text-[16px] font-normal leading-[29px] opacity-90 mb-8"
             >
               {whyUs?.description}
             </motion.p>
@@ -110,14 +120,14 @@ const WhyUs = ({ dictionary = {} }) => {
           </motion.div>
 
           {/* Right Content */}
-          <motion.div 
+          <motion.div
             className="lg:w-[45%]"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="grid gap-5">
+            <div className="grid gap-4">
               {features.map((feature, index) => (
                 <FeatureCard
                   key={feature.title || index}
@@ -133,7 +143,7 @@ const WhyUs = ({ dictionary = {} }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WhyUs
+export default WhyUs;

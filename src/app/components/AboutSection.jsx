@@ -34,7 +34,7 @@ const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   return <div ref={ref}>{count ? `${prefix}${count}${suffix}` : '0'}</div>;
 };
 
-export default function AboutSection({ dictionary = {} }) {
+export default function AboutSection({ dictionary = {}, locale = 'en' }) {
   const about = dictionary?.about || {};
   const [isHovered, setIsHovered] = useState(false);
   const isRTL = dictionary?.dir === 'rtl';
@@ -42,12 +42,18 @@ export default function AboutSection({ dictionary = {} }) {
   return (
     <section className="py-12 bg-white">
       <div className="container relative mx-auto px-8 lg:px-6 xl:px-[20px] max-w-[1300px] py-8 lg:py-12">
-        <div className={`grid items-center gap-8 grid-cols-1 lg:grid-cols-2 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+        <div
+          className={`grid items-center gap-8 grid-cols-1 lg:grid-cols-2 ${isRTL ? 'lg:flex-row-reverse' : ''}`}
+        >
           {/* Image container */}
-          <div className={`relative w-full aspect-[585/490] max-h-[490px] ${isRTL ? 'lg:order-2' : 'lg:order-1'}`}>
-            <div 
+          <div
+            className={`relative w-full aspect-[585/490] max-h-[490px] ${isRTL ? 'lg:order-2' : 'lg:order-1'}`}
+          >
+            <div
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[585px] h-full rounded-xl overflow-hidden ${
-                isRTL ? 'lg:left-auto lg:right-10 lg:translate-x-0' : 'lg:right-auto lg:left-[5px] lg:translate-x-0'
+                isRTL
+                  ? 'lg:left-auto lg:right-10 lg:translate-x-0'
+                  : 'lg:right-auto lg:left-[5px] lg:translate-x-0'
               }`}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -58,22 +64,26 @@ export default function AboutSection({ dictionary = {} }) {
                 fill
                 className="object-cover"
               />
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40"
                 animate={{
                   scale: isHovered ? 1.1 : 1,
-                  opacity: isHovered ? 0.6 : 0.4
+                  opacity: isHovered ? 0.6 : 0.4,
                 }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
                   className="flex items-center justify-center w-20 h-20 rounded-full bg-[var(--primary)]"
                   animate={{
-                    scale: isHovered ? 1.2 : 1
+                    scale: isHovered ? 1.2 : 1,
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                 </motion.div>
@@ -82,8 +92,8 @@ export default function AboutSection({ dictionary = {} }) {
           </div>
 
           {/* Text container */}
-          <motion.div 
-            className={`w-full max-w-[650px] flex flex-col justify-center px-0 lg:px-4 mx-auto lg:mx-0 text-center lg:text-left ${
+          <motion.div
+            className={`w-full max-w-[650px] flex flex-col justify-center px-0 lg:px-4 mx-auto lg:mx-0 text-left ${
               isRTL ? 'lg:text-right' : ''
             }`}
             initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
@@ -91,7 +101,7 @@ export default function AboutSection({ dictionary = {} }) {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className='h-[540px]'>
+            <div className="h-[540px]">
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -100,16 +110,16 @@ export default function AboutSection({ dictionary = {} }) {
               >
                 {about.label}
               </motion.span>
-              
+
               <motion.h2
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mt-4 text-[34px] md:text-[46px] font-bold text-[var(--primary)] leading-[55px] max-w-[590px]"
+                className="mt-4 text-[30px] md:text-[46px] font-bold text-[var(--primary)] leading-[40px] md:leading-[55px] max-w-[590px]"
               >
                 {about.title}
               </motion.h2>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -119,29 +129,35 @@ export default function AboutSection({ dictionary = {} }) {
                 {about.description}
               </motion.p>
 
-              <div className={`mt-8 flex ${isRTL ? 'lg:flex-row-reverse lg:justify-end' : 'lg:flex-row'} justify-between items-center lg:pr-8`}>
+              <div
+                className={`mt-8 flex ${isRTL ? 'lg:flex-row-reverse lg:justify-end' : 'lg:flex-row'} justify-between items-center lg:pr-8`}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className={`lg:text-${isRTL ? "right" : "left"} text-center`}
+                  className={`lg:text-${isRTL ? 'right' : 'left'} text-left`}
                 >
-                  <div className="text-[28px] md:text-[42px] font-semibold text-[var(--primary)] leading-none ">
+                  <div className="text-[24px] md:text-[42px] font-semibold text-[var(--primary)] leading-none ">
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
-                  <div className="pl-4 mt-1 text-sm text-gray-500 lg:pl-0">{about.stats?.smiles?.label}</div>
+                  <div className="pl-4 mt-1 text-sm text-gray-500 lg:pl-0">
+                    {about.stats?.smiles?.label}
+                  </div>
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className={`lg:text-${isRTL ? "right" : "left"} text-center`}
+                  className={`lg:text-${isRTL ? 'right' : 'left'} text-left`}
                 >
-                  <div className="text-[28px] md:text-[42px] font-bold text-[var(--primary)] leading-none">
+                  <div className="text-[24px] md:text-[42px] font-bold text-[var(--primary)] leading-none">
                     <CounterAnimation end="96" suffix="%" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats?.satisfaction?.label}</div>
+                  <div className="mt-1 text-sm text-gray-500">
+                    {about.stats?.satisfaction?.label}
+                  </div>
                 </motion.div>
               </div>
 
@@ -149,30 +165,30 @@ export default function AboutSection({ dictionary = {} }) {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className={`lg:text-${isRTL ? "right" : "left"} text-center`}
+                className={`lg:text-${isRTL ? 'right' : 'left'} text-left`}
               >
                 <Link
-                href="/about-us"
-                className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] mx-auto lg:mx-0 ${isRTL ? 'flex-row-reverse' : ''}`}
-              >
+                  href={`/${dictionary?.lang}/about`}
+                  className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] mx-auto lg:mx-0 ${isRTL ? 'flex-row-reverse' : ''}`}
+                >
                   {about.cta}
-                  <svg 
-                    className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`}
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d={isRTL ? "M19 12H5" : "M5 12h14"}
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={isRTL ? 'M19 12H5' : 'M5 12h14'}
                     />
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d={isRTL ? "M12 19l7-7-7-7" : "M12 5l7 7-7 7"}
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={isRTL ? 'M12 19l7-7-7-7' : 'M12 5l7 7-7 7'}
                     />
                   </svg>
                 </Link>

@@ -1,6 +1,6 @@
 {
   "footer": {
-    "description": "Experience world-class dental care in Istanbul at 70% more affordable costs. Your perfect smile journey begins here.",
+    "description": "Get expert dental care in Istanbul at prices up to 70% lower than abroad. Start your journey toward a healthier, more confident smile today.",
     "quickLinks": "Quick Links",
     "links": {
       "home": "Home",
@@ -19,16 +19,16 @@
       "dentalVeneers": "Dental Veneers"
     },
     "contact": "Contact",
-    "address": "123 Dental Street<br />Istanbul, Turkey",
-    "phone": "+90 123 456 7890",
+    "address": "Piri Reis Nazım Hikmet 341 Blv.<br/> Esenyurt , Istanbul, Turkey",
+    "phone": "+90 551 481 3048",
     "email": "info@medicodental.com",
     "openingHours": {
       "weekdays": "Mon - Fri: 9:00 AM - 6:00 PM",
       "saturday": "Saturday: 10:00 AM - 4:00 PM",
       "sunday": "Sunday: Closed"
     },
-    "copyright": "{year} Medico Dental Clinic. All rights reserved.",
+    "copyright": "{year} Avenue Dental Clinic. All rights reserved.",
     "madeWith": "made with",
-    "byTeam": "by Avenue team"
+    "byTeam": "by Avenue Team"
   }
 }

@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --primary: #0B132A;        /* Deep navy, solid primary */
-  --secondary: #F5A623;      /* Vibrant gold for contrast (pairs well with dark blues) */
-  --background: white;     /* Slightly lighter navy for backgrounds */
-  --text: #F9FAFB;           /* Soft white, very readable */
-  --secondary-text: #A0AEC0; /* Muted bluish-gray for subtle text */
-  --red: #FF6B6B;         /* Bright coral red for attention-grabbing elements */
+  --primary: #0b132a; /* Deep navy, solid primary */
+  --secondary: #f5a623; /* Vibrant gold for contrast (pairs well with dark blues) */
+  --accent: #00a9a7;
+  --background: white; /* Slightly lighter navy for backgrounds */
+  --text: #f9fafb; /* Soft white, very readable */
+  --secondary-text: #4f5665; /* Muted bluish-gray for subtle text */
+  --red: #ff6b6b; /* Bright coral red for attention-grabbing elements */
+
+  --card1-bg: #0b132a;
+  --card2-bg: #111a33;
+  --card3-bg: #17213d;
 }
 * {
   box-sizing: border-box;
@@ -44,19 +49,41 @@ a {
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+/* Hide scrollbar on mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-width: none;
+  }
+
+  /* For IE and Edge */
+  body {
+    -ms-overflow-style: none;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1D3B3E;
-  border-radius: 10px;
-}
+/* Slim scrollbar with primary color for desktop */
+@media (min-width: 769px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-::-webkit-scrollbar-track {
-  background: #BFBFBF;
-  border-radius: 10px;
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #efefef;
+    border-radius: 10px;
+  }
 }
 
 /* Ensure scrollbar is above content */
@@ -115,7 +142,9 @@ html {
   /* Material Design Phone Input Styles */
   .phone-input .country-list {
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 0.5rem;
     margin-top: 0.5rem;
   }

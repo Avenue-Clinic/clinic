@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
-const LogoShowcase = () => {
+const LogoShowcase = ({ dictionary }) => {
   // Array of brand logos with correct file names and extensions
   const brands = [
     '/images/brands/Brand1.svg',
@@ -18,11 +18,15 @@ const LogoShowcase = () => {
   ];
 
   return (
-    <section className="py-12 bg-white">
-      <div className="container px-4 mx-auto">
-        <h2 className="text-center text-2xl md:text-3xl font-medium mb-12">
-          Powered by top-quality solutions from the most <span className="text-[--secondary]">trusted</span> brands in dentistry.
+    <section className="py-16 bg-white">
+      <div className="container px-8 mx-auto">
+        <h2 className="text-center text-[30px] md:text-[36px] lg:text-[42px] leading-[42px] lg:leading-[55px] font-semibold text-[--accent] mb-4">
+          {dictionary.partners.title}
         </h2>
+        <div className="w-32 h-[3px] bg-[--accent] mx-auto mb-6"></div>
+        <p className="text-center text-[--secondary-text] mb-12">
+          {dictionary.partners.description}
+        </p>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={50}
@@ -47,7 +51,7 @@ const LogoShowcase = () => {
             >
               <img
                 src={brand}
-                alt={`Brand ${index % brands.length + 1}`}
+                alt={`Brand ${(index % brands.length) + 1}`}
                 className="object-contain h-8 transition-all duration-300 grayscale hover:grayscale-0"
               />
             </SwiperSlide>

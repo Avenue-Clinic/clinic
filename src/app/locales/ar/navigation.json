@@ -1,0 +1,93 @@
+{
+  "mainNav": {
+    "home": {
+      "title": "الرئيسية",
+      "link": "/"
+    },
+    "treatments": {
+      "title": "العلاجات",
+      "link": "/treatments",
+      "dropdown": true
+    },
+    "gallery": {
+      "title": "المعرض",
+      "link": "/gallery"
+    },
+    "aboutUs": {
+      "title": "من نحن",
+      "link": "/about"
+    },
+    "blog": {
+      "title": "المدونة",
+      "link": "/blog"
+    },
+    "contactUs": {
+      "title": "اتصل بنا",
+      "link": "/contact"
+    }
+  },
+  "treatmentsNav": {
+    "dentalImplants": {
+      "title": "زرعات الأسنان",
+      "link": "/treatments/dental-implants"
+    },
+    "hollywoodSmile": {
+      "title": "ابتسامة هوليوود",
+      "link": "/treatments/hollywood-smile"
+    },
+    "dentalVeneers": {
+      "title": "فينير الأسنان",
+      "link": "/treatments/dental-veneers"
+    },
+    "allOn46Implants": {
+      "title": "زرعات All-on-4/6",
+      "link": "/treatments/all-on46-implants"
+    },
+    "dentalCrowns": {
+      "title": "تيجان الأسنان",
+      "link": "/treatments/dental-crowns"
+    },
+    "surgicalDentistry": {
+      "title": "جراحة الأسنان",
+      "link": "/treatments/surgical-dentistry"
+    },
+    "smileMakeover": {
+      "title": "تجميل الابتسامة",
+      "link": "/treatments/smile-makeover"
+    }
+  },
+  "footerNav": {
+    "columns": {
+      "quickLinks": {
+        "title": "روابط سريعة",
+        "items": [
+          "home",
+          "treatments",
+          "gallery",
+          "aboutUs",
+          "blog",
+          "contactUs"
+        ]
+      },
+      "ourTreatments": {
+        "title": "علاجاتنا",
+        "items": [
+          "dentalImplants",
+          "hollywoodSmile",
+          "dentalVeneers",
+          "allOn46Implants",
+          "dentalCrowns",
+          "surgicalDentistry"
+        ]
+      }
+    }
+  },
+  "socialNav": {
+    "instagram": "https://www.instagram.com/avenue.dental.clinic/",
+    "facebook": "https://www.facebook.com/Avenue.dental.cliniq",
+    "whatsapp": "https://wa.me/5514813048",
+    "x": "https://x.com",
+    "tiktok": "https://tiktok.com",
+    "youtube": "https://youtube.com"
+  }
+}

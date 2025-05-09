@@ -1,35 +1,34 @@
 {
-    "footer": {
-      "description": "اختبر رعاية أسنان عالمية في إسطنبول بتكاليف أقل بنسبة 70%. رحلتك نحو الابتسامة المثالية تبدأ من هنا.",
-      "quickLinks": "روابط سريعة",
-      "links": {
-        "home": "الصفحة الرئيسية",
-        "treatments": "العلاجات",
-        "gallery": "المعرض",
-        "aboutUs": "من نحن",
-        "blog": "المدونة",
-        "contactUs": "تواصل معنا"
-      },
-      "ourTreatments": "علاجاتنا",
-      "treatmentLinks": {
-        "dentalImplants": "زراعة الأسنان",
-        "hollywoodSmile": "ابتسامة هوليوود",
-        "allOn4": "زراعة All-on-4/6",
-        "dentalCrowns": "تيجان الأسنان",
-        "dentalVeneers": "عدسات الأسنان"
-      },
-      "contact": "التواصل",
-      "address": "123 شارع الأسنان<br />إسطنبول، تركيا",
-      "phone": "+90 123 456 7890",
-      "email": "info@medicodental.com",
-      "openingHours": {
-        "weekdays": "الاثنين - الجمعة: 9:00 صباحاً - 6:00 مساءً",
-        "saturday": "السبت: 10:00 صباحاً - 4:00 مساءً",
-        "sunday": "الأحد: مغلق"
-      },
-      "copyright": "© {year} عيادة ميديكو للأسنان. جميع الحقوق محفوظة.",
-      "madeWith": "صنع بحب",
-      "byTeam": "بواسطة فريق Avenue"
-    }
+  "footer": {
+    "description": "احصل على رعاية أسنان متخصصة في إسطنبول بأسعار أقل تصل إلى 70% من الأسعار في الخارج. ابدأ رحلتك نحو ابتسامة أكثر صحة وثقة اليوم.",
+    "quickLinks": "روابط سريعة",
+    "links": {
+      "home": "الرئيسية",
+      "treatments": "العلاجات",
+      "gallery": "المعرض",
+      "aboutUs": "من نحن",
+      "blog": "المدونة",
+      "contactUs": "اتصل بنا"
+    },
+    "ourTreatments": "علاجاتنا",
+    "treatmentLinks": {
+      "dentalImplants": "زرعات الأسنان",
+      "hollywoodSmile": "ابتسامة هوليوود",
+      "allOn4": "زرعات All-on-4/6",
+      "dentalCrowns": "تيجان الأسنان",
+      "dentalVeneers": "فينير الأسنان"
+    },
+    "contact": "اتصل بنا",
+    "address": "Piri Reis Nazım Hikmet 341 Blv.<br/> اسنيورت، إسطنبول، تركيا",
+    "phone": "+90 551 481 3048",
+    "email": "info@medicodental.com",
+    "openingHours": {
+      "weekdays": "الإثنين - الجمعة: 9:00 ص - 6:00 م",
+      "saturday": "السبت: 10:00 ص - 4:00 م",
+      "sunday": "الأحد: مغلق"
+    },
+    "copyright": "{year} عيادة آفنيو للأسنان. جميع الحقوق محفوظة.",
+    "madeWith": "صُنع بواسطة",
+    "byTeam": "فريق آفنيو"
   }
-  
+}

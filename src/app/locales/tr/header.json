@@ -1,24 +1,24 @@
 {
   "header": {
-    "home": "Anasayfa",
+    "home": "Ana Sayfa",
     "treatments": "Tedaviler",
     "gallery": "Galeri",
     "aboutUs": "Hakkımızda",
     "blog": "Blog",
     "contactUs": "İletişim",
-    "getConsultation": "Ücretsiz Danışmanlık Alın",
-    "smileCounter": "28.000’den Fazla Gülümseme — İstanbul’da Bize Katılın!",
+    "getConsultation": "Çevrimiçi Randevu",
+    "smileCounter": "28.000 Gülüş ve Daha Fazlası — İstanbul’da Bize Katılın!",
     "contact": "İletişim",
-    "getQuote": "Fiyat Teklifi Alın",
+    "getQuote": "Teklif Al",
     "treatmentsTitle": "Tedaviler"
   },
   "headerTreatments": {
     "headerDentalImplants": "Diş İmplantları",
     "headerHollywoodSmile": "Hollywood Gülüşü",
-    "headerDentalVeneers": "Porselen Lamina",
+    "headerDentalVeneers": "Diş Kaplamaları",
     "headerAllOn46Implants": "All-on-4/6 İmplantlar",
-    "headerDentalCrowns": "Diş Kaplamaları",
-    "headerSurgicalDentistry": "Cerrahi Diş Tedavileri",
+    "headerDentalCrowns": "Diş Kronları",
+    "headerSurgicalDentistry": "Cerrahi Diş Hekimliği",
     "headerSmileMakeover": "Gülüş Tasarımı"
   }
 }

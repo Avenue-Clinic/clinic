@@ -1,7 +1,8 @@
 {
   "hero": {
-  "title": "Transforming Smiles with Precision, Creating Confident Futures",
-  "subtitle": "Experience world-class dental treatments in Istanbul with Avenue Clinic—where your oral health and aesthetics come first, at prices up to 70% lower than global averages."
+    "title": "Transforming Smiles with Precision, Creating Confident Futures",
+    "subtitle": "Experience world-class dental treatments in Istanbul with Avenue Clinic—where your oral health and aesthetics come first, at prices up to 70% lower than global averages.",
+    "galleryButton": "Visit the Gallery"
   },
   "gallery": {
     "title": "Gallery",
@@ -17,18 +18,18 @@
   },
   "treatments": {
     "title": "OUR TREATMENTS",
-    "subtitle": "Comprehensive dental care tailored for every smile",
+    "subtitle": "Advanced dental care designed for every unique smile",
     "allTreatments": "All Treatments",
     "items": {
       "dentalImplants": {
         "title": "Dental Implants",
-        "description": "Dental implants are the top choice for replacing missing teeth, offering a durable, natural-looking solution.",
+        "description": "Dental implants are the most effective long-term solution for missing teeth, offering strength, stability, and a completely natural appearance.",
         "image": "/images/dental-implant.jpg",
         "icon": "/icons/dental-implant.svg",
         "readMore": "Read More",
         "hero": {
-          "title": "Reclaim Your Smile with Lasting Dental Implants",
-          "description": "Dental implants provide a permanent and natural-looking solution to missing teeth, allowing you to smile, eat, and speak with confidence. Designed to integrate seamlessly with your jawbone, our implants offer stability, durability, and a restoration that feels like your own teeth.",
+          "title": "Rediscover Comfort and Confidence with Dental Implants",
+          "description": "Avenue Clinic offers expertly placed dental implants that look, feel, and function like natural teeth. Fused directly into the jawbone, our implants provide a secure foundation for a healthier, more confident smile—whether you're replacing one tooth or several.",
           "stats": {
             "affordability": {
               "value": "70",
@@ -42,38 +43,38 @@
           "cta": "Get a FREE Dental Report"
         },
         "benefits": {
-          "title": "Overview and Key Benefits of Dental Implants",
-          "description": "Dental implants are a state-of-the-art solution to replace missing teeth, designed to restore both functionality and aesthetics. Unlike dentures or bridges, implants are surgically placed in the jawbone, providing unmatched support and longevity. Ideal for patients looking for a permanent fix, implants can transform your smile and improve oral health.",
+          "title": "The Lasting Advantages of Choosing Dental Implants",
+          "description": "Dental implants provide a reliable and permanent alternative to traditional dentures or bridges. They restore full functionality, protect your jawbone from deterioration, and elevate your smile’s aesthetics. With proper care, they can last decades—making them a smart and secure investment in your oral health.",
           "features": {
             "natural_appearance": {
-              "title": "Natural-Looking Appearance",
-              "description": "Dental implants blend seamlessly with your natural teeth, restoring your smile's aesthetics and giving you a look you can feel confident about."
+              "title": "Authentic-Looking Smile",
+              "description": "Each implant is custom-designed to match your existing teeth in color and shape, creating a seamless and attractive result."
             },
             "improved_chewing": {
-              "title": "Improved Chewing and Eating Comfort",
-              "description": "Unlike dentures, dental implants function like natural teeth, allowing you to eat your favorite foods without discomfort or worry."
+              "title": "Eat Without Restrictions",
+              "description": "Enjoy your favorite foods again—implants are strong enough to handle everyday meals without slipping or discomfort."
             },
             "enhanced_speech": {
-              "title": "Enhanced Speech",
-              "description": "Missing teeth or ill-fitting dentures can make speech challenging. Implants offer stability, helping you speak clearly and confidently."
+              "title": "Speak Naturally",
+              "description": "Implants stay firmly in place, helping you pronounce words clearly and avoid the speech issues associated with dentures."
             },
             "long_lasting": {
-              "title": "Long-Lasting Solution",
-              "description": "With proper care, dental implants are designed to last a lifetime, providing a durable and cost-effective alternative to temporary solutions."
+              "title": "Durable and Dependable",
+              "description": "With good hygiene and regular check-ups, implants can last a lifetime—making them one of the most durable treatments available."
             },
             "jawbone_health": {
-              "title": "Protection of Jawbone Health",
-              "description": "Dental implants stimulate the jawbone and prevent bone loss, maintaining your facial structure and overall oral health."
+              "title": "Protects Bone Density",
+              "description": "Dental implants stimulate your jawbone just like natural roots, preventing bone loss and supporting your facial structure."
             },
             "easy_maintenance": {
-              "title": "Easy Maintenance",
-              "description": "Just like natural teeth, dental implants only require regular brushing, flossing, and dental check-ups—no special care is needed."
+              "title": "No Special Care Needed",
+              "description": "Maintain implants just like your natural teeth with daily brushing, flossing, and routine dental visits."
             }
           }
         },
         "transformation": {
           "title": "Dental Implant Transformations",
-          "description": "See the remarkable transformations achieved through our dental implant procedures. Each case represents a real patient's journey to a confident, healthy smile.",
+          "description": "Take a look at real-life before and after photos from our dental implant patients. Each transformation showcases the power of modern implant technology in restoring smiles and confidence.",
           "before": "Before",
           "after": "After",
           "cases": [
@@ -94,83 +95,117 @@
       },
       "smileMakeover": {
         "title": "Smile Makeover",
-        "description": "It is a comprehensive cosmetic treatment that transforms your smile with a blend of procedures.",
+        "description": "A customized combination of cosmetic procedures designed to completely transform your smile’s appearance, balance, and harmony.",
         "image": "/images/smile-makeover.jpg",
         "icon": "/icons/smile-makeover.svg",
         "readMore": "Read More"
       },
       "dentalVeneers": {
         "title": "Dental Veneers",
-        "description": "Veneers are a popular cosmetic treatment in dental tourism, ideal for achieving a flawless, bright smile.",
+        "description": "Veneers are ultra-thin, custom-made shells that enhance the front of your teeth—perfect for a bright, symmetrical, and naturally flawless look.",
         "image": "/images/dental-veneer.jpg",
         "icon": "/icons/dental-veneer.svg",
         "readMore": "Read More"
       },
       "allOnImplants": {
         "title": "All-on-4/6 Implants",
-        "description": "Offer a fixed, full-arch solution for patients with multiple missing teeth. It provides durability and a natural look.",
+        "description": "A full-arch restoration using 4 or 6 strategically placed implants, offering a fixed and aesthetic solution for total tooth loss.",
         "image": "/images/all-on-implant.jpg",
         "icon": "/icons/all-on-implant.svg",
         "readMore": "Read More"
       },
       "dentalCrowns": {
         "title": "Dental Crowns",
-        "description": "A popular solution for restoring damaged or weakened teeth, providing strength, and protection.",
+        "description": "Crowns are custom restorations that cover weakened or damaged teeth, restoring their strength, function, and natural beauty.",
         "image": "/images/dental-crown.jpg",
         "icon": "/icons/dental-crown.svg",
         "readMore": "Read More"
       },
       "surgicalDentistry": {
         "title": "Surgical Dentistry",
-        "description": "Procedures aimed at addressing complex dental issues, including extractions, gum and bone surgeries.",
+        "description": "Complex treatments like extractions, bone grafts, and soft tissue surgeries—handled with care by our skilled surgical team.",
         "image": "/images/surgical-dentistry.jpg",
         "icon": "/icons/surgical-dentistry.svg",
         "readMore": "Read More"
       }
     }
   },
-  "about": {
-  "label": "About Us",
-  "title": "Exceptional Dental Expertise, Designed to Fit Every Budget.",
-  "description": "At Avenue Clinic, we combine personalized care with cutting-edge dental technology to deliver outstanding results across general, cosmetic, and advanced treatments. Our trusted team uses internationally acclaimed materials—offering premium care in Istanbul at prices up to 70% lower than global standards.",
-  "stats": {
-    "smiles": {
-      "value": "+10K",
-      "label": "Transformed Smiles Delivered"
-    },
-    "satisfaction": {
-      "value": "96%",
-      "label": "Overall Patient Satisfaction Rate"
-    }
+
+  "services": {
+    "title": "OUR SERVICES",
+    "subtitle": "Modern dental solutions designed with your time and comfort in mind",
+    "items": [
+      {
+        "title": "SAME DAY DENTISTRY",
+        "description": "Enjoy high-quality dental care delivered in a single visit—perfect for busy schedules without compromising results.",
+        "icon": "dentistry",
+        "button": "Learn More"
+      },
+      {
+        "title": "SPECIALIST CONSULTATION",
+        "description": "Meet directly with our experienced dental specialists to receive tailored recommendations for your smile goals.",
+        "icon": "consultation",
+        "button": "Book Now"
+      },
+      {
+        "title": "ONLINE APPOINTMENT",
+        "description": "Submit your preferred date and time, and our team will follow up quickly to confirm and finalize your booking.",
+        "icon": "appointment",
+        "button": "Online Appointment"
+      }
+    ]
   },
+
+  "about": {
+    "label": "About Us",
+    "title": "World-Class Dental Care That Fits Your Life and Budget.",
+    "description": "Avenue Clinic offers a unique blend of advanced dental technology and compassionate, patient-first care. Our skilled team delivers exceptional results across general, cosmetic, and specialized treatments—using trusted international materials at prices up to 70% below global averages, right here in Istanbul.",
+    "stats": {
+      "smiles": {
+        "value": "+10K",
+        "label": "Beautiful Smiles Created"
+      },
+      "satisfaction": {
+        "value": "96%",
+        "label": "Verified Patient Satisfaction"
+      }
+    },
     "vision_section": {
-      "our_mission": "Our Mission",
-      "mission_desc": "We aim to make premium dental care accessible, empowering healthier, more confident smiles through personalized and compassionate service.",
-      "our_vision": "Our Vision",
-      "vision_desc": "Our vision is to lead in providing affordable, world-class dental care that transforms lives and builds trust, setting a new global standard in quality, accessibility, and patient-focused treatment.",
-      "our_value": "Our Value",
-      "value_desc": "Our value is upholding transparency and honesty in all aspects of patient care and service, and treating every patient with empathy, respect, and personalized attention to ensure a comfortable experience."
+      "cards": [
+        {
+          "title": "Our Mission",
+          "description": "To provide high-quality dental care that is accessible, personalized, and delivered with compassion—helping every patient achieve a healthier, more confident smile.",
+          "icon": "/icons/mission.svg"
+        },
+        {
+          "title": "Our Vision",
+          "description": "To become a global leader in affordable, top-tier dentistry—shaping smiles, building trust, and redefining what patients expect from care in both comfort and quality.",
+          "icon": "/icons/vision.svg"
+        },
+        {
+          "title": "Our Value",
+          "description": "We believe in honesty, empathy, and individualized care. Every patient at Avenue Clinic is treated with transparency, respect, and the attention they truly deserve.",
+          "icon": "/icons/value.svg"
+        }
+      ]
     },
     "cta": "More About Us",
     "committed_excellence": "COMMITTED TO EXCELLENCE",
-    "healthy_smiles_trust": "Driven by a Vision of Healthy Smiles and Lasting Trust.",
+    "healthy_smiles_trust": "Guided by a Mission to Inspire Healthy Smiles and Long-Term Trust.",
     "contact_now": "Contact Now"
   },
   "expertise": {
     "label": "EXPERTISE",
-    "title": "Commitment to Excellence in Specialized Dental Care",
+    "title": "Skilled Dental Care Backed by Real Experience",
+    "description": "At Avenue Clinic, our focus is on delivering reliable dental care through practical experience and a team-based approach. Each department includes qualified dentists with focused expertise, working together to provide well-rounded care for both routine and complex treatments.",
     "features": [
       {
-        "title": "Advanced Technology",
-        "description": "State-of-the-art equipment and modern techniques for precise, comfortable treatments."
+        "title": "Dedicated Professionals in Each Field",
+        "description": "Our dental team includes experienced professionals across various branches of dentistry. From general care to more specific treatments, each patient receives attention from someone who understands their condition and treatment options."
       },
       {
-        "title": "Expert Team",
-        "description": "Highly skilled dental professionals with extensive experience in cosmetic and restorative procedures."
-      },
-      {
-        "title": "Quality Materials",
-        "description": "Premium, globally recognized dental materials ensuring lasting results."
+        "title": "Modern Tools for Better Accuracy",
+        "description": "We use up-to-date dental technology—including imaging and diagnostic tools—to improve accuracy and comfort in every procedure. This helps us offer treatment plans based on clear, detailed evaluations."
       }
     ],
     "stats": {
@@ -179,77 +214,91 @@
     },
     "cta": "Learn More About Us"
   },
+
   "whyUs": {
     "label": "WHY CHOOSE US",
-    "title": "Exceptional Quality and Affordability",
-    "description": "Experience world-class dental care that combines advanced technology, expert professionals, and premium materials - all at prices that make quality dental care accessible to everyone.",
+    "title": "Reliable Dental Care with Honest Pricing",
+    "description": "Receive dependable dental treatment that blends proven techniques, experienced professionals, and trusted materials—all offered at fair prices to make excellent care more widely available.",
     "cta": "Book Your Consultation",
     "features": {
       "professionals": {
-        "title": "Expert Professionals",
-        "description": "Our team of highly skilled dentists brings years of experience and expertise in delivering exceptional dental care."
+        "title": "Qualified Dental Team",
+        "description": "Our dentists bring practical experience and up-to-date knowledge to provide safe, effective care for patients of all needs."
       },
       "satisfaction": {
-        "title": "Patient Satisfaction",
-        "description": "We prioritize your comfort and satisfaction, ensuring a positive experience throughout your dental journey."
+        "title": "Patient-Focused Approach",
+        "description": "We listen, explain clearly, and make sure you're comfortable at every step—so you feel supported throughout your treatment."
       },
       "materials": {
-        "title": "Top-Quality Materials",
-        "description": "Our focus on top-grade materials guarantees that each procedure meets the highest standards of safety, longevity, and patient satisfaction."
+        "title": "Trusted, Durable Materials",
+        "description": "We use well-established, high-quality dental materials to ensure both safety and long-term results you can rely on."
       }
     }
   },
   "patientJourney": {
     "label": "PATIENT JOURNEY",
-    "title": "Your Journey with Medico Clinic",
-    "description": "Embark on a carefully crafted journey where your comfort, safety, and satisfaction come first. From a detailed online consultation to personalized treatment and dedicated post-care, every step with Medico Clinic is designed to provide a world-class experience.",
+    "title": "Your Journey with Avenue Clinic",
+    "description": "Begin a smooth and supportive experience where your comfort, safety, and satisfaction come first. From a personalized online consultation to expert treatment and attentive post-care, every step at Avenue Clinic is designed to make your dental journey in Türkiye easy and worry-free.",
     "slides": {
       "slide1": {
         "title": "#1 - Online Consultation",
-        "description": "Begin your journey with a comprehensive online consultation. Our expert team will review your dental concerns, medical history, and treatment goals to create a personalized care plan tailored to your needs."
+        "description": "Start from home with a personalized online consultation. Our multilingual support team will guide you through your options and answer any questions, ensuring you feel informed and confident before traveling.",
+        "image": "/images/journey/1-online-consultation.jpg"
       },
       "slide2": {
-        "title": "#2 - Treatment Planning",
-        "description": "Receive a detailed treatment plan outlining procedures, timeline, and costs. Our team will address all your questions and ensure you're fully informed about your upcoming dental care journey."
+        "title": "#2 - Arrival and Transfer",
+        "description": "Upon arrival in Türkiye, you’ll be greeted by our team and assisted with a comfortable, pre-arranged transfer to your hotel. We work with quality accommodations to make sure your stay begins stress-free.",
+        "image": "/images/journey/2-arrival-and-transfer.jpg"
       },
       "slide3": {
-        "title": "#3 - Travel Arrangements",
-        "description": "Once you're ready to proceed, our dedicated team will assist you with travel arrangements, accommodation recommendations, and scheduling your treatment dates for a seamless experience."
+        "title": "#3 - Accommodation",
+        "description": "Enjoy a relaxing stay in a hotel chosen for its comfort and convenience. We’ve partnered with trusted locations to give you the space to rest, recover, and feel at ease during your treatment process.",
+        "image": "/images/journey/3-accomidation.jpg"
       },
       "slide4": {
-        "title": "#4 - Arrival & Welcome",
-        "description": "Upon arrival in Istanbul, experience our warm hospitality. You'll be greeted by our team and transported to your accommodation, ensuring a comfortable start to your dental journey."
+        "title": "#4 - Clinical Consultation",
+        "description": "At Avenue Clinic, your in-person consultation includes a full review of your treatment plan and oral health goals. Our dentists take the time to explain each step and make sure you’re fully comfortable moving forward.",
+        "image": "/images/journey/4-clinical-consultation.jpg"
       },
       "slide5": {
         "title": "#5 - The Procedure",
-        "description": "Your treatment will be performed by our expert dental team using advanced technology and premium materials. We prioritize your comfort and safety throughout the entire process."
+        "description": "Your procedure is carried out by experienced dental professionals using modern equipment and up-to-date techniques to ensure a safe, effective, and satisfying outcome.",
+        "image": "/images/journey/5-the-procedure.jpg"
       },
       "slide6": {
-        "title": "#6 - Recovery & Care",
-        "description": "Receive comprehensive post-treatment care instructions and support. Our team remains available to address any concerns during your recovery period."
+        "title": "#6 - Check-Up",
+        "description": "After your treatment, we provide a thorough check-up to make sure everything is healing properly. Your comfort and satisfaction are our priorities, and we’re here to answer any questions before you return home.",
+        "image": "/images/journey/6-checkup.jpg"
       },
       "slide7": {
         "title": "#7 - Departure",
-        "description": "As your journey concludes, depart with a renewed sense of confidence, knowing your experience was led by professionals who prioritize your care and comfort at every step. From your initial consultation to your final check-up, Medico Clinic is committed to delivering a seamless, exceptional experience."
+        "description": "As your visit concludes, you’ll leave with a renewed smile and the confidence of knowing your care was handled by a team that values comfort, quality, and support—every step of the way at Avenue Clinic.",
+        "image": "/images/journey/7-departure.jpg"
       }
     }
   },
+
   "testimonials": {
-    "title": "Real stories of exceptional care and transformative smiles",
+    "title": "Authentic Experiences and Life-Changing Smiles",
     "sectionTitle": "TESTIMONIALS",
     "button": "All Testimonials"
   },
+
   "transformation": {
-    "title": "Stunning results that showcase the life changing impact",
+    "title": "Remarkable Results That Reflect True Smile Transformations",
     "sectionTitle": "SEE THE TRANSFORMATION",
     "button": "All Results",
     "before": "Before",
     "after": "After"
   },
+  "partners": {
+    "title": "Our Partners",
+    "description": "Partnering with industry-leading dental companies to deliver exceptional quality and innovative solutions"
+  },
   "contact": {
     "sectionTitle": "CONTACT US",
-    "title": "Get Your FREE Dental Report",
-    "subtitle": "Submit your info and get a quote personalized to your needs.",
+    "title": "Get Your Free Dental Report",
+    "subtitle": "Send us your details to receive a personalized treatment quote and plan.",
     "form": {
       "namePlaceholder": "Name Surname",
       "phonePlaceholder": "Phone Number",
@@ -258,28 +307,28 @@
       "submitButton": "Submit"
     },
     "faq": {
-      "title": "Everything you need to know about our treatments",
-      "subtitle": "Find quick answers to common questions about our dental treatments, procedures, and patient care in our FAQ section.",
+      "title": "Everything You Need to Know About Our Treatments",
+      "subtitle": "Find quick answers to common questions about procedures, care, pricing, and planning in our FAQ section.",
       "questions": {
         "treatments": {
           "question": "What types of dental treatments do you offer?",
-          "answer": "We provide a comprehensive range of dental treatments, including preventive care, cosmetic dentistry, restorative treatments, and oral surgery. Our services include dental implants, veneers, crowns, teeth whitening, orthodontics, and full smile makeovers, among others. Each treatment is tailored to meet your unique needs and help you achieve a healthier, more confident smile."
+          "answer": "Avenue Clinic provides a full range of dental services, including preventive care, cosmetic procedures, restorative treatments, and oral surgery. These include dental implants, veneers, crowns, teeth whitening, orthodontics, and complete smile makeovers. Each plan is tailored to match your dental needs and goals."
         },
         "affordability": {
           "question": "Are your treatments affordable compared to other countries?",
-          "answer": "Yes, Medico Clinic offers top-quality dental treatments at up to 70% more affordable rates than in many other countries, without compromising on quality. We partner with globally trusted brands to ensure high standards in materials and technology, delivering excellent results at competitive prices."
+          "answer": "Yes, Avenue Clinic offers high-quality dental care at rates up to 70% lower than in many Western countries. We maintain high standards by working with trusted international brands, making excellent dental care more accessible."
         },
         "rightTreatment": {
           "question": "How do I know which dental treatment is right for me?",
-          "answer": "Our expert team will guide you through a detailed consultation and diagnostic process, using advanced technology to assess your dental health. Based on this assessment, we'll recommend the most suitable treatment options that align with your goals, whether it's improving function, aesthetics, or overall oral health."
+          "answer": "Our team will guide you through a thorough consultation and diagnostic process. With the help of modern imaging and evaluations, we'll suggest the best treatment options to meet your goals, whether they involve function, aesthetics, or both."
         },
         "materials": {
           "question": "Do you use high-quality materials for dental treatments?",
-          "answer": "Absolutely. We only use top-grade materials from renowned global brands, ensuring durability, comfort, and a natural look for each treatment. Our focus on quality materials guarantees that your dental work will stand the test of time, giving you lasting results you can trust."
+          "answer": "Yes. We use high-grade materials from globally recognized manufacturers. Our focus is on delivering safe, long-lasting results that both look and feel natural."
         },
         "duration": {
           "question": "How long does it take to complete dental treatments?",
-          "answer": "Treatment duration depends on the specific procedure and your unique needs. Some treatments, like Hollywood Smile, can be completed in a single visit, while others, like dental implants or orthodontics, may require multiple visits over a few months. Our team will provide a clear timeline during your initial consultation to help you plan accordingly."
+          "answer": "Treatment time varies based on your individual case and procedure. Some treatments, like veneers, can be completed in a few days. Others, such as implants or orthodontics, may take several months. We'll explain the full timeline during your consultation."
         }
       }
     }

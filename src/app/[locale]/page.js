@@ -2,6 +2,7 @@ import React from 'react';
 import { getDictionary } from '../utils/i18n';
 import Hero from '../components/Hero';
 import LeadForm from '../components/LeadForm';
+import ServicesSection from '../components/ServicesSection';
 import AboutSection from '../components/AboutSection';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import TreatmentsSection from '../components/TreatmentsSection';
@@ -24,7 +25,7 @@ export default async function Home({ params: { locale } }) {
   return (
     <main className={dictionary.dir === 'rtl' ? 'rtl' : 'ltr'}>
       <Hero dictionary={dictionary} />
-      <LeadForm dictionary={dictionary} />
+      <ServicesSection dictionary={dictionary} />
       <AboutSection dictionary={dictionary} />
       <TreatmentsSection dictionary={dictionary} />
       <ExpertiseSection dictionary={dictionary} />
@@ -33,7 +34,6 @@ export default async function Home({ params: { locale } }) {
       <TestimonialsSection dictionary={dictionary} />
       <TransformationSection dictionary={dictionary} />
       <ContactSection dictionary={dictionary} />
-      <Footer dictionary={dictionary} />
     </main>
   );
 }

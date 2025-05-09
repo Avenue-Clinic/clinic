@@ -1,55 +1,67 @@
-'use client'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const TestimonialsSection = ({ dictionary, inverted = false }) => {
-  const isRTL = dictionary?.dir === 'rtl'
-  const testimonials = dictionary?.testimonials || {}
+const TestimonialsSection = ({ dictionary, inverted = false, locale = 'en' }) => {
+  const isRTL = dictionary?.dir === 'rtl';
+  const testimonials = dictionary?.testimonials || {};
 
   return (
-    <section className={inverted ? "bg-[#FAFAFA]" : "bg-[var(--primary)]"}>
+    <section className={inverted ? 'bg-[#FAFAFA]' : 'bg-[var(--primary)]'}>
       <div className="container mx-auto py-[100px]">
-        <div className={`flex items-center justify-between mb-[80px] ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div
+          className={`flex flex-col md:flex-row items-start md:items-center justify-between mb-[80px] gap-6 ${isRTL ? 'md:flex-row-reverse' : ''}`}
+        >
           <div className="max-w-[820px]">
-            <h3 className={`text-[14px] font-bold leading-[17px] tracking-[0.2em] mb-5 ${inverted ? "text-[var(--secondary)]" : "text-white"}`}>
+            <h3
+              className={`text-[14px] font-bold leading-[17px] tracking-[0.2em] mb-5 ${inverted ? 'text-[var(--secondary)]' : 'text-white'}`}
+            >
               {testimonials?.sectionTitle}
             </h3>
-            <h2 className={`text-[46px] font-bold leading-[55px] ${inverted ? "text-[var(--primary)]" : "text-[rgb(249,244,235)]"}`}>
+            <h2
+              className={`text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[42px] lg:leading-[55px] ${inverted ? 'text-[var(--primary)]' : 'text-[rgb(249,244,235)]'}`}
+            >
               {testimonials?.title}
             </h2>
           </div>
-          <button className={`px-7 py-4 text-[16px] font-semibold transition-all rounded-full ${
-            inverted 
-              ? "bg-[var(--primary)] text-white hover:bg-[var(--secondary)]" 
-              : "bg-white text-[var(--primary)] hover:bg-opacity-90"
-          }`}>
-            {testimonials?.button}
-          </button>
+          <Link href={`/${dictionary?.lang}/gallery`} passHref legacyBehavior>
+            <button
+              className={`px-7 py-4 text-[16px] font-semibold transition-all rounded-full ${
+                inverted
+                  ? 'bg-[var(--primary)] text-white hover:bg-[var(--secondary)]'
+                  : 'bg-white text-[var(--primary)] hover:bg-opacity-90'
+              } lg:mt-0 mt-5`}
+            >
+              {testimonials?.button}
+            </button>
+          </Link>
         </div>
 
-        <motion.div 
-          className="flex gap-[20px] mt-[60px]"
+        <motion.div
+          className="flex flex-col md:flex-row gap-[40px] md:gap-[20px] px-4 md:px-0 mt-[60px] w-full overflow-x-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.2
-              }
-            }
+                staggerChildren: 0.2,
+              },
+            },
           }}
         >
           {Array.from({ length: 3 }, (_, index) => (
             <motion.div
               key={index}
+              className="w-full"
               variants={{
                 hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
               }}
             >
-              <div className="relative">
-                <div className="w-[410px] h-[500px] relative">
+              <div className="relative w-full">
+                <div className="w-full aspect-[4/5] relative">
                   <Image
                     src={`/images/test${index + 1}.jpg`}
                     fill
@@ -74,7 +86,7 @@ const TestimonialsSection = ({ dictionary, inverted = false }) => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default TestimonialsSection;

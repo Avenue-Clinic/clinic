@@ -8,12 +8,13 @@ const PatientJourneySection = ({ dictionary = {} }) => {
   const patientJourney = dictionary?.patientJourney || {};
   const [currentSlide, setCurrentSlide] = useState(1);
 
-  const slides = patientJourney?.steps?.map((step, index) => ({
-    number: index + 1,
-    title: step.title,
-    description: step.description,
-    image: `/images/journey/step${index + 1}.jpg`
-  })) || [];
+  const slides =
+    Object.entries(patientJourney?.slides || {}).map(([key, slide], index) => ({
+      number: index + 1,
+      title: slide.title,
+      description: slide.description,
+      image: slide.image,
+    })) || [];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -37,25 +38,25 @@ const PatientJourneySection = ({ dictionary = {} }) => {
 
   return (
     <section className="relative py-[100px] overflow-hidden bg-white z-10">
-      <div className="max-w-[1300px] px-4 mx-auto">
-        <div className={`grid grid-cols-1 lg:grid-cols-[385px,1fr] gap-8 ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+      <div className="max-w-[1364px] px-8 mx-auto">
+        <div
+          className={`grid grid-cols-1 xl:grid-cols-[385px,1fr] gap-8 ${isRTL ? 'lg:flex-row-reverse' : ''}`}
+        >
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="space-y-8"
+            className="space-y-4 md:space-y-6"
           >
-            <div>
-              <h3 className="text-[var(--secondary)] uppercase tracking-[0.2em] text-[14px] font-[700] mb-5">
-                {patientJourney?.label}
-              </h3>
-              <h2 className="text-[var(--text)] text-[40px] leading-[48px] font-[700]">
-                {patientJourney?.title}
-              </h2>
-            </div>
-            <p className="text-[var(--text)] text-[16px] leading-[29px] font-[400]">
+            <h3 className="text-[var(--secondary)] uppercase tracking-[0.2em] text-[14px] font-[700]">
+              {patientJourney?.label}
+            </h3>
+            <h2 className="text-[var(--primary)] text-[30px] md:text-[38px] lg:text-[46px] leading-[48px] font-[700]">
+              {patientJourney?.title}
+            </h2>
+            <p className="max-w-[850px] text-[var(--secondary-text)] text-[16px] leading-[29px] font-[400]">
               {patientJourney?.description}
             </p>
           </motion.div>
@@ -69,16 +70,21 @@ const PatientJourneySection = ({ dictionary = {} }) => {
             className="relative"
           >
             {/* Slider Container */}
-            <div className="relative h-[330px] overflow-hidden">
+            <div className="relative h-[600px] md:h-[330px] overflow-hidden">
               {/* Navigation Chevrons */}
               <button
                 onClick={goToPrevSlide}
                 className="absolute z-10 -translate-y-1/2 left-4 top-1/2"
                 aria-label="Previous slide"
               >
-                <Image src="/icons/chl.svg" alt="Previous" width={24} height={24} />
+                <Image
+                  src="/icons/chl.svg"
+                  alt="Previous"
+                  width={24}
+                  height={24}
+                />
               </button>
-              
+
               <button
                 onClick={goToNextSlide}
                 className="absolute z-10 -translate-y-1/2 right-8 top-1/2"
@@ -94,12 +100,12 @@ const PatientJourneySection = ({ dictionary = {} }) => {
                     currentSlide === slide.number
                       ? 'opacity-100 translate-x-0'
                       : currentSlide > slide.number
-                      ? 'opacity-0 -translate-x-full'
-                      : 'opacity-0 translate-x-full'
+                        ? 'opacity-0 -translate-x-full'
+                        : 'opacity-0 translate-x-full'
                   }`}
                 >
-                  <div className="grid grid-cols-[470px,1fr] h-full gap-2">
-                    <div className="relative h-[325px] w-full">
+                  <div className="grid md:grid-cols-[470px,1fr] grid-cols-1 h-full gap-8 md:gap-2">
+                    <div className="relative h-[325px] w-full max-w-[470px] mx-auto">
                       <div className="absolute inset-[20px] rounded-[30px] overflow-hidden">
                         <Image
                           src={slide.image}
@@ -112,9 +118,11 @@ const PatientJourneySection = ({ dictionary = {} }) => {
                       </div>
                       <div className="absolute inset-0 rounded-[30px] border-[25px] border-white"></div>
                     </div>
-                    <div className="flex flex-col justify-center pl-4">
-                      <h3 className="mb-5 text-[40px] font-[700] leading-[48px] text-[var(--text)]">{slide.title}</h3>
-                      <p className="text-[16px] font-[400] leading-[29px] text-[var(--text)]">
+                    <div className="flex flex-col justify-center md:pl-4 max-w-[550px]">
+                      <h3 className="text-[30px] md:text-[40px] font-[700] leading-[1.2] md:leading-[48px] text-[var(--primary)]">
+                        {slide.title}
+                      </h3>
+                      <p className="mt-2 text-[16px] font-[400] leading-[29px] text-[var(--secondary-text)]">
                         {slide.description}
                       </p>
                     </div>

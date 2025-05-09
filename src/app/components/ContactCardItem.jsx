@@ -39,7 +39,7 @@ const ContactCardItem = ({ cardInfo, renderedContent, dictionary, index, isRTL }
         <h3 className="text-[20px] font-[700] leading-[24px] text-[var(--primary)] mb-[20px] group-hover:text-white transition-colors">
           {dictionary?.form?.[cardInfo.titleKey] || cardInfo.fallbackTitle}
         </h3>
-        <p className="text-[16px] font-[400] leading-[29px] text-[var(--text)] group-hover:text-white transition-colors">
+        <p className="text-[16px] font-[400] leading-[29px] text-[var(--secondary-text)] group-hover:text-white transition-colors">
           {renderedContent}
         </p>
       </div>

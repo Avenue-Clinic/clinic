@@ -1,22 +1,22 @@
 {
   "header": {
-    "home": "الصفحة الرئيسية",
+    "home": "الرئيسية",
     "treatments": "العلاجات",
     "gallery": "المعرض",
     "aboutUs": "من نحن",
     "blog": "المدونة",
-    "contactUs": "تواصل معنا",
-    "getConsultation": "احصل على استشارة مجانية",
-    "smileCounter": "أكثر من 28,000 ابتسامة — انضم إلينا في إسطنبول!",
-    "contact": "تواصل معنا",
-    "getQuote": "احصل على عرض سعر",
+    "contactUs": "اتصل بنا",
+    "getConsultation": "موعد عبر الإنترنت",
+    "smileCounter": "28,000 ابتسامة والمزيد — انضم إلينا في إسطنبول!",
+    "contact": "اتصل بنا",
+    "getQuote": "احصل على عرض أسعار",
     "treatmentsTitle": "العلاجات"
   },
   "headerTreatments": {
-    "headerDentalImplants": "زراعة الأسنان",
+    "headerDentalImplants": "زرعات الأسنان",
     "headerHollywoodSmile": "ابتسامة هوليوود",
-    "headerDentalVeneers": "عدسات الأسنان",
-    "headerAllOn46Implants": "زراعة All-on-4/6",
+    "headerDentalVeneers": "فينير الأسنان",
+    "headerAllOn46Implants": "زرعات All-on-4/6",
     "headerDentalCrowns": "تيجان الأسنان",
     "headerSurgicalDentistry": "جراحة الأسنان",
     "headerSmileMakeover": "تجميل الابتسامة"

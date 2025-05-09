@@ -1,9 +1,9 @@
 {
   "footer": {
-    "description": "İstanbul'da dünya standartlarında diş bakımını %70 daha uygun fiyatlarla deneyimleyin. Mükemmel gülüş yolculuğunuz burada başlıyor.",
+    "description": "İstanbul’da uzman diş bakımı alın, yurt dışına göre %70’e varan daha uygun fiyatlarla. Daha sağlıklı ve kendinden emin bir gülüşe doğru yolculuğunuza bugün başlayın.",
     "quickLinks": "Hızlı Bağlantılar",
     "links": {
-      "home": "Anasayfa",
+      "home": "Ana Sayfa",
       "treatments": "Tedaviler",
       "gallery": "Galeri",
       "aboutUs": "Hakkımızda",
@@ -15,20 +15,20 @@
       "dentalImplants": "Diş İmplantları",
       "hollywoodSmile": "Hollywood Gülüşü",
       "allOn4": "All-on-4/6 İmplantlar",
-      "dentalCrowns": "Diş Kaplamaları",
-      "dentalVeneers": "Porselen Laminalar"
+      "dentalCrowns": "Diş Kronları",
+      "dentalVeneers": "Diş Kaplamaları"
     },
     "contact": "İletişim",
-    "address": "Diş Caddesi 123<br />İstanbul, Türkiye",
-    "phone": "+90 123 456 7890",
+    "address": "Piri Reis Nazım Hikmet 341 Blv.<br/> Esenyurt, İstanbul, Türkiye",
+    "phone": "+90 551 481 3048",
     "email": "info@medicodental.com",
     "openingHours": {
-      "weekdays": "Pzt - Cum: 09:00 - 18:00",
+      "weekdays": "Pazartesi - Cuma: 09:00 - 18:00",
       "saturday": "Cumartesi: 10:00 - 16:00",
       "sunday": "Pazar: Kapalı"
     },
-    "copyright": "{year} Medico Diş Kliniği. Tüm hakları saklıdır.",
-    "madeWith": "ile hazırlandı",
-    "byTeam": "Avenue ekibi tarafından"
+    "copyright": "{year} Avenue Dental Clinic. Tüm hakları saklıdır.",
+    "madeWith": "ile yapıldı",
+    "byTeam": "Avenue Ekibi"
   }
 }
