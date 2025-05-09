@@ -3,6 +3,7 @@ import './globals.css';
 import { defaultLocale } from './utils/i18n';
 import { defaultMetadata } from './utils/metadata';
 import { redirect } from 'next/navigation';
+import ScrollToTop from './components/ScrollToTop';
 
 export const metadata = defaultMetadata;
 
@@ -13,7 +14,10 @@ export default function RootLayout({ children }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body>{children}</body>
+      <body>
+          {children}
+          <ScrollToTop />
+        </body>
     </html>
   );
 }

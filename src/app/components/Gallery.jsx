@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import VideoPlayButton from "./playButton";
 
 const Gallery = ({ dictionary }) => {
   const [selectedTab, setSelectedTab] = useState("images");
@@ -15,7 +16,7 @@ const Gallery = ({ dictionary }) => {
 
   const images = Array(12).fill("/images/gallery-example1.jpg");
   const videos = Array(12).fill({
-    url: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    videoId: "", // Empty string will use the default video ID from VideoPlayButton
     title: "Video Title"
   });
 
@@ -136,15 +137,7 @@ const Gallery = ({ dictionary }) => {
                     className="rounded-2xl"
                   />
                   <div className="absolute -translate-x-1/2 translate-y-1/2 left-1/2 bottom-1/4">
-                    <div className="relative w-[60px] h-[60px] bg-red-500 rounded-full flex items-center justify-center">
-                      <Image
-                        src="/images/play.svg"
-                        width={41}
-                        height={41}
-                        alt="Play button"
-                        priority={false}
-                      />
-                    </div>
+                    <VideoPlayButton videoId={videos[index].videoId || undefined} color="var(--red)" />
                   </div>
                 </div>
               </motion.div>

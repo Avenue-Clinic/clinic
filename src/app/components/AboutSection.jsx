@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
+import VideoPlayButton from './playButton';
 
 const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   const [count, setCount] = useState(0);
@@ -64,30 +65,9 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                 fill
                 className="object-cover"
               />
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40"
-                animate={{
-                  scale: isHovered ? 1.1 : 1,
-                  opacity: isHovered ? 0.6 : 0.4,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center w-20 h-20 rounded-full bg-[var(--primary)]"
-                  animate={{
-                    scale: isHovered ? 1.2 : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg
-                    className="w-10 h-10 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                  </svg>
-                </motion.div>
-              </motion.div>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
+                <VideoPlayButton color="#E32325" />
+              </div>
             </div>
           </div>
 

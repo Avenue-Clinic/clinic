@@ -2,8 +2,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import VideoPlayButton from './playButton';
 
-const TestimonialsSection = ({ dictionary, inverted = false, locale = 'en' }) => {
+const TestimonialsSection = ({
+  dictionary,
+  inverted = false,
+  locale = 'en',
+}) => {
   const isRTL = dictionary?.dir === 'rtl';
   const testimonials = dictionary?.testimonials || {};
 
@@ -69,14 +74,12 @@ const TestimonialsSection = ({ dictionary, inverted = false, locale = 'en' }) =>
                     alt={`Testimonial ${index + 1}`}
                     className="rounded-2xl"
                   />
-                </div>
-                <div className="absolute -translate-x-1/2 translate-y-1/2 left-1/2 bottom-1/4">
-                  <div className="relative w-[60px] h-[60px] bg-red-500 rounded-full flex items-center justify-center">
-                    <Image
-                      src="/images/play.svg"
-                      width={41}
-                      height={41}
-                      alt="Play button"
+
+                  {/* This overlay covers the entire image area */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 rounded-2xl">
+                    <VideoPlayButton
+                      videoId={`your-youtube-id-here`} // Replace with your actual YouTube ID
+                      color="var(--red)"
                     />
                   </div>
                 </div>
