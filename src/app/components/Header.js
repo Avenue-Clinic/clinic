@@ -125,7 +125,8 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
 
                     {/* Treatments dropdown */}
                     <div
-                      className={`absolute z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 bg-white shadow-lg rounded-lg py-2 mt-2 w-64 ${isRTL ? 'right-0' : 'left-0'}`}
+                      className={`absolute z-50 invisible group-hover:visible opacity-0 group-hover:opacity-100 bg-white shadow-lg rounded-lg py-2 mt-0 w-64 ${isRTL ? 'right-0' : 'left-0'} transition-all duration-300`}
+                      style={{ top: '100%' }}
                     >
                       {Object.entries(navDict?.treatmentsNav || {}).map(
                         ([treatmentKey, treatment]) => (

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { DentistryIcon, ConsultationIcon, AppointmentIcon } from './icons';
 
 const ServiceCard = ({ title, description, icon, button, index }) => {
@@ -48,11 +48,17 @@ const ServiceCard = ({ title, description, icon, button, index }) => {
           </p>
         </div>
         <div className="mt-6 text-center md:text-left">
-          <Link href={button.toLowerCase().replace(/\s+/g, '-')}>
-            <button className="px-6 py-2 text-base font-medium leading-[23px] text-white border border-white rounded-full transition-all duration-300 group-hover/card:border-[var(--secondary)] group-hover/card:text-[var(--secondary)] group-hover/card:bg-transparent hover:bg-white group-hover/card:hover:bg-[var(--secondary)] group-hover/card:hover:text-white">
-              {button}
-            </button>
-          </Link>
+          <button
+            onClick={() => {
+              // Get the current locale from the pathname
+              const locale = window.location.pathname.split('/')[1];
+              // Use window.location to do a full navigation with hash
+              window.location.href = `/${locale}/contact#contact-map-section`;
+            }}
+            className="px-6 py-2 text-base font-medium leading-[23px] text-white border border-white rounded-full transition-all duration-300 group-hover/card:border-[var(--secondary)] group-hover/card:text-[var(--secondary)] group-hover/card:bg-transparent hover:bg-white group-hover/card:hover:bg-[var(--secondary)] group-hover/card:hover:text-white"
+          >
+            {button}
+          </button>
         </div>
       </div>
     </motion.div>

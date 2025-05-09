@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import CustomPhoneInput from './CustomPhoneInput'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
@@ -22,8 +22,20 @@ export default function ContactMapSection({ dictionary }) {
   const { contact } = dictionary
   const [phone, setPhone] = useState('')
 
+  useEffect(() => {
+    // Check if the URL has a hash and it matches our section
+    if (window.location.hash === '#contact-map-section') {
+      // Get the element
+      const element = document.getElementById('contact-map-section');
+      if (element) {
+        // Scroll to the element smoothly
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, []) // Empty dependency array means this runs once when component mounts
+
   return (
-    <section className="overflow-hidden bg-white">
+    <section id="contact-map-section" className="overflow-hidden bg-white">
       <div className="mx-[315px] py-[100px]">
         <div className={`flex gap-[70px] ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Contact Form */}
