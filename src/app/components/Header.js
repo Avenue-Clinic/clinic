@@ -22,6 +22,15 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const isRTL = locale === 'ar';
+
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false); // Close mobile menu if open
+    }
+  };
   const navDict = dictionary?.navigation || {};
   const socialNavLinks = navDict?.socialNav || {};
 
@@ -169,8 +178,9 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
               <IconSearch className="w-5 h-5" />
             </button>
             <Link
-              href={`/${locale}/consultation`}
+              href="#contact"
               className={`hidden xl:inline-flex items-center bg-[var(--primary)] text-white px-5 py-2 rounded-2xl hover:bg-[var(--secondary)] transition-colors duration-300 text-[13px] font-medium ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}
+              onClick={scrollToContact}
             >
               <IconPhone className="w-4 h-4" />
               <span>{translations.getConsultation}</span>
@@ -282,9 +292,9 @@ export default function Header({ dictionary = {}, locale = 'en' }) {
 
               <div className="mt-6">
                 <Link
-                  href={`/${locale}/consultation`}
+                  href="#contact"
                   className={`inline-flex items-center justify-center w-full bg-[var(--primary)] text-white px-5 py-3 rounded-full hover:bg-[var(--secondary)] transition-colors duration-300 text-[15px] font-medium ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={scrollToContact}
                 >
                   <IconPhone className="w-4 h-4" />
                   <span>{translations.getConsultation}</span>

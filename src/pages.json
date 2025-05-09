@@ -1,0 +1,24 @@
+{
+  "main-page": "/",
+  "about-page": "/about",
+  "contact-page": "/contact",
+  "treatments-page": {
+    "path": "/treatments",
+    "items": [
+      { "name": "Dental Implants", "link": "/treatments/dental-implants" },
+      { "name": "Hollywood Smile", "link": "/treatments/hollywood-smile" },
+      { "name": "Dental Veneers", "link": "/treatments/dental-veneers" },
+      {
+        "name": "All-on-4/6 Implants",
+        "link": "/treatments/all-on46-implants"
+      },
+      { "name": "Dental Crowns", "link": "/treatments/dental-crowns" },
+      {
+        "name": "Surgical Dentistry",
+        "link": "/treatments/surgical-dentistry"
+      },
+      { "name": "Smile Makeover", "link": "/treatments/smile-makeover" }
+    ]
+  },
+  "gallery-page": "/gallery"
+}

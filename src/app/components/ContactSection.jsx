@@ -45,7 +45,7 @@ export default function ContactSection({ dictionary }) {
   const contactData = contact || contactDefaults;
 
   return (
-    <section className="overflow-hidden bg-white">
+    <section id="contact" className="overflow-hidden bg-white">
       <div className="container mx-auto py-[100px] md:py-[120px] pb-[200px]">
         <div
           className={`flex flex-col md:flex-row gap-[40px] md:gap-[70px] ${isRTL ? 'md:flex-row-reverse' : ''}`}

@@ -213,6 +213,33 @@ export default function CustomPhoneInput({ value, onChange, dictionary, isRTL })
   const [searchQuery, setSearchQuery] = useState('');
   
   const selectedCountry = countries.find(country => country.code === countryCode);
+
+  // Get max length based on country code
+  const getMaxLength = (code) => {
+    const lengths = {
+      'TR': 10, // Turkey
+      'US': 10, // United States
+      'GB': 10, // United Kingdom
+      'SA': 9,  // Saudi Arabia
+      // Add more country-specific lengths as needed
+    };
+    return lengths[code] || 15; // Default to 15 if country not specified
+  };
+
+  // Format phone number with spaces
+  const formatPhoneNumber = (number, code) => {
+    const digitsOnly = number.replace(/\D/g, '');
+    const maxLength = getMaxLength(code);
+    const truncated = digitsOnly.slice(0, maxLength);
+
+    // Format based on country code
+    if (code === 'TR') {
+      return truncated.replace(/(.{3})(.{3})(.{4})/g, '$1 $2 $3').trim();
+    } else {
+      // Default formatting: groups of 3-4 digits
+      return truncated.replace(/(.{3})(.{3})(.{4})/g, '$1 $2 $3').trim();
+    }
+  };
   
   // Filter countries based on search query
   const filteredCountries = searchQuery.length > 0
@@ -224,7 +251,9 @@ export default function CustomPhoneInput({ value, onChange, dictionary, isRTL })
   // Update parent component with full phone number
   useEffect(() => {
     if (onChange) {
-      onChange(selectedCountry.dialCode + phoneNumber);
+      // Remove spaces before sending to parent
+      const cleanNumber = phoneNumber.replace(/\s/g, '');
+      onChange(selectedCountry.dialCode + cleanNumber);
     }
   }, [countryCode, phoneNumber, onChange, selectedCountry]);
   
@@ -295,7 +324,11 @@ export default function CustomPhoneInput({ value, onChange, dictionary, isRTL })
           type="tel"
           placeholder={dictionary.form.phone}
           value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={(e) => {
+            const input = e.target.value.replace(/\D/g, ''); // Remove non-digits
+            const formatted = formatPhoneNumber(input, countryCode);
+            setPhoneNumber(formatted);
+          }}
           className="phone-number-input"
         />
       </div>

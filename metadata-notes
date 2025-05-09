@@ -1,0 +1,31 @@
+# SEO and Metadata Strategy Notes
+
+## Domain Information
+- Primary Domain: qlnca.com
+
+## Sitemap Structure
+Main pages included in sitemap:
+1. Homepage (/)
+2. About Us (/about)
+3. Services/Treatments (/treatments)
+4. Contact (/contact)
+
+Note: Blog system will be implemented later and added to sitemap subsequently.
+
+## SEO Priority Pages
+1. Homepage - Main entry point, focus on clinic overview and key services
+2. Treatments - Individual treatment pages for dental services
+3. About Us - Build trust with credentials and expertise
+4. Contact - Convert visitors with easy contact options
+
+## Next Steps
+1. Implement metadata for each page
+2. Add Open Graph tags for social sharing
+3. Implement schema.org markup for dental clinic
+4. Set up robots.txt
+5. Future: Add blog section with dynamic sitemap generation
+
+## Language Support
+- Support for multiple languages (EN, TR, AR)
+- Need to implement hreflang tags
+- Consider language-specific sitemaps in future
