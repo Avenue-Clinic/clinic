@@ -1,134 +1,64 @@
 export default function sitemap() {
-  return [
-    {
-      url: 'https://qlnca.com/en',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr',
-          ar: 'https://qlnca.com/ar',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/about',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/about',
-          ar: 'https://qlnca.com/ar/about',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/blog',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/blog',
-          ar: 'https://qlnca.com/ar/blog',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments',
-          ar: 'https://qlnca.com/ar/treatments',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/dental-implants',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/dental-implants',
-          ar: 'https://qlnca.com/ar/treatments/dental-implants',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/hollywood-smile',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/hollywood-smile',
-          ar: 'https://qlnca.com/ar/treatments/hollywood-smile',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/dental-veneers',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/dental-veneers',
-          ar: 'https://qlnca.com/ar/treatments/dental-veneers',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/all-on46-implants',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/all-on46-implants',
-          ar: 'https://qlnca.com/ar/treatments/all-on46-implants',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/dental-crowns',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/dental-crowns',
-          ar: 'https://qlnca.com/ar/treatments/dental-crowns',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/surgical-dentistry',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/surgical-dentistry',
-          ar: 'https://qlnca.com/ar/treatments/surgical-dentistry',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/treatments/smile-makeover',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/treatments/smile-makeover',
-          ar: 'https://qlnca.com/ar/treatments/smile-makeover',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/contact',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/contact',
-          ar: 'https://qlnca.com/ar/contact',
-        },
-      },
-    },
-    {
-      url: 'https://qlnca.com/en/gallery',
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          tr: 'https://qlnca.com/tr/gallery',
-          ar: 'https://qlnca.com/ar/gallery',
-        },
-      },
-    },
+  const baseUrl = 'https://qlnca.com';
+  const currentDate = new Date().toISOString();
+  
+  // Define all available routes
+  const routes = [
+    '',                              // home
+    'about',
+    'blog',
+    'treatments',
+    'treatments/dental-implants',
+    'treatments/hollywood-smile',
+    'treatments/dental-veneers',
+    'treatments/all-on46-implants',
+    'treatments/dental-crowns',
+    'treatments/surgical-dentistry',
+    'treatments/smile-makeover',
+    'contact',
+    'gallery'
   ];
+
+  // Create sitemap entries for each route in each language
+  const sitemap = routes.flatMap(route => {
+    const languages = ['en', 'ar', 'tr'];
+    return languages.map(lang => {
+      const path = route ? `${lang}/${route}` : lang;
+      return {
+        url: `${baseUrl}/${path}`,
+        lastModified: currentDate,
+        changeFrequency: 'daily',
+        priority: route === '' ? 1.0 : 0.8,
+        // Define language alternates for each URL
+        alternates: {
+          languages: {
+            en: `${baseUrl}/en/${route}`,
+            ar: `${baseUrl}/ar/${route}`,
+            tr: `${baseUrl}/tr/${route}`,
+          },
+        },
+      };
+    });
+  });
+
+  // Create robots.txt file to disallow root path
+  const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /
+Allow: /en/
+Allow: /ar/
+Allow: /tr/`;
+
+  try {
+    const fs = require('fs');
+    const dir = './public';
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    fs.writeFileSync('./public/robots.txt', robotsTxt);
+  } catch (error) {
+    console.error('Error writing robots.txt:', error);
+  }
+
+  return sitemap;
 }
