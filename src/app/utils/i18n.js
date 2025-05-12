@@ -17,6 +17,9 @@ const loadDictionary = async (locale) => {
   const navigation = await import(`../locales/${locale}/navigation.json`).then(
     (module) => module.default,
   );
+  const notFound = await import(`../locales/${locale}/not-found.json`).then(
+    (module) => module.default,
+  );
 
   // Merge all translations into one dictionary
   return {
@@ -25,7 +28,8 @@ const loadDictionary = async (locale) => {
     ...content,
     ...header,
     ...footer,
-    navigation
+    navigation,
+    NotFound: notFound
   };
 };
 

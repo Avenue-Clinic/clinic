@@ -32,12 +32,12 @@ const ServiceCard = ({ title, description, icon, button, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="w-full md:w-auto max-w-[390px] h-[390px]  text-center md:text-left group/card"
+      className="w-full md:w-auto max-w-[390px] h-[390px] text-left group/card"
       style={{ backgroundColor: bgColor }}
     >
       <div className="relative flex flex-col justify-between h-full p-10 overflow-hidden transition-all duration-300 group-hover/card:bg-white group-hover/card:shadow-xl">
         <div>
-          <div className="flex justify-center mb-8 md:block">
+          <div className="mb-8">
             <IconComponent />
           </div>
           <h3 className="text-xl font-medium leading-[26px] text-white mb-6 transition-colors duration-300 group-hover/card:text-[var(--secondary)]">
@@ -47,7 +47,7 @@ const ServiceCard = ({ title, description, icon, button, index }) => {
             {description}
           </p>
         </div>
-        <div className="mt-6 text-center md:text-left">
+        <div className="mt-6">
           <button
             onClick={() => {
               // Get the current locale from the pathname
@@ -70,17 +70,19 @@ export default function ServicesSection({ dictionary }) {
   if (!services) return null;
   return (
     <section className="w-full pb-[50px]">
-      <div className="flex flex-col items-center justify-center md:flex-row">
-        {services.items.map((service, index) => (
-          <ServiceCard
-            key={index}
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-            button={service.button}
-            index={index}
-          />
-        ))}
+      <div className="container px-6 mx-auto">
+        <div className="flex flex-col md:flex-row md:justify-center">
+          {services.items.map((service, index) => (
+            <ServiceCard
+              key={index}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              button={service.button}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

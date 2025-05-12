@@ -1,6 +1,6 @@
 'use client';
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const FeatureCard = ({ title, description, index }) => {
@@ -88,14 +88,18 @@ const ExpertiseSection = ({ dictionary = {}, locale = 'en' }) => {
                   alt="Dental Expertise Combined"
                   fill
                   className="object-cover"
-                  priority
+                  loading="lazy"
                   sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px"
                 />
               </div>
 
               {/* Button - Left positioned and 40px below the image */}
               <div className="absolute left-0 top-[580px] lg:top-[500px] mb-16">
-                <Link href={`/${dictionary?.lang}/about`} passHref legacyBehavior>
+                <Link
+                  href={`/${dictionary?.lang}/about`}
+                  passHref
+                  legacyBehavior
+                >
                   <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
                     {expertise?.cta}
                   </button>

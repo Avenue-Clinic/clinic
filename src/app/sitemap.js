@@ -1,7 +1,7 @@
-export default function sitemap() {
+export default async function sitemap() {
   const baseUrl = 'https://qlnca.com';
-  const currentDate = new Date().toISOString();
-  
+  const lastModified = new Date().toISOString();
+
   // Define all available routes
   const routes = [
     '',                              // home
@@ -26,39 +26,12 @@ export default function sitemap() {
       const path = route ? `${lang}/${route}` : lang;
       return {
         url: `${baseUrl}/${path}`,
-        lastModified: currentDate,
+        lastModified,
         changeFrequency: 'daily',
-        priority: route === '' ? 1.0 : 0.8,
-        // Define language alternates for each URL
-        alternates: {
-          languages: {
-            en: `${baseUrl}/en/${route}`,
-            ar: `${baseUrl}/ar/${route}`,
-            tr: `${baseUrl}/tr/${route}`,
-          },
-        },
+        priority: route === '' ? 1.0 : 0.8
       };
     });
   });
-
-  // Create robots.txt file to disallow root path
-  const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow: /
-Allow: /en/
-Allow: /ar/
-Allow: /tr/`;
-
-  try {
-    const fs = require('fs');
-    const dir = './public';
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
-    fs.writeFileSync('./public/robots.txt', robotsTxt);
-  } catch (error) {
-    console.error('Error writing robots.txt:', error);
-  }
 
   return sitemap;
 }
