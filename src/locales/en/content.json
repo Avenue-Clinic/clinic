@@ -295,6 +295,11 @@
     "title": "Our Partners",
     "description": "Partnering with industry-leading dental companies to deliver exceptional quality and innovative solutions"
   },
+  "blog": {
+    "title": "Our Blog",
+    "comingSoon": "Stay tuned! Our blog posts will be available soon."
+  },
+
   "contact": {
     "sectionTitle": "CONTACT US",
     "title": "Get Your Free Dental Report",

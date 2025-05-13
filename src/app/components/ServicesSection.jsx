@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import { DentistryIcon, ConsultationIcon, AppointmentIcon } from './icons';
 
 const ServiceCard = ({ title, description, icon, button, index }) => {
@@ -50,10 +51,7 @@ const ServiceCard = ({ title, description, icon, button, index }) => {
         <div className="mt-6">
           <button
             onClick={() => {
-              // Get the current locale from the pathname
-              const locale = window.location.pathname.split('/')[1];
-              // Use window.location to do a full navigation with hash
-              window.location.href = `/${locale}/contact#contact-map-section`;
+              window.location.href = '/contact#contact-map-section';
             }}
             className="px-6 py-2 text-base font-medium leading-[23px] text-white border border-white rounded-full transition-all duration-300 group-hover/card:border-[var(--secondary)] group-hover/card:text-[var(--secondary)] group-hover/card:bg-transparent hover:bg-white group-hover/card:hover:bg-[var(--secondary)] group-hover/card:hover:text-white"
           >
@@ -65,14 +63,15 @@ const ServiceCard = ({ title, description, icon, button, index }) => {
   );
 };
 
-export default function ServicesSection({ dictionary }) {
-  const { services } = dictionary;
-  if (!services) return null;
+export default function ServicesSection() {
+  const { t } = useTranslation('content');
+  const services = t('services.items', { returnObjects: true });
+
   return (
     <section className="w-full pb-[50px]">
       <div className="container px-6 mx-auto">
         <div className="flex flex-col md:flex-row md:justify-center">
-          {services.items.map((service, index) => (
+          {services.map((service, index) => (
             <ServiceCard
               key={index}
               title={service.title}

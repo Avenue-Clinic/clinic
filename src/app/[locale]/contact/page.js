@@ -1,17 +1,19 @@
 import ContactHeader from '@/app/components/ContactHeader';
-import Footer from '@/app/components/Footer';
 import ContactCards from '@/app/components/ContactCards';
 import ContactMapSection from '@/app/components/ContactMapSection';
-import { getDictionary } from '@/app/utils/i18n';
+import initTranslations from '@/app/utils/i18n';
+import TranslationsProvider from '@/app/components/TranslationsProvider';
 
 export default async function Contact({ params: { locale } }) {
-  const dictionary = await getDictionary(locale);
+  const { resources } = await initTranslations(locale, ['content']);
 
   return (
-    <main>
-      <ContactHeader dictionary={dictionary} />
-      <ContactCards dictionary={dictionary} locale={locale} />
-      <ContactMapSection dictionary={dictionary} />
-    </main>
+    <TranslationsProvider locale={locale} namespaces={['content']} resources={resources}>
+      <main>
+        <ContactHeader />
+        <ContactCards />
+        <ContactMapSection />
+      </main>
+    </TranslationsProvider>
   );
 }

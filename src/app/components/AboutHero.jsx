@@ -5,11 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import CounterAnimation from "./CounterAnimation";
+import { useTranslation } from "react-i18next";
+import { useParams } from "next/navigation";
 
-const AboutHero = ({ dictionary }) => {
-  const isRTL = dictionary.dir === "rtl";
+const AboutHero = () => {
+  const { locale } = useParams();
+  const { t } = useTranslation(['content']);
+  const isRTL = locale === 'ar';
   const [currentSlide, setCurrentSlide] = useState(0);
-  const about = dictionary?.about || {};
 
   const slides = [
     {
@@ -59,7 +62,7 @@ const AboutHero = ({ dictionary }) => {
                 transition={{ duration: 0.5 }}
                 className="text-sm font-semibold text-[var(--red)] uppercase tracking-wider"
               >
-                {about.label}
+                {t('about.label')}
               </motion.span>
               
               <motion.h2
@@ -68,7 +71,7 @@ const AboutHero = ({ dictionary }) => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mt-4 text-[46px] font-bold text-[var(--primary)] leading-[55px] max-w-[590px]"
               >
-                {about.title}
+                {t('about.title')}
               </motion.h2>
               
               <motion.p
@@ -77,7 +80,7 @@ const AboutHero = ({ dictionary }) => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-6 text-[16px] font-normal leading-relaxed text-gray-600"
               >
-                {about.description}
+                {t('about.description')}
               </motion.p>
 
               <div className={`mt-8 flex ${isRTL ? 'flex-row-reverse justify-end' : 'flex-row'} gap-20 items-center`}>
@@ -90,7 +93,7 @@ const AboutHero = ({ dictionary }) => {
                   <div className="text-[42px] font-semibold text-[var(--primary)] leading-none">
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats?.smiles?.label}</div>
+                  <div className="mt-1 text-sm text-gray-500">{t('about.stats.smiles.label')}</div>
                 </motion.div>
 
                 <motion.div
@@ -102,7 +105,7 @@ const AboutHero = ({ dictionary }) => {
                   <div className="text-[42px] font-bold text-[var(--primary)] leading-none">
                     <CounterAnimation end="96" suffix="%" />
                   </div>
-                  <div className="mt-1 text-sm text-gray-500">{about.stats?.satisfaction?.label}</div>
+                  <div className="mt-1 text-sm text-gray-500">{t('about.stats.satisfaction.label')}</div>
                 </motion.div>
               </div>
 
@@ -116,7 +119,7 @@ const AboutHero = ({ dictionary }) => {
                   href="/contact"
                   className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] ${isRTL ? 'flex-row-reverse' : ''}`}
                 >
-                  {about.cta}
+                  {t('about.cta')}
                   <svg 
                     className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} 
                     fill="none" 

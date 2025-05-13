@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 // Animation variants
 const fadeInUp = {
@@ -16,14 +17,11 @@ const fadeInUp = {
   },
 };
 
-export default function TransformationSection({ dictionary, locale = 'en' }) {
-  const isRTL = dictionary.dir === 'rtl';
-  const transformation =
-    dictionary.transformation || dictionary.hero?.transformation;
+export default function TransformationSection() {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
   const [hoveredImage, setHoveredImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
-
-  if (!transformation) return null;
 
   const transformations = [
     {
@@ -58,17 +56,17 @@ export default function TransformationSection({ dictionary, locale = 'en' }) {
             variants={fadeInUp}
           >
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
-              {transformation.sectionTitle}
+              {t('transformation.sectionTitle')}
             </h3>
             <motion.h2
               className="text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[42px] md:leading-[42px] lg:leading-[55px] text-[var(--primary)]"
               variants={fadeInUp}
               transition={{ delay: 0.2 }}
             >
-              {transformation.title}
+              {t('transformation.title')}
             </motion.h2>
           </motion.div>
-          <Link href={`/${dictionary?.lang}/gallery`} passHref legacyBehavior>
+          <Link href="/gallery" passHref legacyBehavior>
             <motion.button
               className="px-7 py-4 text-[16px] font-semibold transition-all bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)]"
               initial="hidden"
@@ -77,7 +75,7 @@ export default function TransformationSection({ dictionary, locale = 'en' }) {
               variants={fadeInUp}
               transition={{ delay: 0.4 }}
             >
-              {transformation.button}
+              {t('transformation.button')}
             </motion.button>
           </Link>
         </div>
@@ -144,14 +142,14 @@ export default function TransformationSection({ dictionary, locale = 'en' }) {
                     className={`absolute ${isRTL ? 'right-6' : 'left-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}
                   >
                     <span className="text-sm font-medium text-white">
-                      {transformation.before}
+                      {t('transformation.before')}
                     </span>
                   </div>
                   <div
                     className={`absolute ${isRTL ? 'left-6' : 'right-6'} top-1/2 -translate-y-1/2 bg-[#1E1E1E80] backdrop-blur-[7.5px] px-4 py-2 rounded-lg z-10 transition-opacity duration-500`}
                   >
                     <span className="text-sm font-medium text-white">
-                      {transformation.after}
+                      {t('transformation.after')}
                     </span>
                   </div>
                 </>

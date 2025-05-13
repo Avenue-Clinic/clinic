@@ -1,27 +1,26 @@
-import {
-  IconBrandTiktok,
-  IconBrandYoutube,
-  IconBrandX,
-  IconBrandInstagram,
-  IconBrandFacebook,
-  IconBrandWhatsapp,
-  IconHeart,
-} from '@tabler/icons-react';
+'use client';
+
+// Dynamic imports for icons to reduce initial bundle size
+const IconBrandTiktok = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandTiktok'));
+const IconBrandYoutube = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandYoutube'));
+const IconBrandX = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandX'));
+const IconBrandInstagram = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandInstagram'));
+const IconBrandFacebook = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandFacebook'));
+const IconBrandWhatsapp = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconBrandWhatsapp'));
+const IconHeart = dynamic(() => import('@tabler/icons-react/dist/esm/icons/IconHeart'));
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import dynamic from 'next/dynamic';
 
-export default function Footer({ dictionary = {}, locale = 'en' }) {
-  const footerDict = dictionary?.footer || {};
-  const navDict = dictionary?.navigation || {};
+export default function Footer({ locale = 'en' }) {
+  const { t } = useTranslation(['footer', 'navigation'], { locale });
   const isRTL = locale === 'ar';
   const currentYear = new Date().getFullYear();
 
-  console.log('Navigation Dictionary:', navDict);
-  console.log('Current Locale:', locale);
-
   return (
     <footer className="bg-[--primary] text-white">
-      <div className="container px-6 py-16 mx-auto">
+      <div className="container px-6 py-16 mx-auto" style={{ minHeight: '400px' }}>
         <div
           className={`grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 text-sm ${isRTL ? 'text-right' : 'text-left'}`}
         >
@@ -36,48 +35,62 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
                 alt="logo"
                 width={150}
                 height={40}
-                className="w-auto h-10 brightness-0 invert"
+                className="w-[150px] h-10 brightness-0 invert"
               />
             </Link>
-            <p className="mb-8 text-gray-300">{footerDict?.description}</p>
+            <p className="mb-8 text-gray-300">
+              {t('footer:footer.description')}
+            </p>
             <div className={`flex gap-4 ${isRTL ? 'justify-end' : ''}`}>
               <a
-                href="#"
+                href={t('navigation:socialNav.facebook')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="Facebook"
               >
                 <IconBrandFacebook size={20} />
               </a>
               <a
-                href="#"
+                href={t('navigation:socialNav.instagram')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="Instagram"
               >
                 <IconBrandInstagram size={20} />
               </a>
               <a
-                href="#"
+                href={t('navigation:socialNav.whatsapp')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="WhatsApp"
               >
                 <IconBrandWhatsapp size={20} />
               </a>
               <a
-                href="#"
+                href={t('navigation:socialNav.tiktok')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="TikTok"
               >
                 <IconBrandTiktok size={20} />
               </a>
               <a
-                href="#"
+                href={t('navigation:socialNav.youtube')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="YouTube"
               >
                 <IconBrandYoutube size={20} />
               </a>
               <a
-                href="#"
+                href={t('navigation:socialNav.x')}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#00a9a7] transition-colors"
                 aria-label="X"
               >
@@ -89,19 +102,28 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
           {/* Column 2 - Quick Links */}
           <div className={isRTL ? 'lg:order-3' : 'lg:order-2'}>
             <h3 className="mb-6 text-xl font-semibold">
-              {navDict?.footerNav?.columns?.quickLinks?.title}
+              {t('navigation:footerNav.columns.quickLinks.title')}
             </h3>
             <ul className="space-y-4">
-              {navDict?.footerNav?.columns?.quickLinks?.items?.map((item) => {
-                const link = navDict?.mainNav?.[item]?.link;
-                console.log('Quick Link Item:', item, 'Link:', link);
+              {(Array.isArray(
+                t('navigation:footerNav.columns.quickLinks.items', {
+                  returnObjects: true,
+                }),
+              )
+                ? t('navigation:footerNav.columns.quickLinks.items', {
+                    returnObjects: true,
+                  })
+                : []
+              ).map((itemKey) => {
+                const link = t(`navigation:mainNav.${itemKey}.link`);
+                const title = t(`navigation:mainNav.${itemKey}.title`);
                 return (
-                  <li key={item}>
+                  <li key={itemKey}>
                     <Link
                       href={`/${locale}${link || '/'}`}
                       className="text-gray-300 hover:text-white hover:underline"
                     >
-                      {navDict?.mainNav?.[item]?.title || item}
+                      {title || itemKey}
                     </Link>
                   </li>
                 );
@@ -109,37 +131,42 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
             </ul>
           </div>
 
-          {/* Column 3 - Treatments */}
+          {/* Column 3 - Our Treatments */}
           <div className={isRTL ? 'lg:order-2' : 'lg:order-3'}>
             <h3 className="mb-6 text-xl font-semibold">
-              {navDict?.footerNav?.columns?.ourTreatments?.title}
+              {t('navigation:footerNav.columns.ourTreatments.title')}
             </h3>
             <ul className="space-y-4">
-              {navDict?.footerNav?.columns?.ourTreatments?.items?.map(
-                (item) => {
-                  const link = navDict?.treatmentsNav?.[item]?.link;
-                  console.log('Treatment Item:', item, 'Link:', link);
-                  return (
-                    <li key={item}>
-                      <Link
-                        href={`/${locale}${link || '/treatments'}`}
-                        className="text-gray-300 hover:text-white hover:underline"
-                      >
-                        {navDict?.treatmentsNav?.[item]?.title || item}
-                      </Link>
-                    </li>
-                  );
-                },
-              )}
+              {(
+                t('navigation:footerNav.columns.ourTreatments.items', {
+                  returnObjects: true,
+                  defaultValue: [],
+                }) || []
+              ).map((itemKey) => {
+                const link = t(`navigation:treatmentsNav.${itemKey}.link`, {
+                  defaultValue: '/',
+                });
+                const title = t(`navigation:treatmentsNav.${itemKey}.title`, {
+                  defaultValue: itemKey,
+                });
+                return (
+                  <li key={itemKey}>
+                    <Link
+                      href={`/${locale}${link || '/'}`}
+                      className="text-gray-300 hover:text-white hover:underline"
+                    >
+                      {title || itemKey}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
-          {/* Column 4 - Contact */}
+          {/* Column 4 - Contact Info */}
           <div className={isRTL ? 'lg:order-1' : 'lg:order-4'}>
-            <h3 className="mb-6 text-xl font-semibold">
-              {footerDict?.contact}
-            </h3>
-            <div className="space-y-4">
+            <h3 className="mb-6 text-xl font-semibold">{t('footer:footer.contact')}</h3>
+            <div className="space-y-6">
               <div
                 className={`flex items-start ${isRTL ? 'flex-row-reverse text-right' : 'text-left'}`}
               >
@@ -163,9 +190,9 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
                   />
                 </svg>
                 <div
-                  className={`text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}
+                  className={`whitespace-pre-line ${isRTL ? 'text-right' : 'text-left'}`}
                   dangerouslySetInnerHTML={{
-                    __html: footerDict?.address || '',
+                    __html: t('footer:footer.address') || '',
                   }}
                 />
               </div>
@@ -188,7 +215,7 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
                 <p
                   className={`text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}
                 >
-                  {footerDict?.phone}
+                  {t('footer:footer.phone')}
                 </p>
               </div>
               <div
@@ -210,7 +237,7 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
                 <p
                   className={`text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}
                 >
-                  {footerDict?.email}
+                  {t('footer:footer.email')}
                 </p>
               </div>
               <div
@@ -232,9 +259,9 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
                 <div
                   className={`text-gray-300 ${isRTL ? 'text-right' : 'text-left'}`}
                 >
-                  <p>{footerDict?.openingHours?.weekdays}</p>
-                  <p>{footerDict?.openingHours?.saturday}</p>
-                  <p>{footerDict?.openingHours?.sunday}</p>
+                  <p>{t('footer:footer.openingHours.weekdays')}</p>
+                  <p>{t('footer:footer.openingHours.saturday')}</p>
+                  <p>{t('footer:footer.openingHours.sunday')}</p>
                 </div>
               </div>
             </div>
@@ -244,17 +271,17 @@ export default function Footer({ dictionary = {}, locale = 'en' }) {
       {/* Bottom line with copyright */}
       <div className="h-[43px] bg-[#222222] flex items-center">
         <div className="container px-6 mx-auto">
-          <div className="flex flex-wrap justify-between items-center text-gray-300 text-xs sm:text-sm md:text-base">
-            <div className="truncate max-w-full">
-              {(footerDict?.copyright || '').replace('{year}', currentYear)}
+          <div className="flex flex-wrap items-center justify-between text-xs text-gray-300 sm:text-sm md:text-base">
+            <div className="max-w-full truncate">
+              {t('footer:footer.copyright', { year: currentYear })}
             </div>
             <div className="flex items-center gap-1 text-xs sm:text-sm md:text-base">
               <span className="truncate max-w-[80px] sm:max-w-none">
-                {footerDict?.madeWith}
+                {t('footer:footer.madeWith')}
               </span>
               <IconHeart className="text-[#00a9a7]" size={16} />
               <span className="truncate max-w-[80px] sm:max-w-none">
-                {footerDict?.byTeam}
+                {t('footer:footer.byTeam')}
               </span>
             </div>
           </div>

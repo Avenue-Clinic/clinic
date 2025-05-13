@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const FeatureCard = ({ icon, title, description, index, isRTL }) => (
   <motion.div
@@ -35,25 +36,25 @@ const FeatureCard = ({ icon, title, description, index, isRTL }) => (
   </motion.div>
 );
 
-const WhyUs = ({ dictionary = {} }) => {
-  const whyUs = dictionary?.whyUs || {};
-  const isRTL = dictionary?.dir === 'rtl';
+const WhyUs = () => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
 
   const features = [
     {
       icon: '/icons/professional.svg',
-      title: whyUs?.features?.professionals?.title,
-      description: whyUs?.features?.professionals?.description,
+      title: t('whyUs.features.professionals.title'),
+      description: t('whyUs.features.professionals.description'),
     },
     {
       icon: '/icons/patient.svg',
-      title: whyUs?.features?.satisfaction?.title,
-      description: whyUs?.features?.satisfaction?.description,
+      title: t('whyUs.features.satisfaction.title'),
+      description: t('whyUs.features.satisfaction.description'),
     },
     {
       icon: '/icons/material.svg',
-      title: whyUs?.features?.materials?.title,
-      description: whyUs?.features?.materials?.description,
+      title: t('whyUs.features.materials.title'),
+      description: t('whyUs.features.materials.description'),
     },
   ];
 
@@ -88,7 +89,7 @@ const WhyUs = ({ dictionary = {} }) => {
               viewport={{ once: true }}
               className="text-[14px] font-bold leading-[17px] tracking-wider text-[var(--secondary)]"
             >
-              {whyUs?.label}
+              {t('whyUs.label')}
             </motion.h3>
             <motion.h2
               initial={{ opacity: 0 }}
@@ -97,7 +98,7 @@ const WhyUs = ({ dictionary = {} }) => {
               viewport={{ once: true }}
               className="text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[1.2] mb-6"
             >
-              {whyUs?.title}
+              {t('whyUs.title')}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -106,7 +107,7 @@ const WhyUs = ({ dictionary = {} }) => {
               viewport={{ once: true }}
               className="text-[14px] md:text-[16px] font-normal leading-[29px] opacity-90 mb-8"
             >
-              {whyUs?.description}
+              {t('whyUs.description')}
             </motion.p>
             <motion.button
               initial={{ opacity: 0 }}
@@ -115,7 +116,7 @@ const WhyUs = ({ dictionary = {} }) => {
               viewport={{ once: true }}
               className="bg-[var(--secondary)] hover:bg-white hover:text-[var(--primary)] transition-colors duration-300 text-white px-[32px] py-[18px] rounded-lg font-extrabold text-[16px]"
             >
-              {whyUs?.cta}
+              {t('whyUs.cta')}
             </motion.button>
           </motion.div>
 

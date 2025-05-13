@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 
-const GalleryHeader = ({ dictionary }) => {
+const GalleryHeader = () => {
+  const { t, i18n } = useTranslation('content');
   const pathname = usePathname();
   
   const getOppositeLocale = (currentPath) => {
@@ -39,7 +41,7 @@ const GalleryHeader = ({ dictionary }) => {
             fontWeight: 700,
             lineHeight: "65px"
           }}>
-          {dictionary.gallery.title}
+          {t('gallery.title')}
         </motion.h1>
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

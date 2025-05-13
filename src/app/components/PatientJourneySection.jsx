@@ -2,19 +2,20 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const PatientJourneySection = ({ dictionary = {} }) => {
-  const isRTL = dictionary?.dir === 'rtl';
-  const patientJourney = dictionary?.patientJourney || {};
+const PatientJourneySection = () => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
   const [currentSlide, setCurrentSlide] = useState(1);
 
-  const slides =
-    Object.entries(patientJourney?.slides || {}).map(([key, slide], index) => ({
-      number: index + 1,
+  const slides = t('patientJourney.slides', { returnObjects: true, defaultValue: {} });
+  const formattedSlides = Object.entries(slides).map(([key, slide]) => ({
+      number: parseInt(key.replace('slide', '')),
       title: slide.title,
       description: slide.description,
       image: slide.image,
-    })) || [];
+    })).sort((a, b) => a.number - b.number);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -22,7 +23,7 @@ const PatientJourneySection = ({ dictionary = {} }) => {
     }, 10000);
 
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [formattedSlides.length]);
 
   const goToSlide = (slideNumber) => {
     setCurrentSlide(slideNumber);
@@ -33,7 +34,7 @@ const PatientJourneySection = ({ dictionary = {} }) => {
   };
 
   const goToPrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 1 ? slides.length : prev - 1));
+    setCurrentSlide((prev) => (prev === 1 ? formattedSlides.length : prev - 1));
   };
 
   return (
@@ -51,13 +52,13 @@ const PatientJourneySection = ({ dictionary = {} }) => {
             className="space-y-4 md:space-y-6"
           >
             <h3 className="text-[var(--secondary)] uppercase tracking-[0.2em] text-[14px] font-[700]">
-              {patientJourney?.label}
+              {t('patientJourney.label')}
             </h3>
             <h2 className="text-[var(--primary)] text-[30px] md:text-[38px] lg:text-[46px] leading-[48px] font-[700]">
-              {patientJourney?.title}
+              {t('patientJourney.title')}
             </h2>
             <p className="max-w-[850px] text-[var(--secondary-text)] text-[16px] leading-[29px] font-[400]">
-              {patientJourney?.description}
+              {t('patientJourney.description')}
             </p>
           </motion.div>
 
@@ -93,7 +94,7 @@ const PatientJourneySection = ({ dictionary = {} }) => {
                 <Image src="/icons/chr.svg" alt="Next" width={24} height={24} />
               </button>
 
-              {slides.map((slide, index) => (
+              {formattedSlides.map((slide, index) => (
                 <div
                   key={slide.number}
                   className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out ${
@@ -133,7 +134,7 @@ const PatientJourneySection = ({ dictionary = {} }) => {
 
             {/* Navigation Dots */}
             <div className="flex justify-center gap-2 mt-4">
-              {slides.map((slide) => (
+              {formattedSlides.map((slide) => (
                 <button
                   key={slide.number}
                   onClick={() => goToSlide(slide.number)}

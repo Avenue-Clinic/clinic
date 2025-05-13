@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import CounterAnimation from './CounterAnimation';
+import { useTranslation } from 'react-i18next';
 
-const DentalHero = ({ dictionary }) => {
-  const isRTL = dictionary?.dir === 'rtl';
+const DentalHero = () => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
   const [currentSlide, setCurrentSlide] = useState(0);
-  const implants = dictionary?.treatments?.items?.dentalImplants?.hero || {};
-
-  // Debug: Log the dictionary structure
-  console.log('Dictionary in DentalHero:', dictionary);
+  const implants = t('treatments.items.dentalImplants.hero', { returnObjects: true }) || {};
 
   const slides = [
     {

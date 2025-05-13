@@ -1,9 +1,11 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
 import 'swiper/css';
 
-const LogoShowcase = ({ dictionary }) => {
+const LogoShowcase = () => {
+  const { t, i18n } = useTranslation('content');
   // Array of brand logos with correct file names and extensions
   const brands = [
     '/images/brands/Brand1.svg',
@@ -21,11 +23,11 @@ const LogoShowcase = ({ dictionary }) => {
     <section className="py-16 bg-white">
       <div className="container px-8 mx-auto">
         <h2 className="text-center text-[30px] md:text-[36px] lg:text-[42px] leading-[42px] lg:leading-[55px] font-semibold text-[--accent] mb-4">
-          {dictionary.partners.title}
+          {t('partners.title')}
         </h2>
         <div className="w-32 h-[3px] bg-[--accent] mx-auto mb-6"></div>
         <p className="text-center text-[--secondary-text] mb-12">
-          {dictionary.partners.description}
+          {t('partners.description')}
         </p>
         <Swiper
           modules={[Autoplay]}

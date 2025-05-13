@@ -7,44 +7,46 @@ import PatientJourneySection from '@/app/components/PatientJourneySection';
 import TestimonialsSection from '@/app/components/TestimonialsSection';
 import LogoShowcase from '@/app/components/LogoShowcase';
 import ContactSection from '@/app/components/ContactSection';
-import Footer from '@/app/components/Footer';
 
 export async function generateMetadata({ params: { locale } }) {
   const translations = {
     en: {
       title: 'All-on-4/6 Dental Implants',
-      description: 'Advanced All-on-4 and All-on-6 dental implant solutions in Istanbul. Full arch replacement with permanent, fixed implant-supported dentures.',
+      description:
+        'Advanced All-on-4 and All-on-6 dental implant solutions in Istanbul. Full arch replacement with permanent, fixed implant-supported dentures.',
       keywords: [
         'all on 4 dental implants turkey',
         'all on 6 implants istanbul',
         'full mouth dental implants',
         'fixed dentures turkey',
         'permanent teeth replacement',
-        'full arch implants istanbul'
+        'full arch implants istanbul',
       ],
     },
     tr: {
       title: 'All-on-4/6 Diş İmplantları',
-      description: 'İstanbul\'da ileri All-on-4 ve All-on-6 diş implantı çözümleri. Kalıcı, sabit implant destekli protezlerle tam çene değişimi.',
+      description:
+        "İstanbul'da ileri All-on-4 ve All-on-6 diş implantı çözümleri. Kalıcı, sabit implant destekli protezlerle tam çene değişimi.",
       keywords: [
         'all on 4 diş implantı türkiye',
         'all on 6 implant istanbul',
         'tam ağız diş implantı',
         'sabit protez türkiye',
         'kalıcı diş değişimi',
-        'tam çene implant istanbul'
+        'tam çene implant istanbul',
       ],
     },
     ar: {
       title: 'زراعة الأسنان الكاملة 4/6',
-      description: 'حلول متقدمة لزراعة الأسنان الكاملة بتقنية أول أون 4 و 6 في اسطنبول. استبدال كامل للأسنان بأطقم ثابتة مدعومة بالغرسات.',
+      description:
+        'حلول متقدمة لزراعة الأسنان الكاملة بتقنية أول أون 4 و 6 في اسطنبول. استبدال كامل للأسنان بأطقم ثابتة مدعومة بالغرسات.',
       keywords: [
         'زراعة الأسنان الكاملة تركيا',
         'زراعة الأسنان الستة اسطنبول',
         'زراعة الفم الكامل',
         'أطقم أسنان ثابتة تركيا',
         'استبدال الأسنان الدائم',
-        'زراعة الفك الكامل اسطنبول'
+        'زراعة الفك الكامل اسطنبول',
       ],
     },
   };
@@ -77,8 +79,8 @@ export async function generateMetadata({ params: { locale } }) {
   });
 }
 
-export default async function AllOn46ImplantsPage({ params: { locale } }) {
-  const dictionary = await getDictionary(locale);
+export default async function AllOn46ImplantsPage({ params: { lang } }) {
+  const dictionary = await getDictionary(lang);
 
   return (
     <main>

@@ -2,8 +2,11 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-export default function ContactForm({ dictionary, locale }) {
+export default function ContactForm() {
+  const { t, i18n } = useTranslation('content');
+  const locale = i18n.language;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -42,7 +45,7 @@ export default function ContactForm({ dictionary, locale }) {
         <input
           type="text"
           name="name"
-          placeholder={dictionary.form.name}
+          placeholder={t('contact.form.namePlaceholder')}
           value={formData.name}
           onChange={handleChange}
           required
@@ -59,7 +62,7 @@ export default function ContactForm({ dictionary, locale }) {
         <input
           type="tel"
           name="phone"
-          placeholder={dictionary.form.phone}
+          placeholder={t('contact.form.phonePlaceholder')}
           value={formData.phone}
           onChange={handleChange}
           required
@@ -71,7 +74,7 @@ export default function ContactForm({ dictionary, locale }) {
         <input
           type="email"
           name="email"
-          placeholder={dictionary.form.email}
+          placeholder={t('contact.form.emailPlaceholder')}
           value={formData.email}
           onChange={handleChange}
           required
@@ -93,7 +96,7 @@ export default function ContactForm({ dictionary, locale }) {
             Processing...
           </span>
         ) : (
-          dictionary.form.submit
+          t('contact.form.submitButton')
         )}
       </button>
       

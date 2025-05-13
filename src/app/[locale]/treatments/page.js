@@ -3,90 +3,54 @@ import TreatmentsSection from '@/app/components/TreatmentsSection';
 import WhyUs from '@/app/components/WhyUs';
 import TestimonialsSection from '@/app/components/TestimonialsSection';
 import ContactSection from '@/app/components/ContactSection';
-import Footer from '@/app/components/Footer';
-import { getDictionary } from '@/app/utils/i18n';
-import { generateMetadata as generateMetadataUtil } from '@/app/utils/generateMetadata';
+import initTranslations from '@/app/utils/i18n';
+import TranslationsProvider from '@/app/components/TranslationsProvider';
 
 export async function generateMetadata({ params: { locale } }) {
-  const translations = {
-    en: {
-      title: 'Dental Treatments',
-      description: 'Advanced dental treatments including implants, veneers, crowns, and cosmetic dentistry. Expert care with modern technology in Istanbul.',
-      keywords: [
-        'dental treatments istanbul',
-        'dental implants turkey',
-        'veneers turkey',
-        'dental crowns istanbul',
-        'cosmetic dentistry turkey',
-        'dental procedures istanbul'
-      ],
-    },
-    tr: {
-      title: 'Diş Tedavileri',
-      description: 'İmplant, laminate, kaplama ve estetik diş hekimliği dahil ileri diş tedavileri. İstanbul\'da modern teknoloji ile uzman bakım.',
-      keywords: [
-        'diş tedavileri istanbul',
-        'diş implantı türkiye',
-        'laminate diş',
-        'diş kaplama istanbul',
-        'estetik diş hekimliği',
-        'diş prosedürleri'
-      ],
-    },
-    ar: {
-      title: 'علاجات الأسنان',
-      description: 'علاجات أسنان متقدمة تشمل زراعة الأسنان، الفينير، التيجان، وطب الأسنان التجميلي. رعاية متخصصة بتقنيات حديثة في اسطنبول.',
-      keywords: [
-        'علاجات الأسنان اسطنبول',
-        'زراعة الأسنان تركيا',
-        'فينير اسنان تركيا',
-        'تيجان الأسنان اسطنبول',
-        'طب الأسنان التجميلي تركيا',
-        'إجراءات طب الأسنان'
-      ],
-    },
-  };
+  const { t } = await initTranslations(locale, ['content']);
 
   const ogImage = {
     url: '/images/meta/treatments.jpg',
     width: 1200,
     height: 630,
-    alt: translations[locale].title,
+    alt: t('treatments.meta.title'),
   };
 
-  return generateMetadataUtil({
-    title: translations[locale].title,
-    description: translations[locale].description,
-    keywords: translations[locale].keywords,
-    locale: locale,
+  return {
+    title: t('treatments.meta.title'),
+    description: t('treatments.meta.description'),
+    keywords: t('treatments.meta.keywords', { returnObjects: true }),
+    locale,
     path: '/treatments',
     openGraph: {
       type: 'website',
-      title: translations[locale].title,
-      description: translations[locale].description,
+      title: t('treatments.meta.title'),
+      description: t('treatments.meta.description'),
       images: [ogImage],
     },
     twitter: {
       card: 'summary_large_image',
-      title: translations[locale].title,
-      description: translations[locale].description,
+      title: t('treatments.meta.title'),
+      description: t('treatments.meta.description'),
       images: [ogImage.url],
     },
-  });
+  };
 }
 
 export default async function TreatmentsPage({ params: { locale } }) {
-  const dictionary = await getDictionary(locale);
+  const { resources } = await initTranslations(locale, ['content']);
 
   return (
-    <main>
-      <TreatmentsHeader dictionary={dictionary} />
-      <TreatmentsSection dictionary={dictionary} />
-      <WhyUs dictionary={dictionary} />
-      <div className="bg-white">
-        <TestimonialsSection dictionary={dictionary} inverted={true} />
-      </div>
-      <ContactSection dictionary={dictionary} />
-    </main>
+    <TranslationsProvider locale={locale} namespaces={['content']} resources={resources}>
+      <main>
+        <TreatmentsHeader />
+        <TreatmentsSection />
+        <WhyUs />
+        <div className="bg-white">
+          <TestimonialsSection inverted={true} />
+        </div>
+        <ContactSection />
+      </main>
+    </TranslationsProvider>
   );
 }

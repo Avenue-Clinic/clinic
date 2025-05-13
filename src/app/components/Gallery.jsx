@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 import VideoPlayButton from "./playButton";
 
-const Gallery = ({ dictionary }) => {
+const Gallery = () => {
+  const { t } = useTranslation('content');
   const [selectedTab, setSelectedTab] = useState("images");
   const [buttonsVisible, setButtonsVisible] = useState(false);
 
@@ -68,7 +70,7 @@ const Gallery = ({ dictionary }) => {
                     : "bg-[var(--primary)] text-white"
                 }`}
               >
-                {dictionary?.gallery?.images || "Images"}
+                {t('gallery.images')}
               </motion.button>
               <motion.button
                 variants={buttonVariants}
@@ -79,7 +81,7 @@ const Gallery = ({ dictionary }) => {
                     : "bg-[var(--primary)] text-white"
                 }`}
               >
-                {dictionary?.gallery?.videos || "Videos"}
+                {t('gallery.videos')}
               </motion.button>
             </motion.div>
           )}

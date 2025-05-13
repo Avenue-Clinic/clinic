@@ -17,9 +17,9 @@ const center = {
 };
 
 
-export default function ContactMapSection({ dictionary }) {
-  const isRTL = dictionary.dir === 'rtl'
-  const { contact } = dictionary
+export default function ContactMapSection({ dictionary = {} }) {
+  const isRTL = dictionary?.dir === 'rtl'
+  const contact = dictionary?.contact || {}
   const [phone, setPhone] = useState('')
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function ContactMapSection({ dictionary }) {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-[14px] font-bold leading-[17px] tracking-[0.2em] text-[var(--secondary)] mb-5">
-              {contact.sectionTitle}
+              {contact?.sectionTitle || 'CONTACT US'}
             </h3>
             <h2 
               className="text-[42px] font-bold leading-[55px] text-[var(--primary)] mb-4"
@@ -55,13 +55,13 @@ export default function ContactMapSection({ dictionary }) {
             >
             </h2>
             <p className="text-[16px] leading-[24px] text-[#6B7280] mb-8">
-              {contact.subtitle}
+              {contact?.subtitle || 'Send us your details to receive a personalized treatment quote and plan.'}
             </p>
             <form className="space-y-4">
               <div>
                 <input
                   type="text"
-                  placeholder={contact.form.namePlaceholder}
+                  placeholder={contact?.form?.namePlaceholder || 'Name Surname'}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
               </div>
@@ -70,19 +70,19 @@ export default function ContactMapSection({ dictionary }) {
                   value={phone}
                   onChange={setPhone}
                   dictionary={dictionary}
-                  placeholder={contact.form.phonePlaceholder}
+                  placeholder={contact?.form?.phonePlaceholder || 'Phone Number'}
                 />
               </div>
               <div>
                 <input
                   type="email"
-                  placeholder={contact.form.emailPlaceholder}
+                  placeholder={contact?.form?.emailPlaceholder || 'Email Address'}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
               </div>
               <div>
                 <textarea
-                  placeholder={contact.form.messagePlaceholder}
+                  placeholder={contact?.form?.messagePlaceholder || 'Your Message'}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-[#E5E7EB] focus:outline-none focus:border-[var(--secondary)]"
                 />
@@ -91,7 +91,7 @@ export default function ContactMapSection({ dictionary }) {
                 type="submit"
                 className="px-7 py-4 text-[16px] font-semibold transition-all bg-[var(--primary)] text-white rounded-full hover:bg-[var(--secondary)]"
               >
-                {contact.form.submitButton}
+                {contact?.form?.submitButton || 'Submit'}
               </button>
             </form>
           </motion.div>

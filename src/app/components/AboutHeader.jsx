@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-const AboutHeader = ({ dictionary }) => {
+const AboutHeader = () => {
   const pathname = usePathname();
   
   const getOppositeLocale = (currentPath) => {
@@ -17,10 +18,12 @@ const AboutHeader = ({ dictionary }) => {
     }
   };
 
+  const { t } = useTranslation(['content']);
+
   const translations = {
-    en: "About Us",
-    tr: "Hakkımızda",
-    ar: "معلومات عنا"
+    en: t('about.label', 'About Us'),
+    tr: t('about.labelTr', 'Hakkımızda'),
+    ar: t('about.labelAr', 'معلومات عنا')
   };
 
   return (
@@ -39,7 +42,7 @@ const AboutHeader = ({ dictionary }) => {
             fontWeight: 700,
             lineHeight: "65px"
           }}>
-          {dictionary.about.label}
+          {t('about.label')}
         </motion.h1>
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

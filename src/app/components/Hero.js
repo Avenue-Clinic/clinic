@@ -3,9 +3,12 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'next/navigation';
 
-export default function Hero({ dictionary = {}, locale = 'en' }) {
-  const isRTL = locale === 'ar';
+export default function Hero() {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
 
   return (
     <div>
@@ -34,29 +37,27 @@ export default function Hero({ dictionary = {}, locale = 'en' }) {
           {/* Desktop Gallery Button */}
           <div className="absolute hidden -translate-y-1/2 md:block right-6 top-1/2">
             <Link
-              href={`/${locale}/gallery`}
+              href="/gallery"
               className="bg-white text-[var(--primary)] px-8 py-4 rounded-lg font-medium hover:bg-opacity-90 transition-all"
             >
-              {dictionary?.hero?.visitGallery || 'Visit Gallery'}
+              {t('hero.galleryButton')}
             </Link>
           </div>
           <div
             className={`max-w-4xl ${isRTL ? 'rtl mr-auto' : 'ml-0'} text-white`}
           >
             <h1 className="mb-6 font-bold text-[38px] sm:text-[56px] leading-[46px] sm:leading-[72px]">
-              {dictionary?.hero?.title ||
-                'Crafting Beautiful Smiles, Ensuring Healthier Tomorrows'}
+              {t('hero.title')}
             </h1>
             <p className="max-w-2xl text-[16px] md:text-lg opacity-90">
-              {dictionary?.hero?.subtitle ||
-                "Discover expert dental care that prioritizes top-quality treatments for your smile's health and beauty all at 70% more affordable costs than worldwide standards."}
+              {t('hero.subtitle')}
             </p>
             <div className="flex mt-12 md:hidden">
               <Link
-                href={`/${locale}/gallery`}
+                href="/gallery"
                 className="bg-white text-[var(--primary)] px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all"
               >
-                {dictionary?.hero?.visitGallery || 'Visit Gallery'}
+                {t('hero.galleryButton')}
               </Link>
             </div>
           </div>

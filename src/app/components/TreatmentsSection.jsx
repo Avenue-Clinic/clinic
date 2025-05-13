@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const TreatmentCard = ({
   icon,
@@ -10,8 +11,7 @@ const TreatmentCard = ({
   description,
   readMore,
   index,
-  slug,
-  locale,
+  slug
 }) => {
   return (
     <motion.div
@@ -48,7 +48,7 @@ const TreatmentCard = ({
 
       <div className="flex justify-start">
         <Link
-          href={`/${locale}/treatments/${slug}`}
+          href={`/treatments/${slug}`}
           className="bg-[var(--primary)] text-white font-bold leading-[14px] sm:leading-[16px] text-[12px] sm:text-[14px] px-[16px] sm:px-[20px] py-[12px] sm:py-[14px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors"
         >
           {readMore}
@@ -58,10 +58,9 @@ const TreatmentCard = ({
   );
 };
 
-const TreatmentsSection = ({ dictionary = {} }) => {
-  const isRTL = dictionary?.dir === 'rtl';
-  const treatments = dictionary?.treatments || {};
-  const locale = dictionary?.dir === 'rtl' ? 'ar' : 'en';
+const TreatmentsSection = () => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
 
   const treatmentsList = [
     { id: 'dentalImplants', slug: 'dental-implants' },
@@ -84,16 +83,16 @@ const TreatmentsSection = ({ dictionary = {} }) => {
         >
           <div>
             <h3 className="text-[var(--secondary)] uppercase tracking-wider text-sm font-bold mb-5">
-              {treatments.title}
+              {t('treatments.title')}
             </h3>
             <h2 className="text-[var(--primary)] text-[30px] md:text-[38px] lg:text-[46px] leading-[40px] md:leading-[52px] font-bold max-w-[720px]">
-              {treatments.subtitle}
+              {t('treatments.subtitle')}
             </h2>
             <Link
-              href={`/${dictionary?.lang}/treatments`}
+              href="/treatments"
               className="inline-flex items-center px-6 py-3 mt-6 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] text-sm font-semibold"
             >
-              {treatments.allTreatments}
+              {t('treatments.allTreatments')}
             </Link>
           </div>
         </motion.div>
@@ -102,14 +101,13 @@ const TreatmentsSection = ({ dictionary = {} }) => {
           {treatmentsList.map((treatment, index) => (
             <TreatmentCard
               key={treatment.id}
-              icon={treatments.items[treatment.id].icon}
-              image={treatments.items[treatment.id].image}
-              title={treatments.items[treatment.id].title}
-              description={treatments.items[treatment.id].description}
-              readMore={treatments.items[treatment.id].readMore}
+              icon={t(`treatments.items.${treatment.id}.icon`)}
+              image={t(`treatments.items.${treatment.id}.image`)}
+              title={t(`treatments.items.${treatment.id}.title`)}
+              description={t(`treatments.items.${treatment.id}.description`)}
+              readMore={t(`treatments.items.${treatment.id}.readMore`)}
               index={index}
               slug={treatment.slug}
-              locale={locale}
             />
           ))}
         </div>

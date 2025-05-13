@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import VideoPlayButton from './playButton';
+import { useTranslation } from 'react-i18next';
 
 const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   const [count, setCount] = useState(0);
@@ -35,10 +36,10 @@ const CounterAnimation = ({ end, duration = 2, suffix, prefix = '' }) => {
   return <div ref={ref}>{count ? `${prefix}${count}${suffix}` : '0'}</div>;
 };
 
-export default function AboutSection({ dictionary = {}, locale = 'en' }) {
-  const about = dictionary?.about || {};
+export default function AboutSection() {
+  const { t, i18n } = useTranslation('content');
   const [isHovered, setIsHovered] = useState(false);
-  const isRTL = dictionary?.dir === 'rtl';
+  const isRTL = i18n.language === 'ar';
 
   return (
     <section className="py-12 bg-white">
@@ -88,7 +89,7 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                 transition={{ duration: 0.5 }}
                 className="text-sm font-semibold text-[var(--red)] uppercase tracking-wider"
               >
-                {about.label}
+                {t('about.label')}
               </motion.span>
 
               <motion.h2
@@ -97,7 +98,7 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mt-4 text-[30px] md:text-[46px] font-bold text-[var(--primary)] leading-[40px] md:leading-[55px] max-w-[590px]"
               >
-                {about.title}
+                {t('about.title')}
               </motion.h2>
 
               <motion.p
@@ -106,7 +107,7 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-6 text-[16px] font-normal leading-relaxed text-gray-600"
               >
-                {about.description}
+                {t('about.description')}
               </motion.p>
 
               <div
@@ -122,7 +123,7 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                     <CounterAnimation end="18" suffix="K" prefix="+" />
                   </div>
                   <div className="pl-4 mt-1 text-sm text-gray-500 lg:pl-0">
-                    {about.stats?.smiles?.label}
+                    {t('about.stats.smiles.label')}
                   </div>
                 </motion.div>
 
@@ -136,7 +137,7 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                     <CounterAnimation end="96" suffix="%" />
                   </div>
                   <div className="mt-1 text-sm text-gray-500">
-                    {about.stats?.satisfaction?.label}
+                    {t('about.stats.satisfaction.label')}
                   </div>
                 </motion.div>
               </div>
@@ -148,10 +149,10 @@ export default function AboutSection({ dictionary = {}, locale = 'en' }) {
                 className={`lg:text-${isRTL ? 'right' : 'left'} text-left`}
               >
                 <Link
-                  href={`/${dictionary?.lang}/about`}
+                  href="/about"
                   className={`inline-flex items-center px-6 py-3 mt-8 text-white transition bg-[var(--primary)] rounded-full hover:bg-[var(--secondary)] mx-auto lg:mx-0 ${isRTL ? 'flex-row-reverse' : ''}`}
                 >
-                  {about.cta}
+                  {t('about.cta')}
                   <svg
                     className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`}
                     fill="none"

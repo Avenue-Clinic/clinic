@@ -3,14 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import VideoPlayButton from './playButton';
+import { useTranslation } from 'react-i18next';
 
-const TestimonialsSection = ({
-  dictionary,
-  inverted = false,
-  locale = 'en',
-}) => {
-  const isRTL = dictionary?.dir === 'rtl';
-  const testimonials = dictionary?.testimonials || {};
+const TestimonialsSection = ({ inverted = false }) => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
 
   return (
     <section className={inverted ? 'bg-[#FAFAFA]' : 'bg-[var(--primary)]'}>
@@ -22,15 +19,15 @@ const TestimonialsSection = ({
             <h3
               className={`text-[14px] font-bold leading-[17px] tracking-[0.2em] mb-5 ${inverted ? 'text-[var(--secondary)]' : 'text-white'}`}
             >
-              {testimonials?.sectionTitle}
+              {t('testimonials.sectionTitle')}
             </h3>
             <h2
               className={`text-[30px] md:text-[38px] lg:text-[46px] font-bold leading-[42px] lg:leading-[55px] ${inverted ? 'text-[var(--primary)]' : 'text-[rgb(249,244,235)]'}`}
             >
-              {testimonials?.title}
+              {t('testimonials.title')}
             </h2>
           </div>
-          <Link href={`/${dictionary?.lang}/gallery`} passHref legacyBehavior>
+          <Link href="/gallery" passHref legacyBehavior>
             <button
               className={`px-7 py-4 text-[16px] font-semibold transition-all rounded-full ${
                 inverted
@@ -38,7 +35,7 @@ const TestimonialsSection = ({
                   : 'bg-white text-[var(--primary)] hover:bg-opacity-90'
               } lg:mt-0 mt-5`}
             >
-              {testimonials?.button}
+              {t('testimonials.button')}
             </button>
           </Link>
         </div>

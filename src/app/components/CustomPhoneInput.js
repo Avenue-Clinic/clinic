@@ -1,6 +1,10 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import ReactCountryFlag from 'react-country-flag';
+import { useTranslation } from 'react-i18next';
+import i18nConfig from '../../../i18nConfig';
 import './CustomPhoneInput.css';
 
 // Top countries to display first
@@ -206,7 +210,9 @@ const sortedCountries = [...countries].sort((a, b) => {
   return a.name.localeCompare(b.name);
 });
 
-export default function CustomPhoneInput({ value, onChange, dictionary, isRTL }) {
+export default function CustomPhoneInput({ value, onChange, placeholder }) {
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
   const [countryCode, setCountryCode] = useState('US');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -322,7 +328,7 @@ export default function CustomPhoneInput({ value, onChange, dictionary, isRTL })
         
         <input
           type="tel"
-          placeholder={dictionary.form.phone}
+          placeholder={placeholder}
           value={phoneNumber}
           onChange={(e) => {
             const input = e.target.value.replace(/\D/g, ''); // Remove non-digits

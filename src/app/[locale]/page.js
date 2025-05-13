@@ -1,39 +1,87 @@
 import React from 'react';
-import { getDictionary } from '../utils/i18n';
-import Hero from '../components/Hero';
-import LeadForm from '../components/LeadForm';
-import ServicesSection from '../components/ServicesSection';
-import AboutSection from '../components/AboutSection';
-import { Plus_Jakarta_Sans } from 'next/font/google';
-import TreatmentsSection from '../components/TreatmentsSection';
-import ExpertiseSection from '../components/ExpertiseSection';
-import WhyUs from '../components/WhyUs';
-import PatientJourneySection from '../components/PatientJourneySection';
-import TestimonialsSection from '../components/TestimonialsSection';
-import TransformationSection from '../components/TransformationSection';
-import Footer from '../components/Footer';
-import ContactSection from '../components/ContactSection';
+import initTranslations from '@/app/utils/i18n';
+import Hero from '@/app/components/Hero';
+import ServicesSection from '@/app/components/ServicesSection';
+import AboutSection from '@/app/components/AboutSection';
+import TreatmentsSection from '@/app/components/TreatmentsSection';
+import ExpertiseSection from '@/app/components/ExpertiseSection';
+import WhyUs from '@/app/components/WhyUs';
+import PatientJourneySection from '@/app/components/PatientJourneySection';
+import TestimonialsSection from '@/app/components/TestimonialsSection';
+import TransformationSection from '@/app/components/TransformationSection';
+import ContactSection from '@/app/components/ContactSection';
+import TranslationsProvider from '../components/TranslationsProvider';
+import i18nConfig from '../../../i18nConfig';
+import { notFound } from 'next/navigation';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-});
+const i18nNamespaces = [
+  'content',
+  'header',
+  'footer',
+  'navigation',
+  'not-found',
+];
+
+// Validate locale parameter
+export async function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
+// Add metadata for SEO
+export async function generateMetadata({ params: { locale } }) {
+  const { t } = await initTranslations(locale, ['content']);
+
+  return {
+    title: t('content.meta.title'),
+    description: t('content.meta.description'),
+    alternates: {
+      languages: {
+        'x-default': '/',
+        ...i18nConfig.locales.reduce((acc, l) => {
+          acc[l] = `/${l}`;
+          return acc;
+        }, {}),
+      },
+    },
+  };
+}
 
 export default async function Home({ params: { locale } }) {
-  const dictionary = await getDictionary(locale);
+  // Validate locale
+  if (!i18nConfig.locales.includes(locale)) {
+    notFound();
+  }
+
+  // Initialize translations
+  const { resources } = await initTranslations(locale, [
+    'content',
+    'header',
+    'footer',
+    'navigation',
+    'not-found',
+  ]);
+
+  // Determine text direction
+  const isRTL = locale === 'ar';
 
   return (
-    <main className={dictionary.dir === 'rtl' ? 'rtl' : 'ltr'}>
-      <Hero dictionary={dictionary} />
-      <ServicesSection dictionary={dictionary} />
-      <AboutSection dictionary={dictionary} />
-      <TreatmentsSection dictionary={dictionary} />
-      <ExpertiseSection dictionary={dictionary} />
-      <WhyUs dictionary={dictionary} />
-      <PatientJourneySection dictionary={dictionary} />
-      <TestimonialsSection dictionary={dictionary} />
-      <TransformationSection dictionary={dictionary} />
-      <ContactSection dictionary={dictionary} />
-    </main>
+    <TranslationsProvider
+      locale={locale}
+      namespaces={['content', 'header', 'footer', 'navigation', 'not-found']}
+      resources={resources}
+    >
+      <main className={isRTL ? 'rtl' : 'ltr'}>
+        <Hero />
+        <ServicesSection />
+        <AboutSection />
+        <TreatmentsSection />
+        <ExpertiseSection />
+        <WhyUs />
+        <PatientJourneySection />
+        <TestimonialsSection />
+        <TransformationSection />
+        <ContactSection />
+      </main>
+    </TranslationsProvider>
   );
 }

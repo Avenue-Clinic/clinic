@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const FeatureCard = ({ title, description, index }) => {
   return (
@@ -30,9 +31,10 @@ const FeatureCard = ({ title, description, index }) => {
   );
 };
 
-const ExpertiseSection = ({ dictionary = {}, locale = 'en' }) => {
-  const isRTL = dictionary?.dir === 'rtl';
-  const expertise = dictionary?.expertise || {};
+const ExpertiseSection = () => {
+  const { t, i18n } = useTranslation('content');
+  const isRTL = i18n.language === 'ar';
+  const features = t('expertise.features', { returnObjects: true });
 
   return (
     <section className="relative py-20 overflow-hidden bg-white lg:pb-32">
@@ -51,17 +53,17 @@ const ExpertiseSection = ({ dictionary = {}, locale = 'en' }) => {
           >
             <div>
               <h3 className="text-[var(--secondary)] uppercase tracking-wider text-[14px] font-[700] mb-5">
-                {expertise?.label}
+                {t('expertise.label')}
               </h3>
               <h2 className="text-[var(--primary)] text-[30px] md:text-[38px] lg:text-[46px] leading-[40px] md:leading-[52px] font-bold">
-                {expertise?.title}
+                {t('expertise.title')}
               </h2>
             </div>
             <p className="text-[#4F5665] text-[16px] leading-[29px] font-[400]">
-              {expertise?.description}
+              {t('expertise.description')}
             </p>
             <div className="space-y-8">
-              {expertise?.features?.map((feature, index) => (
+              {features.map((feature, index) => (
                 <FeatureCard
                   key={index}
                   title={feature.title}
@@ -96,12 +98,12 @@ const ExpertiseSection = ({ dictionary = {}, locale = 'en' }) => {
               {/* Button - Left positioned and 40px below the image */}
               <div className="absolute left-0 top-[580px] lg:top-[500px] mb-16">
                 <Link
-                  href={`/${dictionary?.lang}/about`}
+                  href="/about"
                   passHref
                   legacyBehavior
                 >
                   <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
-                    {expertise?.cta}
+                    {t('expertise.cta')}
                   </button>
                 </Link>
               </div>

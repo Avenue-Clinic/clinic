@@ -1,11 +1,16 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'next/navigation';
+import Image from 'next/image';
 
-const VisionSection = ({ dictionary }) => {
-  const isRTL = dictionary?.dir === 'rtl';
+const VisionSection = () => {
+  const { locale } = useParams();
+  const { t } = useTranslation(['content']);
+  const isRTL = locale === 'ar';
 
   // Debug: Log the dictionary structure
-  console.log('Dictionary in VisionSection:', dictionary);
+  console.log('Locale in VisionSection:', locale);
 
   // Animation variants for staggered animations
   const containerVariants = {
@@ -42,24 +47,22 @@ const VisionSection = ({ dictionary }) => {
           viewport={{ once: true }}
           className={`grid grid-cols-1 md:grid-cols-3 gap-[30px] ${isRTL ? 'rtl' : 'ltr'}`}
         >
-          {dictionary?.about?.vision_section?.cards?.map((card, index) => (
+          {[1, 2, 3].map((index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               className="bg-white rounded-[40px] p-[40px] shadow-lg"
             >
               <div className="flex flex-col items-center">
-                <img
-                  src={card.icon}
-                  alt={card.title}
+                <Image
+                  src={`/images/vision/icon${index + 1}.svg`}
+                  width={80}
+                  height={80}
+                  alt={t(`about.vision_section.cards.${index + 1}.title`)}
                   className="w-[80px] h-[80px] mb-6"
                 />
-                <h3 className="text-[20px] font-[600] leading-[24px] text-[var(--primary)] mb-4 text-center">
-                  {card.title}
-                </h3>
-                <p className="text-[16px] font-[400] leading-[29px] text-[var(--secondary-text)] text-center">
-                  {card.description}
-                </p>
+                <h3 className="text-[22px] font-bold text-[var(--primary)] mb-4">{t(`about.vision_section.cards.${index + 1}.title`)}</h3>
+                <p className="text-[16px] text-gray-600 leading-relaxed">{t(`about.vision_section.cards.${index + 1}.description`)}</p>
               </div>
             </motion.div>
           ))}
