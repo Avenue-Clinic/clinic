@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation';
-import i18nConfig from '../../i18nConfig';
+import { headers } from 'next/headers';
 
 export default function NotFound() {
-  // Redirect to default locale's 404 page
-  redirect(`/${i18nConfig.defaultLocale}/not-found`);
+  const headersList = headers();
+  const locale = headersList.get('x-locale') || 'en';
+  redirect(`/${locale}/404`);
 }

@@ -100,11 +100,7 @@ export default async function RootLayout({ children, params: { locale } }) {
   ]);
 
   return (
-    <html
-      lang={locale}
-      dir={dir}
-      className={fontClasses}
-    >
+    <html lang={locale} dir={dir} className={fontClasses}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

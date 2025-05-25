@@ -1,4 +1,3 @@
-// components/NotFoundComponent.jsx
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,8 +7,9 @@ export default function NotFoundComponent({ t, locale }) {
       style={{ background: 'var(--notfound-bg, #f4f6fa)' }}
       className="w-full border-t border-[rgba(0,0,0,0.07)]"
     >
-      <section className="container mx-auto px-4 py-16 md:py-0 min-h-[700px]">
-        <div className="flex flex-col max-w-6xl gap-10 mx-auto md:flex-row md:items-center md:justify-between md:gap-12">
+      {/* Added flex and items-center to center content vertically */}
+      <section className="container flex items-center justify-center px-4 mx-auto">
+        <div className="flex flex-col max-w-6xl gap-10 py-16 mx-auto md:flex-row md:items-center md:justify-between md:gap-12">
           {/* Image - Shows first on mobile */}
           <div className="relative w-[min(100%,280px)] h-[210px] md:w-[400px] md:h-[300px] order-1 md:order-2 mx-auto md:mx-0">
             <Image
@@ -20,7 +20,6 @@ export default function NotFoundComponent({ t, locale }) {
               priority
             />
           </div>
-
           {/* Content - Shows second on mobile */}
           <div className="flex flex-col items-center order-2 text-center md:items-start md:text-left md:order-1 md:flex-1">
             <h1 className="mb-5 md:mb-8 text-[28px] md:text-[38px] lg:text-[46px] leading-[38px] md:leading-[46px] font-bold text-[var(--primary)]">

@@ -1,5 +1,5 @@
 export const defaultMetadata = {
-  metadataBase: new URL('https://avenue-clinic.com'), // Replace with your actual domain
+  metadataBase: 'https://avenue-clinic.com', // Replace with your actual domain
   title: {
     default: 'Avenue Dental Clinic',
     template: '%s | Avenue Dental Clinic'

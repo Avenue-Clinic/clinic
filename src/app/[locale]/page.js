@@ -13,6 +13,7 @@ import ContactSection from '@/app/components/ContactSection';
 import TranslationsProvider from '../components/TranslationsProvider';
 import i18nConfig from '../../../i18nConfig';
 import { notFound } from 'next/navigation';
+import { generateMetadata as baseGenerateMetadata } from '@/app/utils/generateMetadata';
 
 const i18nNamespaces = [
   'content',
@@ -22,28 +23,19 @@ const i18nNamespaces = [
   'not-found',
 ];
 
-// Validate locale parameter
-export async function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
+export const dynamic = 'force-static';
+
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'tr' }, { locale: 'ar' }];
 }
 
 // Add metadata for SEO
 export async function generateMetadata({ params: { locale } }) {
-  const { t } = await initTranslations(locale, ['content']);
-
-  return {
-    title: t('content.meta.title'),
-    description: t('content.meta.description'),
-    alternates: {
-      languages: {
-        'x-default': '/',
-        ...i18nConfig.locales.reduce((acc, l) => {
-          acc[l] = `/${l}`;
-          return acc;
-        }, {}),
-      },
-    },
-  };
+  return baseGenerateMetadata({
+    pageKey: 'home',
+    locale,
+    path: '/',
+  });
 }
 
 export default async function Home({ params: { locale } }) {

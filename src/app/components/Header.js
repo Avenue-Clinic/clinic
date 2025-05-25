@@ -246,7 +246,7 @@ export default function Header({ locale = 'en' }) {
           </div>
 
           {/* Center section - Navigation links (Desktop) */}
-          <div className="items-center justify-center order-2 hidden mx-auto text-[16px] font-bold text-center lg:flex">
+          <div className="items-center justify-center order-2 hidden mx-auto text-[18px] font-normal text-center lg:flex">
             <div
               className={`flex ${isRTL ? 'space-x-reverse space-x-5' : 'space-x-5'} items-center`}
             >
@@ -257,12 +257,14 @@ export default function Header({ locale = 'en' }) {
                 {mainNav.home.title}
               </Link>
 
-              <div className="relative group">
+              <div
+                className="relative group"
+                onMouseEnter={() => setTreatmentsOpen(true)}
+                onMouseLeave={() => setTreatmentsOpen(false)}
+              >
                 <button
                   className={`flex items-center text-[var(--primary)] hover:text-[var(--secondary)] transition-colors duration-300 ${isRTL ? 'space-x-reverse space-x-1' : 'space-x-1'}`}
-                  onClick={() => setTreatmentsOpen(!treatmentsOpen)} // Toggle on click for desktop too
-                  onMouseEnter={() => setTreatmentsOpen(true)}
-                  onMouseLeave={() => setTreatmentsOpen(false)}
+                  onClick={() => setTreatmentsOpen(!treatmentsOpen)}
                 >
                   <span>{mainNav.treatments.title}</span>
                   <IconChevronDown
@@ -271,16 +273,12 @@ export default function Header({ locale = 'en' }) {
                   />
                 </button>
                 {treatmentsOpen && (
-                  <div
-                    className="absolute z-20 w-56 py-2 mt-2 text-left transform -translate-x-1/2 bg-white rounded-md shadow-lg left-1/2"
-                    onMouseEnter={() => setTreatmentsOpen(true)}
-                    onMouseLeave={() => setTreatmentsOpen(false)}
-                  >
+                  <div className="absolute z-20 w-56 py-2 text-left transform -translate-x-1/2 bg-white rounded-md shadow-lg left-1/2">
                     {treatmentItems.map((treatment) => (
                       <Link
                         key={treatment.key}
                         href={getLocalizedPath(treatment.link)}
-                        className="block px-4 py-2 text-sm text-[var(--primary)] hover:bg-gray-100 hover:text-[var(--secondary)] transition-colors duration-300"
+                        className="block px-4 py-2 text-base text-[var(--primary)] hover:bg-gray-100 hover:text-[var(--secondary)] transition-colors duration-300"
                       >
                         {treatment.title}
                       </Link>

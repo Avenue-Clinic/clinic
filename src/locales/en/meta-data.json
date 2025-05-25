@@ -1,0 +1,235 @@
+{
+  "home": {
+    "title": "Avenue Dental Clinic | Istanbul’s Premier Dental Care",
+    "description": "Discover expert dental treatments at Avenue Dental Clinic in Istanbul. International standards, affordable pricing, and world-class doctors for all your dental needs.",
+    "keywords": [
+      "dental clinic istanbul",
+      "affordable dental care turkey",
+      "best dentist in istanbul",
+      "dental tourism",
+      "cosmetic dentistry",
+      "dental implants turkey"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/home.jpg",
+      "alt": "Avenue Dental Clinic Istanbul"
+    }
+  },
+  "treatments": {
+    "title": "Dental Treatments | Avenue Dental Clinic",
+    "description": "Explore our wide range of dental treatments in Istanbul including implants, veneers, crowns, and smile makeovers, all performed by top specialists.",
+    "keywords": [
+      "dental treatments istanbul",
+      "cosmetic dentistry turkey",
+      "smile design",
+      "dental services istanbul",
+      "professional dental care"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/treatments.jpg",
+      "alt": "Dental Treatments at Avenue Clinic"
+    }
+  },
+  "gallery": {
+    "title": "Smile Gallery | Avenue Dental Clinic",
+    "description": "View real patient results from Avenue Dental Clinic. Before and after photos of smile makeovers, veneers, implants and more.",
+    "keywords": [
+      "dental before after photos",
+      "smile makeover results",
+      "dental gallery",
+      "cosmetic dentistry gallery"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/gallery.jpg",
+      "alt": "Smile Makeover Gallery - Avenue Clinic"
+    }
+  },
+  "contact": {
+    "title": "Contact Us | Avenue Dental Clinic Istanbul",
+    "description": "Get in touch with Avenue Dental Clinic in Istanbul for appointments, consultations or dental tourism support. We're here to help you smile brighter.",
+    "keywords": [
+      "contact dentist istanbul",
+      "avenue clinic contact",
+      "book dental appointment turkey",
+      "dental clinic phone number"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/contact.jpg",
+      "alt": "Contact Avenue Dental Clinic"
+    }
+  },
+  "blog": {
+    "title": "Dental Blog | Avenue Dental Clinic Istanbul",
+    "description": "Read expert articles on dental care, oral health, cosmetic procedures, and dental tourism in Turkey from the Avenue Dental Clinic team.",
+    "keywords": [
+      "dental blog istanbul",
+      "oral health tips",
+      "cosmetic dentistry articles",
+      "dental tourism advice"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/blog.jpg",
+      "alt": "Dental Blog - Avenue Clinic"
+    }
+  },
+  "about": {
+    "title": "About Us | Avenue Dental Clinic",
+    "description": "Learn about Avenue Dental Clinic in Istanbul – our experienced team of dentists, international certifications, and commitment to affordable, world-class care.",
+    "keywords": [
+      "about avenue dental",
+      "dentists istanbul",
+      "turkey dental team",
+      "international dental clinic"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/about.jpg",
+      "alt": "About Avenue Dental Clinic"
+    }
+  },
+  "layout.js": {
+    "title": "Avenue Dental Clinic | World-Class Dentistry in Istanbul",
+    "description": "Modern dental care in Istanbul. Layout and design supported by Avenue Dental Clinic for consistent, user-friendly experiences.",
+    "keywords": [
+      "dental clinic layout",
+      "avenue clinic structure",
+      "istanbul dental UX"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/default.jpg",
+      "alt": "Avenue Dental Clinic Istanbul"
+    }
+  },
+  "all-on-4-6": {
+    "title": "All-on-4/6 Dental Implants | Avenue Dental Clinic Istanbul",
+    "description": "Advanced All-on-4 and All-on-6 implant systems in Istanbul. Restore your smile with full arch, fixed, implant-supported dentures.",
+    "keywords": [
+      "all on 4 dental implants turkey",
+      "all on 6 implants istanbul",
+      "full mouth dental implants",
+      "fixed dentures turkey",
+      "permanent teeth replacement"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/all-on46-implants.jpg",
+      "alt": "All-on-4/6 Dental Implants"
+    }
+  },
+  "smile-makeover": {
+    "title": "Smile Makeover | Cosmetic Dentistry in Istanbul",
+    "description": "Transform your smile with personalized treatments including veneers, crowns, and whitening. Complete smile makeovers by expert dentists in Turkey.",
+    "keywords": [
+      "smile makeover istanbul",
+      "smile design turkey",
+      "full mouth restoration",
+      "cosmetic dentistry turkey",
+      "dental aesthetics istanbul"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/smile-makeover.jpg",
+      "alt": "Smile Makeover"
+    }
+  },
+  "surgical-dentistry": {
+    "title": "Surgical Dentistry | Avenue Dental Clinic",
+    "description": "Expert surgical dentistry in Istanbul including wisdom tooth extraction, bone grafting, and gum surgery. Safe and advanced procedures.",
+    "keywords": [
+      "dental surgery istanbul",
+      "oral surgery turkey",
+      "wisdom teeth removal",
+      "bone grafting turkey",
+      "periodontal surgery istanbul"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/surgical-dentistry.jpg",
+      "alt": "Surgical Dentistry"
+    }
+  },
+  "dental-crowns": {
+    "title": "Dental Crowns | Restorative Dentistry in Istanbul",
+    "description": "High-quality dental crowns in Istanbul to restore damaged teeth with precision and aesthetics. Natural-looking and long-lasting results.",
+    "keywords": [
+      "dental crowns istanbul",
+      "tooth caps turkey",
+      "porcelain crowns",
+      "zirconia crowns",
+      "restorative dentistry istanbul"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/dental-crowns.jpg",
+      "alt": "Dental Crowns"
+    }
+  },
+  "dental-implants": {
+    "title": "Dental Implants in Istanbul | Avenue Dental Clinic",
+    "description": "Permanent tooth replacement with high-quality dental implants in Turkey. Improve function and aesthetics with trusted implant solutions.",
+    "keywords": [
+      "dental implants turkey",
+      "tooth replacement istanbul",
+      "implant specialist",
+      "permanent teeth turkey",
+      "missing tooth solution"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/dental-implants.jpg",
+      "alt": "Dental Implants"
+    }
+  },
+  "dental-veneers": {
+    "title": "Dental Veneers in Istanbul | Avenue Dental Clinic",
+    "description": "Get a perfect smile with custom-made dental veneers in Istanbul. Achieve natural aesthetics with minimal tooth preparation.",
+    "keywords": [
+      "dental veneers turkey",
+      "porcelain veneers istanbul",
+      "cosmetic teeth covers",
+      "veneers for smile makeover",
+      "thin veneers turkey"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/dental-veneers.jpg",
+      "alt": "Dental Veneers"
+    }
+  },
+  "hollywood-smile": {
+    "title": "Hollywood Smile in Istanbul | Avenue Dental Clinic",
+    "description": "Achieve a flawless Hollywood Smile with custom veneers, whitening, and digital smile design. Aesthetic transformations by expert dentists.",
+    "keywords": [
+      "hollywood smile turkey",
+      "aesthetic smile design",
+      "celebrity smile istanbul",
+      "veneers and whitening",
+      "perfect smile turkey"
+    ],
+    "authors": [{ "name": "Avenue Dental Clinic" }],
+    "creator": "Avenue Dental Clinic",
+    "ogImage": {
+      "url": "/images/meta/hollywood-smile.jpg",
+      "alt": "Hollywood Smile"
+    }
+  }
+}

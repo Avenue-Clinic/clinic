@@ -1,40 +1,50 @@
 import { defaultMetadata } from './metadata';
+import metaData from '@/locales/en/meta-data.json';
 
 export function generateMetadata({ 
-  title, 
-  description, 
+  pageKey,
   locale = 'en',
-  path = '',
-  images = [],
-  keywords = []
+  path = ''
 }) {
-  const url = new URL(path, defaultMetadata.metadataBase);
-  
+  const pageMetadata = metaData[pageKey] || {};
+  const ogImage = pageMetadata.ogImage || defaultMetadata.openGraph.images[0];
+  const baseUrl = defaultMetadata.metadataBase;
+  const canonicalUrl = `${baseUrl}${path}`;
+
   return {
     ...defaultMetadata,
-    title: title,
-    description: description,
-    keywords: [...defaultMetadata.keywords, ...keywords],
+    title: pageMetadata.title || defaultMetadata.title.default,
+    description: pageMetadata.description,
+    keywords: pageMetadata.keywords,
+    authors: pageMetadata.authors,
+    creator: pageMetadata.creator,
     alternates: {
-      canonical: url.toString(),
+      canonical: canonicalUrl,
       languages: {
-        'en': `${url.origin}/en${path}`,
-        'tr': `${url.origin}/tr${path}`,
-        'ar': `${url.origin}/ar${path}`,
+        'en': `${baseUrl}${path}`,
+        'tr': `${baseUrl}/tr${path}`,
+        'ar': `${baseUrl}/ar${path}`,
       },
     },
     openGraph: {
       ...defaultMetadata.openGraph,
-      title: title,
-      description: description,
-      url: url.toString(),
-      images: images.length > 0 ? images : defaultMetadata.openGraph.images,
+      title: pageMetadata.title,
+      description: pageMetadata.description,
+      url: canonicalUrl,
+      images: [
+        {
+          url: ogImage.url,
+          width: 1200,
+          height: 630,
+          alt: ogImage.alt
+        }
+      ],
     },
     twitter: {
       ...defaultMetadata.twitter,
-      title: title,
-      description: description,
-      images: images.length > 0 ? images : defaultMetadata.twitter.images,
+      title: pageMetadata.title,
+      description: pageMetadata.description,
+      images: [ogImage.url],
     },
   };
 }
