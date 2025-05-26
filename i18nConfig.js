@@ -9,12 +9,12 @@ const i18nConfig = {
     tr: 'Türkçe'
   },
   countryCodeMap: {
-    en: 'GB',
+    en: 'US',
     ar: 'SA',
     tr: 'TR'
   },
   cookieOptions: {
-    maxAge: 365 * 24 * 60 * 60, // 1 year
+    maxAge: 24 * 60 * 60, // 1 day
     path: '/'
   }
 };

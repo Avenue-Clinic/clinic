@@ -67,7 +67,7 @@ export default function AboutSection() {
                 className="object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-                <VideoPlayButton color="#E32325" />
+                <VideoPlayButton color="var(--red)" />
               </div>
             </div>
           </div>

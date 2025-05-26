@@ -15,31 +15,32 @@ const LanguageSwitcher = ({ isMobile = false }) => {
   const currentLocale = i18n.language;
 
   const handleLocaleChange = (newLocale) => {
-    // Set cookie for next-i18n-router
-    const date = new Date();
-    date.setTime(date.getTime() + i18nConfig.cookieOptions.maxAge * 1000);
-    const expires = date.toUTCString();
-    document.cookie = `${i18nConfig.cookieName}=${newLocale};expires=${expires};path=${i18nConfig.cookieOptions.path}`;
-
-    // Redirect to the new locale path
-    if (
-      currentLocale === i18nConfig.defaultLocale &&
-      !i18nConfig.prefixDefault
-    ) {
-      router.push('/' + newLocale + pathname);
+    let newPath;
+    
+    // Handle paths for non-default locales (ar, tr)
+    if (currentLocale !== i18nConfig.defaultLocale) {
+      // Remove current locale prefix
+      newPath = pathname.replace(`/${currentLocale}`, '');
     } else {
-      router.push(
-        pathname.replace(
-          `/${currentLocale}`,
-          newLocale === i18nConfig.defaultLocale ? '' : `/${newLocale}`,
-        ),
-      );
+      // For default locale (en), just use the pathname as is
+      newPath = pathname;
     }
 
-    router.refresh();
+    // Ensure we have at least a root path
+    newPath = newPath || '/';
+
+    // For non-default locales, add the new locale prefix
+    if (newLocale !== i18nConfig.defaultLocale) {
+      newPath = `/${newLocale}${newPath === '/' ? '' : newPath}`;
+    }
+
+    // Push the new route and wait for completion
+    router.push(newPath).then(() => {
+      router.refresh();
+    });
   };
 
-  const languageMap = Object.keys(i18nConfig.locales).reduce((acc, locale) => {
+  const languageMap = i18nConfig.locales.reduce((acc, locale) => {
     acc[locale] = {
       name: i18nConfig.localeNames[locale],
       countryCode: i18nConfig.countryCodeMap[locale],
@@ -126,7 +127,7 @@ const LanguageSwitcher = ({ isMobile = false }) => {
   return (
     <div className="relative group">
       <button
-        className={`flex items-center hover:text-[var(--secondary)] transition-colors duration-300 ${isRTL ? 'flex-row-reverse' : ''}`}
+        className={`flex items-center hover:text-[var(--accent)] transition-colors duration-300 ${isRTL ? 'flex-row-reverse' : ''}`}
       >
         <ReactCountryFlag
           countryCode={languageMap[currentLocale]?.countryCode || 'US'}
@@ -134,8 +135,7 @@ const LanguageSwitcher = ({ isMobile = false }) => {
           style={{
             width: '16px',
             height: '16px',
-            marginRight: isRTL ? '0' : '8px',
-            marginLeft: isRTL ? '8px' : '0',
+            marginRight: '8px'
           }}
         />
         <span className="text-[var(--primary)] group-hover:text-[var(--secondary)] transition-colors">
