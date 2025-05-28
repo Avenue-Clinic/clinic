@@ -99,12 +99,9 @@ const ExpertiseSection = () => {
               <div className="absolute left-0 top-[580px] lg:top-[500px] mb-16">
                 <Link
                   href="/about"
-                  passHref
-                  legacyBehavior
+                  className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors inline-block"
                 >
-                  <button className="bg-[var(--primary)] text-white font-bold leading-[19px] text-[16px] px-[30px] py-[19px] rounded-[40px] hover:bg-[var(--secondary)] transition-colors">
-                    {t('expertise.cta')}
-                  </button>
+                  {t('expertise.cta')}
                 </Link>
               </div>
             </div>

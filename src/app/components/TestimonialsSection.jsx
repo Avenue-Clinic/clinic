@@ -27,7 +27,7 @@ const TestimonialsSection = ({ inverted = false }) => {
               {t('testimonials.title')}
             </h2>
           </div>
-          <Link href="/gallery" passHref legacyBehavior>
+          <Link href="/gallery" passHref>
             <button
               className={`px-7 py-4 text-[16px] font-semibold transition-all rounded-full ${
                 inverted
